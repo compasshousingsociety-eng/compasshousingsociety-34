@@ -1,0 +1,1694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="description" content="Blog Details – Compass Housing Society" />
+  <meta name="keywords" content="real estate blog, home buying tips, property investment, housing news, compass housing" />
+  <title>Blog Details – Compass Housing Society</title>
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Google Fonts: Gantari + Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Gantari:ital,wght@0,100..900;1,100..900&family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* ============================================================
+       GLOBAL STYLES – same as homepage
+       ============================================================ */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --accent: #1B5E20;
+      --accent-light: #F4A261;
+      --primary-green: #FDFD96;
+      --primary-dark: #E8E85A;
+      --white: #FFFFFF;
+      --black: #000000;
+      --btn-green: #2E7D32;
+      --btn-green-hover: #1B5E20;
+      --footer-bg: #1a1a2e;
+    }
+
+    body {
+      font-family: 'Gantari', sans-serif;
+      color: #1E293B;
+      background-color: #F8FAFC;
+      transition: all 0.3s ease;
+      overflow-x: hidden;
+      font-size: 18px;
+    }
+
+    /* Transparent logo background */
+    main {
+      position: relative;
+      background-color: transparent;
+      min-height: 60vh;
+    }
+    main::before {
+      content: "";
+      position: fixed;
+      top: 80px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: url("Images/transparent-logo.jpeg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 570px auto;
+      opacity: 0.10;
+      pointer-events: none;
+      z-index: 0;
+    }
+    main > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    h1 { font-size: 3.2rem !important; font-weight: 800 !important; letter-spacing: -0.02em !important; }
+    h2 { font-size: 2.4rem !important; font-weight: 700 !important; }
+    h3 { font-size: 1.8rem !important; font-weight: 700 !important; }
+    h4 { font-size: 1.5rem !important; font-weight: 600 !important; }
+    h5 { font-size: 1.3rem !important; font-weight: 600 !important; }
+    h6 { font-size: 1.1rem !important; font-weight: 600 !important; }
+
+    p, li, span, a, .text-muted, .lead { font-size: 1.05rem !important; line-height: 1.5 !important; }
+    .lead { font-size: 1.2rem !important; }
+
+    .nav-menu, .nav-menu ul, .dropdown-menu-custom, .dropdown-menu-custom li, .nav-menu li,
+    header ul, header li, .navbar-custom ul, .navbar-custom li {
+      list-style: none !important;
+      list-style-type: none !important;
+      padding-left: 0 !important;
+      margin: 0 !important;
+    }
+
+    a, a:hover, a:focus, a:active, button, button:hover, button:focus {
+      text-decoration: none !important;
+      outline: none !important;
+      color: inherit !important;
+    }
+
+    /* HEADER */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: var(--primary-green) !important;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      transition: background-color 0.3s ease;
+    }
+
+    .navbar-custom { 
+      display: flex; 
+      align-items: center; 
+      justify-content: space-between; 
+      gap: 20px; 
+      position: relative;
+      padding: 12px 24px;
+      min-height: 80px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+    .brand span {
+      color: #1E293B !important;
+      font-weight: 700;
+      font-size: 1.1rem !important;
+      line-height: 1.2;
+    }
+    .brand img { 
+      width: 55px; 
+      height: 55px; 
+      object-fit: cover; 
+      border-radius: 10px !important;
+      border: 2px solid var(--accent); 
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      background: var(--white);
+    }
+
+    .desktop-nav-menu { 
+      display: flex; 
+      align-items: center; 
+      gap: 32px; 
+      flex: 1; 
+      justify-content: center; 
+    }
+    .desktop-nav-menu .nav-item { position: relative; }
+    .nav-link-custom {
+      color: #1E293B !important;
+      padding: 8px 0;
+      font-weight: 600;
+      font-size: 1.05rem !important;
+      cursor: pointer;
+      display: inline-block;
+      transition: color 0.2s;
+    }
+    .nav-link-custom:hover { color: var(--accent) !important; }
+    .dropdown-toggle-custom::after { content: " ▾"; margin-left: 6px; font-size: 0.9rem; }
+
+    .dropdown-menu-custom {
+      position: absolute;
+      left: 0;
+      top: calc(100% + 8px);
+      background-color: #E8E85A !important;
+      border-radius: 12px;
+      min-width: 220px;
+      display: none;
+      padding: 10px 0 !important;
+      box-shadow: 0 12px 20px rgba(0, 0, 0, 0.4);
+      z-index: 1001;
+    }
+    .dropdown-menu-custom li a {
+      display: block;
+      padding: 10px 22px;
+      color: #1E293B !important;
+      font-size: 1rem !important;
+      cursor: pointer;
+    }
+    .dropdown-menu-custom li a:hover { background-color: rgba(0, 0, 0, 0.08); color: var(--accent) !important; }
+    .nav-item.dropdown.open > .dropdown-menu-custom { display: block; }
+
+    /* Buttons – consistent with homepage */
+    .btn-signin, .btn-accent, .btn-primary-custom, 
+    .realty-card .btn-primary-custom, .contact-card .btn-primary-custom,
+    .hero-section .btn-primary-custom, .btn-learn-more {
+      transition: all 0.2s ease;
+      text-decoration: none !important;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      cursor: pointer;
+      color: var(--white) !important;
+      background: var(--btn-green) !important;
+      border: none;
+      padding: 10px 28px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 1rem !important;
+    }
+    .btn-signin:hover, .btn-primary-custom:hover, .btn-accent:hover, .btn-learn-more:hover {
+      background: var(--btn-green-hover) !important;
+      transform: scale(1.02);
+      color: var(--white) !important;
+    }
+    .btn-outline-accent {
+      background: transparent !important;
+      border: 2px solid var(--btn-green);
+      color: var(--btn-green) !important;
+      padding: 8px 26px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 1rem !important;
+      transition: all 0.2s ease;
+    }
+    .btn-outline-accent:hover {
+      background: var(--btn-green) !important;
+      color: var(--white) !important;
+      transform: scale(1.02);
+    }
+    .btn-outline-accent:hover a { color: var(--white) !important; }
+
+    .mode-toggle {
+      border: 1px solid #1E293B;
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: 18px;
+      cursor: pointer;
+      background: rgba(0,0,0,0.08);
+      width: 42px;
+      height: 42px;
+      color: #1E293B;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+    .mode-toggle:hover { background: rgba(0,0,0,0.15); transform: scale(1.05); }
+
+    .right-actions {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      flex-shrink: 0;
+    }
+    .menu-toggle {
+      display: none;
+      border: 1px solid var(--light);
+      background: transparent;
+      font-size: 28px;
+      line-height: 1;
+      cursor: pointer;
+      color: #1E293B;
+      padding: 6px 12px;
+      border-radius: 10px;
+      background: rgba(0,0,0,0.08);
+      border: 1px solid #1E293B;
+      transition: all 0.3s ease;
+    }
+    .menu-toggle:hover { background: rgba(0,0,0,0.15); }
+
+    .scroll-widget { position: fixed; right: 20px; bottom: 30px; z-index: 1000; }
+    .scroll-up-btn {
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      background: var(--btn-green) !important;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-size: 24px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+    .scroll-up-btn:hover { transform: scale(1.08); background: var(--btn-green-hover) !important; }
+
+    /* ============================================ */
+    /* MOBILE MENU */
+    /* ============================================ */
+    @media (max-width: 1030px) {
+      body { font-size: 16px; }
+      h1 { font-size: 2.2rem !important; }
+      h2 { font-size: 1.8rem !important; }
+      h3 { font-size: 1.5rem !important; }
+      h4 { font-size: 1.3rem !important; }
+      h5 { font-size: 1.2rem !important; }
+      p, li, span, .text-muted { font-size: 0.95rem !important; }
+      .navbar-custom { padding: 10px 16px; gap: 12px; justify-content: space-between; min-height: 68px; }
+      .brand { order: 1; flex: 1; }
+      .brand span { font-size: 1.2rem !important; font-weight: 700; }
+      .brand img { width: 45px; height: 45px; }
+      .desktop-nav-menu { display: none !important; }
+      .right-actions.desktop-actions { display: none; }
+      .menu-toggle { display: inline-flex; order: 2; align-items: center; justify-content: center; font-size: 26px; padding: 5px 12px; }
+      .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 300px;
+        height: 70vh;
+        top: 0;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        background: var(--primary-green) !important;
+        padding: 80px 20px 30px;
+        box-shadow: -8px 0 30px rgba(0, 0, 0, 0.5);
+        z-index: 1050;
+        gap: 4px;
+        transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        overflow-y: auto;
+        padding-top: 85px;
+        border-bottom-left-radius: 30px;
+        display: flex !important;
+      }
+      .nav-item { width: 100%; text-align: center; border-bottom: 1px solid rgba(0,0,0,0.08); padding: 2px 0; }
+      .nav-link-custom { width: 100%; padding: 14px 0; font-size: 1.1rem !important; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 6px; color: #1E293B !important; }
+      .dropdown-toggle-custom::after { margin-left: 6px; }
+      .dropdown-menu-custom { position: static; margin-top: 4px; background: rgba(0, 0, 0, 0.06); border-radius: 10px; border: none; box-shadow: none; padding: 0 0 6px 0 !important; display: none; width: 100%; text-align: center; }
+      .dropdown-menu-custom li a { padding: 10px 0; font-size: 0.95rem !important; opacity: 0.9; text-align: center; justify-content: center; }
+      .nav-item.dropdown.open > .dropdown-menu-custom { display: block; }
+      .mobile-menu-actions { margin-top: auto; padding-top: 20px; border-top: 2px solid rgba(0,0,0,0.12); width: 100%; display: flex; flex-direction: column; align-items: center; gap: 15px; padding-bottom: 20px; }
+      .mobile-menu-actions .mode-toggle-wrapper { display: flex; align-items: center; justify-content: center; gap: 15px; width: 100%; padding: 8px 0; color: #1E293B; font-weight: 600; font-size: 1rem !important; }
+      .mobile-menu-actions .mode-toggle-wrapper .mode-toggle { width: 44px; height: 44px; font-size: 18px; background: rgba(0,0,0,0.08); border-color: rgba(0,0,0,0.3); color: #1E293B; }
+      .mobile-menu-actions .btn-signin { width: 100%; justify-content: center; padding: 14px; font-size: 1rem !important; max-width: 200px; }
+      .nav-menu.nav-open { right: 0; }
+      main::before { top: 60px; background-size: 300px auto; }
+    }
+
+    @media (min-width: 1031px) {
+      .right-actions.desktop-actions { display: flex; }
+      .mobile-actions { display: none !important; }
+      .nav-menu { display: none !important; }
+    }
+
+    @media (max-width: 576px) {
+      h1 { font-size: 1.8rem !important; }
+      h2 { font-size: 1.5rem !important; }
+      h3 { font-size: 1.3rem !important; }
+      .navbar-custom { padding: 8px 12px; min-height: 60px; }
+      .brand span { font-size: 1.0rem !important; }
+      .brand img { width: 38px; height: 38px; }
+      .nav-menu { width: 280px; right: -280px; padding: 75px 16px 20px; height: 70vh; }
+      .menu-toggle { font-size: 22px; padding: 4px 10px; }
+      .btn-signin { padding: 5px 14px; font-size: 0.75rem !important; }
+      .mode-toggle { width: 34px; height: 34px; font-size: 14px; }
+      main::before { background-size: 250px auto; }
+    }
+
+    /* ============================================ */
+    /* BLOG DETAILS PAGE SPECIFIC STYLES            */
+    /* ============================================ */
+    .blog-detail-hero {
+      background: linear-gradient(135deg, #FDFD96 0%, #E8E85A 100%);
+      padding: 100px 20px 50px;
+      text-align: center;
+      margin-top: 80px;
+      color: #1E293B;
+      position: relative;
+    }
+    .blog-detail-hero .breadcrumb-custom {
+      font-size: 0.95rem !important;
+      color: rgba(30, 41, 59, 0.7);
+      margin-bottom: 20px;
+    }
+    .blog-detail-hero .breadcrumb-custom a {
+      color: var(--accent);
+      font-weight: 600;
+    }
+    .blog-detail-hero h1 {
+      font-size: 2.8rem !important;
+      font-weight: 800;
+      max-width: 800px;
+      margin: 0 auto 20px;
+    }
+    .blog-detail-hero .blog-meta-main {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 25px;
+      align-items: center;
+    }
+    .blog-detail-hero .blog-meta-main span {
+      font-size: 0.95rem !important;
+      color: rgba(30, 41, 59, 0.8);
+    }
+    .blog-detail-hero .blog-meta-main span i {
+      margin-right: 6px;
+      color: var(--accent);
+    }
+    .blog-detail-hero .blog-category-badge {
+      display: inline-block;
+      background: var(--btn-green);
+      color: white;
+      padding: 6px 20px;
+      border-radius: 999px;
+      font-size: 0.8rem !important;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 15px;
+    }
+
+    .blog-featured-image-wrap {
+      padding: 0 20px;
+      margin-top: -40px;
+      position: relative;
+      z-index: 2;
+    }
+    .blog-featured-image-wrap img {
+      width: 100%;
+      max-height: 500px;
+      object-fit: cover;
+      border-radius: 24px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+    }
+
+    .blog-main-wrap {
+      padding: 0 20px;
+    }
+    .blog-content-wrap {
+      background: white;
+      border-radius: 28px;
+      padding: 45px 50px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+      margin-top: 40px;
+    }
+    .blog-content-wrap .blog-content h2 {
+      font-size: 1.8rem !important;
+      font-weight: 700;
+      margin: 35px 0 15px;
+      color: #1E293B;
+    }
+    .blog-content-wrap .blog-content h3 {
+      font-size: 1.4rem !important;
+      font-weight: 700;
+      margin: 25px 0 12px;
+      color: #1E293B;
+    }
+    .blog-content-wrap .blog-content p {
+      font-size: 1.05rem !important;
+      line-height: 1.8;
+      color: #4a5568;
+      margin-bottom: 20px;
+    }
+    .blog-content-wrap .blog-content ul, 
+    .blog-content-wrap .blog-content ol {
+      padding-left: 25px;
+      margin: 15px 0 25px;
+    }
+    .blog-content-wrap .blog-content ul li, 
+    .blog-content-wrap .blog-content ol li {
+      margin-bottom: 10px;
+      font-size: 1.02rem !important;
+      color: #4a5568;
+    }
+    .blog-content-wrap .blog-content .highlight-box {
+      background: #f8fafc;
+      border-left: 4px solid var(--accent);
+      padding: 20px 25px;
+      border-radius: 12px;
+      margin: 25px 0;
+    }
+    .blog-content-wrap .blog-content .highlight-box p {
+      margin-bottom: 0;
+      font-weight: 500;
+    }
+    .blog-content-wrap .blog-content img {
+      width: 100%;
+      border-radius: 16px;
+      margin: 25px 0;
+    }
+
+    .blog-tags-share {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+      border-top: 1px solid #e9ecef;
+      border-bottom: 1px solid #e9ecef;
+      margin: 30px 0;
+    }
+    .blog-tags-share .tags-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .blog-tags-share .tags-list .tag {
+      background: #f1f3f5;
+      padding: 4px 14px;
+      border-radius: 999px;
+      font-size: 0.8rem !important;
+      font-weight: 600;
+      color: #1E293B;
+      transition: all 0.2s;
+    }
+    .blog-tags-share .tags-list .tag:hover {
+      background: var(--btn-green);
+      color: white;
+      cursor: pointer;
+    }
+    .blog-tags-share .share-links {
+      display: flex;
+      gap: 10px;
+    }
+    .blog-tags-share .share-links a {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #f1f3f5;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #1E293B;
+      transition: all 0.2s;
+      font-size: 1rem;
+    }
+    .blog-tags-share .share-links a:hover {
+      background: var(--btn-green);
+      color: white;
+    }
+
+    .author-bio-card {
+      background: #f8fafc;
+      border-radius: 20px;
+      padding: 30px;
+      margin: 30px 0;
+      display: flex;
+      gap: 25px;
+      align-items: center;
+      flex-wrap: wrap;
+      border: 1px solid #e9ecef;
+    }
+    .author-bio-card img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--accent);
+      flex-shrink: 0;
+    }
+    .author-bio-card .author-info h5 {
+      font-size: 1.2rem !important;
+      font-weight: 700;
+      margin-bottom: 5px;
+    }
+    .author-bio-card .author-info .author-role {
+      font-size: 0.9rem !important;
+      color: var(--accent);
+      font-weight: 600;
+    }
+    .author-bio-card .author-info p {
+      font-size: 0.95rem !important;
+      color: #6c757d;
+      margin-bottom: 10px;
+    }
+    .author-bio-card .author-info .author-social a {
+      display: inline-block;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #e9ecef;
+      text-align: center;
+      line-height: 36px;
+      color: #1E293B;
+      margin-right: 8px;
+      transition: all 0.2s;
+      font-size: 0.9rem;
+    }
+    .author-bio-card .author-info .author-social a:hover {
+      background: var(--btn-green);
+      color: white;
+    }
+
+    .comment-section-wrap {
+      background: #f8fafc;
+      border-radius: 20px;
+      padding: 30px;
+      margin: 30px 0;
+      border: 1px solid #e9ecef;
+    }
+    .comment-section-wrap .comment-item {
+      padding: 20px 0;
+      border-bottom: 1px solid #e9ecef;
+      display: flex;
+      gap: 15px;
+    }
+    .comment-section-wrap .comment-item:last-child {
+      border-bottom: none;
+    }
+    .comment-section-wrap .comment-item img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+    .comment-section-wrap .comment-item .comment-body .comment-author {
+      font-weight: 700;
+      font-size: 1rem !important;
+    }
+    .comment-section-wrap .comment-item .comment-body .comment-date {
+      font-size: 0.8rem !important;
+      color: #6c757d;
+      margin-left: 12px;
+    }
+    .comment-section-wrap .comment-item .comment-body p {
+      font-size: 0.95rem !important;
+      color: #4a5568;
+      margin-top: 5px;
+    }
+    .comment-section-wrap .comment-item .comment-body .reply-btn {
+      font-size: 0.85rem !important;
+      color: var(--accent);
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .comment-section-wrap .comment-item .comment-body .reply-btn:hover {
+      text-decoration: underline;
+    }
+
+    .comment-form-wrap textarea,
+    .comment-form-wrap input {
+      border: 2px solid #e9ecef;
+      border-radius: 12px;
+      padding: 12px 16px;
+      width: 100%;
+      font-size: 0.95rem !important;
+      transition: border-color 0.2s;
+      background: white;
+    }
+    .comment-form-wrap textarea:focus,
+    .comment-form-wrap input:focus {
+      border-color: var(--btn-green);
+      outline: none;
+    }
+
+    /* Sidebar - Full width cards */
+    .sidebar-card {
+      background: white;
+      border-radius: 20px;
+      padding: 25px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+      margin-bottom: 25px;
+      width: 100%;
+    }
+    .sidebar-card h5 {
+      font-size: 1.1rem !important;
+      font-weight: 700;
+      margin-bottom: 15px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--primary-green);
+    }
+    .sidebar-card ul {
+      list-style: none !important;
+      padding: 0;
+      margin: 0;
+    }
+    .sidebar-card ul li {
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+      font-size: 0.95rem !important;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .sidebar-card ul li:last-child {
+      border-bottom: none;
+    }
+    .sidebar-card ul li i {
+      color: var(--accent);
+      width: 20px;
+    }
+    .sidebar-card ul li a {
+      color: #1E293B;
+      transition: color 0.2s;
+    }
+    .sidebar-card ul li a:hover {
+      color: var(--accent);
+    }
+
+    .search-box {
+      display: flex;
+      gap: 10px;
+      width: 100%;
+    }
+    .search-box input {
+      flex: 1;
+      padding: 10px 16px;
+      border: 2px solid #e9ecef;
+      border-radius: 999px;
+      font-size: 0.95rem !important;
+      transition: border-color 0.2s;
+    }
+    .search-box input:focus {
+      border-color: var(--btn-green);
+      outline: none;
+    }
+    .search-box .search-btn {
+      padding: 10px 18px;
+      border: none;
+      background: var(--btn-green);
+      color: white;
+      border-radius: 999px;
+      font-weight: 600;
+      transition: background 0.2s;
+      cursor: pointer;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+    .search-box .search-btn:hover {
+      background: var(--btn-green-hover);
+    }
+
+    .tag-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .tag-cloud .tag {
+      background: #f1f3f5;
+      padding: 5px 14px;
+      border-radius: 999px;
+      font-size: 0.8rem !important;
+      font-weight: 600;
+      color: #1E293B;
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+    .tag-cloud .tag:hover {
+      background: var(--btn-green);
+      color: white;
+    }
+
+    .related-post-card {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      transition: all 0.3s;
+      height: 100%;
+    }
+    .related-post-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+    }
+    .related-post-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    .related-post-card .related-body {
+      padding: 20px;
+    }
+    .related-post-card .related-body h6 {
+      font-size: 1.05rem !important;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .related-post-card .related-body .related-meta {
+      font-size: 0.8rem !important;
+      color: #6c757d;
+      margin-bottom: 10px;
+    }
+
+    .contact-card {
+      background: linear-gradient(115deg, #fdfd96 0%, #f5f57a 100%);
+      border-radius: 32px;
+      padding: 35px !important;
+      transition: background 0.3s ease;
+      width: 100%;
+    }
+    .contact-card h2,
+    .contact-card p,
+    .contact-card .lead {
+      color: #1E293B !important;
+    }
+
+    /* FOOTER */
+    .site-footer {
+      background: var(--primary-green) !important;
+      color: #1E293B !important;
+      padding: 45px 0 25px;
+      margin-top: 0;
+      transition: background 0.3s ease;
+      position: relative;
+      z-index: 10;
+    }
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      text-align: center;
+    }
+    .footer-brand h2 {
+      font-size: 1.8rem !important;
+      font-weight: 700;
+      color: #1E293B !important;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+    }
+    .footer-brand h2 span { color: var(--btn-green) !important; }
+    .footer-tagline {
+      font-size: 0.95rem !important;
+      color: rgba(30, 41, 59, 0.8) !important;
+      max-width: 650px;
+      margin: 0 auto 25px;
+      line-height: 1.7;
+    }
+    .footer-social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      margin-bottom: 25px;
+    }
+    .footer-social-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(30, 41, 59, 0.08);
+      color: #1E293B !important;
+      transition: all 0.3s ease;
+      font-size: 18px;
+      border: 1px solid rgba(30, 41, 59, 0.1);
+    }
+    .footer-social-icon:hover {
+      background: var(--btn-green);
+      color: #FFFFFF !important;
+      transform: translateY(-2px);
+      border-color: var(--btn-green);
+    }
+    .footer-divider {
+      border: none;
+      border-top: 1px solid rgba(30, 41, 59, 0.15);
+      margin: 20px auto 22px;
+      max-width: 900px;
+    }
+    .footer-bottom-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .footer-copyright {
+      font-size: 0.85rem !important;
+      color: rgba(30, 41, 59, 0.6) !important;
+      margin: 0;
+    }
+    .footer-links {
+      display: flex;
+      gap: 22px;
+      flex-wrap: wrap;
+      margin: 0;
+      padding: 0;
+      list-style: none !important;
+    }
+    .footer-links li { display: inline-block; margin: 0; padding: 0; }
+    .footer-links li a {
+      font-size: 0.85rem !important;
+      color: rgba(30, 41, 59, 0.6) !important;
+      transition: color 0.3s ease;
+    }
+    .footer-links li a:hover { color: var(--btn-green) !important; }
+
+    /* ================================================================
+       DARK MODE – ENTIRE SCREEN BLACK, ALL TEXT WHITE
+       ================================================================ */
+    body.dark-mode {
+      background-color: #000000 !important;
+      color: #FFFFFF !important;
+    }
+
+    body.dark-mode header { background: #1a1a00 !important; }
+    body.dark-mode .dropdown-menu-custom { background-color: #2a2a00 !important; }
+    body.dark-mode .site-footer { background: #1a1a00 !important; }
+    body.dark-mode .footer-social-icon { background: rgba(255, 255, 255, 0.1); }
+    body.dark-mode .mode-toggle { background: rgba(255,255,255,0.1); border-color: #666; }
+    body.dark-mode .menu-toggle { background: rgba(255,255,255,0.1); border-color: #666; }
+    body.dark-mode .desktop-nav-menu { background: transparent !important; }
+    body.dark-mode .nav-menu { background: #1a1a00 !important; }
+    
+    /* Blog Details dark mode */
+    body.dark-mode .blog-detail-hero {
+      background: linear-gradient(135deg, #2a2a00 0%, #1a1a00 100%);
+    }
+    body.dark-mode .blog-detail-hero * {
+      color: #FFFFFF !important;
+    }
+    body.dark-mode .blog-detail-hero .breadcrumb-custom {
+      color: #cccccc !important;
+    }
+    
+    body.dark-mode .blog-content-wrap,
+    body.dark-mode .sidebar-card,
+    body.dark-mode .related-post-card {
+      background: #111111 !important;
+      border-color: #2a2a2a;
+    }
+    body.dark-mode .blog-content-wrap *,
+    body.dark-mode .sidebar-card *,
+    body.dark-mode .related-post-card * {
+      color: #FFFFFF !important;
+    }
+    body.dark-mode .blog-content-wrap .blog-content p,
+    body.dark-mode .blog-content-wrap .blog-content ul li,
+    body.dark-mode .blog-content-wrap .blog-content ol li {
+      color: #dddddd !important;
+    }
+    body.dark-mode .blog-content-wrap .blog-content h2,
+    body.dark-mode .blog-content-wrap .blog-content h3 {
+      color: #FFFFFF !important;
+    }
+    body.dark-mode .blog-content-wrap .blog-content .highlight-box {
+      background: #1a1a1a;
+      border-left-color: #4CAF50;
+    }
+    body.dark-mode .blog-content-wrap .blog-content .highlight-box p {
+      color: #FFFFFF !important;
+    }
+    
+    body.dark-mode .author-bio-card {
+      background: #1a1a1a;
+      border-color: #2a2a2a;
+    }
+    body.dark-mode .author-bio-card * {
+      color: #FFFFFF !important;
+    }
+    body.dark-mode .author-bio-card .author-info p {
+      color: #cccccc !important;
+    }
+    body.dark-mode .author-bio-card .author-info .author-social a {
+      background: #2a2a2a;
+      color: #FFFFFF;
+    }
+    body.dark-mode .author-bio-card .author-info .author-social a:hover {
+      background: #4CAF50;
+      color: #FFFFFF;
+    }
+    
+    body.dark-mode .comment-section-wrap {
+      background: #1a1a1a;
+      border-color: #2a2a2a;
+    }
+    body.dark-mode .comment-section-wrap * {
+      color: #FFFFFF !important;
+    }
+    body.dark-mode .comment-section-wrap .comment-item {
+      border-bottom-color: #2a2a2a;
+    }
+    body.dark-mode .comment-section-wrap .comment-item .comment-body p {
+      color: #cccccc !important;
+    }
+    body.dark-mode .comment-section-wrap .comment-item .comment-body .comment-date {
+      color: #aaaaaa !important;
+    }
+    
+    body.dark-mode .comment-form-wrap textarea,
+    body.dark-mode .comment-form-wrap input {
+      background: #1a1a1a;
+      border-color: #333;
+      color: #FFFFFF;
+    }
+    body.dark-mode .comment-form-wrap textarea::placeholder,
+    body.dark-mode .comment-form-wrap input::placeholder {
+      color: #888;
+    }
+    
+    body.dark-mode .blog-tags-share {
+      border-color: #2a2a2a;
+    }
+    body.dark-mode .blog-tags-share .tags-list .tag {
+      background: #1a1a1a;
+      color: #FFFFFF;
+    }
+    body.dark-mode .blog-tags-share .tags-list .tag:hover {
+      background: #4CAF50;
+      color: #FFFFFF;
+    }
+    body.dark-mode .blog-tags-share .share-links a {
+      background: #1a1a1a;
+      color: #FFFFFF;
+    }
+    body.dark-mode .blog-tags-share .share-links a:hover {
+      background: #4CAF50;
+      color: #FFFFFF;
+    }
+    
+    body.dark-mode .sidebar-card ul li {
+      border-bottom-color: #2a2a2a;
+    }
+    body.dark-mode .sidebar-card ul li a {
+      color: #FFFFFF !important;
+    }
+    body.dark-mode .sidebar-card ul li a:hover {
+      color: #4CAF50 !important;
+    }
+    body.dark-mode .sidebar-card h5 {
+      border-bottom-color: #2a2a00;
+    }
+    body.dark-mode .search-box input {
+      background: #1a1a1a;
+      border-color: #333;
+      color: #FFFFFF;
+    }
+    body.dark-mode .search-box input::placeholder {
+      color: #888;
+    }
+    body.dark-mode .search-box .search-btn {
+      background: #4CAF50;
+    }
+    body.dark-mode .search-box .search-btn:hover {
+      background: #2E7D32;
+    }
+    body.dark-mode .tag-cloud .tag {
+      background: #1a1a1a;
+      color: #FFFFFF;
+    }
+    body.dark-mode .tag-cloud .tag:hover {
+      background: #4CAF50;
+      color: #FFFFFF;
+    }
+    body.dark-mode .related-post-card .related-body .related-meta {
+      color: #aaaaaa !important;
+    }
+    body.dark-mode .text-muted {
+      color: #cccccc !important;
+    }
+    
+    /* Contact Card dark mode */
+    body.dark-mode .contact-card {
+      background: #1a1a00 !important;
+      border: 1px solid #2a2a00;
+    }
+    body.dark-mode .contact-card * {
+      color: #FFFFFF !important;
+    }
+    body.dark-mode .contact-card h2,
+    body.dark-mode .contact-card p,
+    body.dark-mode .contact-card .lead {
+      color: #FFFFFF !important;
+    }
+    body.dark-mode .contact-card .btn-primary-custom {
+      color: var(--white) !important;
+      background: var(--btn-green) !important;
+    }
+    body.dark-mode .contact-card .btn-primary-custom:hover {
+      background: var(--btn-green-hover) !important;
+      color: var(--white) !important;
+    }
+    
+    /* Footer dark */
+    body.dark-mode .footer-brand h2 { color: #FFFFFF !important; }
+    body.dark-mode .footer-tagline { color: rgba(255,255,255,0.7) !important; }
+    body.dark-mode .footer-social-icon { color: rgba(255,255,255,0.7) !important; border-color: rgba(255,255,255,0.1); }
+    body.dark-mode .footer-social-icon:hover { background: #4CAF50; color: #FFFFFF !important; }
+    body.dark-mode .footer-copyright { color: rgba(255,255,255,0.45) !important; }
+    body.dark-mode .footer-links li a { color: rgba(255,255,255,0.45) !important; }
+    body.dark-mode .footer-links li a:hover { color: #4CAF50 !important; }
+    body.dark-mode .footer-divider { border-top-color: rgba(255,255,255,0.08); }
+
+    /* Nav & header dark */
+    body.dark-mode .brand span { color: #FFFFFF !important; }
+    body.dark-mode .nav-link-custom { color: #FFFFFF !important; }
+    body.dark-mode .mode-toggle { color: #FFFFFF !important; border-color: #FFFFFF; }
+    body.dark-mode .menu-toggle { color: #FFFFFF !important; border-color: #FFFFFF; }
+    body.dark-mode .dropdown-menu-custom li a { color: #FFFFFF !important; }
+    body.dark-mode .dropdown-menu-custom li a:hover { background: rgba(255,255,255,0.15) !important; color: #FFFFFF !important; }
+
+    /* Buttons in dark mode */
+    body.dark-mode .btn-primary-custom {
+      background: var(--btn-green) !important;
+      color: var(--white) !important;
+    }
+    body.dark-mode .btn-primary-custom:hover {
+      background: var(--btn-green-hover) !important;
+      color: var(--white) !important;
+    }
+    body.dark-mode .btn-outline-accent { 
+      border-color: var(--white); 
+      color: var(--white) !important; 
+    }
+    body.dark-mode .btn-outline-accent:hover { 
+      background: var(--white) !important; 
+      color: var(--black) !important; 
+    }
+    body.dark-mode .btn-outline-accent:hover a { 
+      color: var(--black) !important; 
+    }
+
+    /* Ensure main background is black in dark mode */
+    body.dark-mode main {
+      background-color: #000000 !important;
+    }
+
+    @media (max-width: 768px) {
+      .footer-bottom-row { flex-direction: column; text-align: center; gap: 12px; }
+      .footer-links { justify-content: center; gap: 16px; }
+      .footer-brand h2 { font-size: 1.4rem !important; }
+      .footer-tagline { font-size: 0.85rem !important; padding: 0 10px; }
+      .blog-detail-hero { padding: 80px 20px 40px; margin-top: 68px; }
+      .blog-detail-hero h1 { font-size: 2rem !important; }
+      .blog-featured-image-wrap { margin-top: -30px; padding: 0 15px; }
+      .blog-content-wrap { padding: 25px 20px; }
+      .blog-content-wrap .blog-content h2 { font-size: 1.5rem !important; }
+      .author-bio-card { flex-direction: column; text-align: center; }
+      .author-bio-card img { margin: 0 auto; }
+      .blog-tags-share { flex-direction: column; gap: 15px; align-items: flex-start; }
+      .comment-section-wrap .comment-item { flex-direction: column; align-items: center; text-align: center; }
+      .contact-card { padding: 25px 20px !important; }
+      .blog-main-wrap { padding: 0 15px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- ========== HEADER ========== -->
+  <header>
+    <nav class="navbar-custom">
+      <div class="brand">
+        <img src="Images/logo.jpeg" alt="Logo" onerror="this.src='https://via.placeholder.com/55?text=CH'">
+        <span>Compass Housing<br> Society</span>
+      </div>
+
+      <ul class="desktop-nav-menu">
+        <li class="nav-item dropdown">
+          <span class="nav-link-custom dropdown-toggle-custom">Home</span>
+          <ul class="dropdown-menu-custom">
+            <li><a href="index.html">Home 1</a></li>
+            <li><a href="home2.html">Home 2</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <span class="nav-link-custom dropdown-toggle-custom">About Us</span>
+          <ul class="dropdown-menu-custom">
+            <li><a href="aboutus.html">About Us</a></li>
+            <li><a href="404.html">404</a></li>
+            <li><a href="commingsoon.html">Comming Soon</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a href="service.html" class="nav-link-custom">Service</a></li>
+        <li class="nav-item"><a href="servicedetails.html" class="nav-link-custom">Service Details</a></li>
+        <li class="nav-item dropdown">
+          <span class="nav-link-custom dropdown-toggle-custom">Blog</span>
+          <ul class="dropdown-menu-custom">
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="blogdetails.html">Blog Details</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a href="contactus.html" class="nav-link-custom">Contact Us</a></li>
+      </ul>
+
+      <div class="right-actions desktop-actions">
+        <button class="mode-toggle" type="button" aria-label="Toggle dark mode">
+          <span class="mode-icon">🌙</span>
+        </button>
+        <a href="register.html"><button class="btn-signin">Register</button></a>
+      </div>
+
+      <button class="menu-toggle" type="button" aria-label="Toggle menu">☰</button>
+    </nav>
+  </header>
+
+  <!-- Mobile Menu -->
+  <ul class="nav-menu" id="mobileNavMenu">
+    <li class="nav-item dropdown">
+      <span class="nav-link-custom dropdown-toggle-custom">Home</span>
+      <ul class="dropdown-menu-custom">
+        <li><a href="index.html">Home 1</a></li>
+        <li><a href="home2.html">Home 2</a></li>
+      </ul>
+    </li>
+    <li class="nav-item dropdown">
+      <span class="nav-link-custom dropdown-toggle-custom">About Us</span>
+      <ul class="dropdown-menu-custom">
+        <li><a href="aboutus.html">About Us</a></li>
+        <li><a href="404.html">404</a></li>
+        <li><a href="commingsoon.html">Comming Soon</a></li>
+      </ul>
+    </li>
+    <li class="nav-item"><a href="service.html" class="nav-link-custom">Service</a></li>
+    <li class="nav-item"><a href="servicedetails.html" class="nav-link-custom">Service Details</a></li>
+    <li class="nav-item dropdown">
+      <span class="nav-link-custom dropdown-toggle-custom">Blog</span>
+      <ul class="dropdown-menu-custom">
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="blogdetails.html">Blog Details</a></li>
+      </ul>
+    </li>
+    <li class="nav-item"><a href="contactus.html" class="nav-link-custom">Contact Us</a></li>
+    <li class="mobile-menu-actions">
+      <div class="mode-toggle-wrapper">
+        <button class="mode-toggle" type="button" aria-label="Toggle dark mode">
+          <span class="mode-icon">🌙</span>
+        </button>
+      </div>
+      <a href="register.html"><button class="btn-signin">Register</button></a>
+    </li>
+  </ul>
+
+  <!-- ========== MAIN: BLOG DETAILS PAGE ========== -->
+  <main>
+    <!-- SECTION 1: HERO -->
+    <div class="blog-detail-hero">
+      <div class="container">
+        <div class="breadcrumb-custom">
+          <a href="index.html">Home</a> <i class="fas fa-chevron-right" style="font-size: 0.7rem;"></i> 
+          <a href="blog.html">Blog</a> <i class="fas fa-chevron-right" style="font-size: 0.7rem;"></i> 
+          <span>Blog Details</span>
+        </div>
+        <span class="blog-category-badge">Architecture</span>
+        <h1>Modern Architectural Trends for 2026: Shaping the Future of Urban Living</h1>
+        <div class="blog-meta-main">
+          <span><i class="far fa-calendar-alt"></i> June 22, 2026</span>
+          <span><i class="far fa-user"></i> By Arjun Mehta</span>
+          <span><i class="far fa-clock"></i> 8 min read</span>
+          <span><i class="far fa-comment"></i> 5 Comments</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Featured Image -->
+    <div class="blog-featured-image-wrap"  style="padding-top: 100px;">
+      <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1200&auto=format" alt="Modern Architectural Trends 2026">
+    </div>
+
+    <!-- SECTION 2: BLOG CONTENT + SIDEBAR - FULL WIDTH -->
+    <div class="blog-main-wrap">
+      <div class="container my-5">
+        <div class="row g-4">
+          <!-- Main Content -->
+          <div class="col-lg-8">
+            <div class="blog-content-wrap">
+              <div class="blog-content">
+                <p class="lead" style="font-size: 1.2rem !important; color: #1E293B; font-weight: 600;">As we move further into 2026, architectural trends continue to evolve, blending innovative design with sustainable practices to create living spaces that are not only beautiful but also functional, efficient, and environmentally responsible. The modern architectural landscape is undergoing a significant transformation, driven by technological advancements, changing lifestyle needs, and a growing emphasis on sustainability.</p>
+
+                <h2>1. Biophilic Design Integration</h2>
+                <p>One of the most prominent trends this year is the deep integration of biophilic design principles. Architects are moving beyond simple potted plants and green walls to create buildings that fundamentally connect inhabitants with nature. This includes:</p>
+                <ul>
+                  <li>Indoor-outdoor living spaces with seamless transitions</li>
+                  <li>Natural ventilation systems that reduce energy consumption</li>
+                  <li>Water features that create calming auditory environments</li>
+                  <li>Natural materials like wood, stone, and bamboo throughout interiors</li>
+                  <li>Strategic window placement for maximum natural light exposure</li>
+                </ul>
+                <div class="highlight-box">
+                  <p><i class="fas fa-lightbulb" style="color: var(--accent); margin-right: 10px;"></i> <strong>Design Insight:</strong> Studies show that biophilic design can improve productivity by 15%, reduce stress levels by up to 30%, and enhance overall well-being. Modern architects are leveraging these benefits to create healthier living environments.</p>
+                </div>
+
+                <h2>2. Sustainable and Passive Design</h2>
+                <p>Sustainability is no longer an option but a necessity in modern architecture. The focus has shifted from simply adding green features to creating inherently sustainable buildings through passive design principles:</p>
+
+                <div class="row g-3 my-3">
+                  <div class="col-6">
+                    <img src="https://images.unsplash.com/photo-1513584684374-8bab748fbf90?w=600&auto=format" alt="Sustainable Design" class="img-fluid rounded-3" style="border-radius:16px;">
+                  </div>
+                  <div class="col-6">
+                    <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&auto=format" alt="Green Architecture" class="img-fluid rounded-3" style="border-radius:16px;">
+                  </div>
+                </div>
+
+                <ul>
+                  <li>Passive solar design for natural heating and cooling</li>
+                  <li>Green roofs and walls that improve insulation and air quality</li>
+                  <li>Rainwater harvesting and greywater recycling systems</li>
+                  <li>Use of locally sourced, recycled, and sustainable materials</li>
+                  <li>Integration of renewable energy sources like solar panels</li>
+                </ul>
+
+                <h2>3. Smart Home Integration</h2>
+                <p>The line between architecture and technology continues to blur as smart home features become integral to building design rather than afterthoughts:</p>
+                <p>Modern residential buildings are being designed with built-in smart infrastructure that allows for seamless control of lighting, climate, security, and entertainment systems. This includes pre-wired networks for IoT devices, centralized control systems, and energy management solutions that learn and adapt to residents' habits.</p>
+                <div class="highlight-box">
+                  <p><i class="fas fa-microchip" style="color: var(--accent); margin-right: 10px;"></i> <strong>Technology Integration:</strong> At Compass Housing Society, we're implementing AI-powered energy management systems that can reduce electricity consumption by up to 40% while maintaining optimal comfort levels for residents.</p>
+                </div>
+
+                <h2>4. Adaptive Reuse and Mixed-Use Developments</h2>
+                <p>Forward-thinking architects are embracing adaptive reuse—transforming old industrial buildings, warehouses, and underutilized structures into vibrant residential and mixed-use spaces. This trend not only preserves architectural heritage but also reduces construction waste and carbon footprint. Mixed-use developments that combine residential, commercial, and recreational spaces are becoming the new standard for urban living, fostering walkable communities and reducing dependence on cars.</p>
+
+                <h2>5. Wellness-Oriented Architecture</h2>
+                <p>Health and wellness have become central to architectural design. Beyond the basics, modern buildings are incorporating features like circadian lighting systems that mimic natural light patterns, air purification systems, dedicated meditation spaces, and fitness facilities. Acoustic design is receiving more attention to create quieter, more peaceful interiors that promote mental well-being. Even the choice of building materials is shifting toward non-toxic, low-VOC options that support indoor air quality.</p>
+
+                </div>
+
+              <!-- Tags & Share -->
+              <div class="blog-tags-share">
+                <div class="tags-list">
+                  <span class="tag">Architecture</span>
+                  <span class="tag">Sustainable Design</span>
+                  <span class="tag">2026 Trends</span>
+                  <span class="tag">Smart Homes</span>
+                </div>
+                <div class="share-links">
+                  <a href="#" aria-label="Share on Facebook"><i class="fab fa-facebook-f"></i></a>
+                  <a href="#" aria-label="Share on Twitter"><i class="fab fa-twitter"></i></a>
+                  <a href="#" aria-label="Share on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                  <a href="#" aria-label="Share on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                </div>
+              </div>
+
+              <!-- Author Bio -->
+              
+
+              <!-- Comments Section -->
+              
+            </div>
+          </div>
+
+          <!-- Sidebar - Full width cards -->
+          <div class="col-lg-4">
+            <!-- Search -->
+            <div class="sidebar-card">
+              <h5><i class="fas fa-search" style="color: var(--accent);"></i> Search</h5>
+              <div class="search-box">
+                <input type="text" placeholder="Search articles...">
+                <button class="search-btn"><i class="fas fa-search"></i></button>
+              </div>
+            </div>
+
+            <!-- Categories -->
+            <div class="sidebar-card">
+              <h5><i class="fas fa-folder" style="color: var(--accent);"></i> Categories</h5>
+              <ul>
+                <li><i class="fas fa-chevron-right"></i> <a href="#">Architecture Trends (9)</a></li>
+                <li><i class="fas fa-chevron-right"></i> <a href="#">Sustainable Design (12)</a></li>
+                <li><i class="fas fa-chevron-right"></i> <a href="#">Smart Homes (8)</a></li>
+                <li><i class="fas fa-chevron-right"></i> <a href="#">Urban Planning (6)</a></li>
+                <li><i class="fas fa-chevron-right"></i> <a href="#">Interior Design (10)</a></li>
+              </ul>
+            </div>
+
+            <!-- Recent Posts -->
+            <div class="sidebar-card">
+              <h5><i class="fas fa-clock" style="color: var(--accent);"></i> Recent Posts</h5>
+              <ul>
+                <li><i class="fas fa-chevron-right"></i> <a href="#">Modern Architectural Trends for 2026</a></li>
+                <li><i class="fas fa-chevron-right"></i> <a href="#">Sustainable Building Materials Guide</a></li>
+                <li><i class="fas fa-chevron-right"></i> <a href="#">The Future of Smart Cities</a></li>
+                <li><i class="fas fa-chevron-right"></i> <a href="#">Biophilic Design: Bringing Nature Indoors</a></li>
+              </ul>
+            </div>
+
+            <!-- Tags -->
+            <div class="sidebar-card">
+              <h5><i class="fas fa-tags" style="color: var(--accent);"></i> Popular Tags</h5>
+              <div class="tag-cloud">
+                <span class="tag">Architecture</span>
+                <span class="tag">Sustainability</span>
+                <span class="tag">Smart Homes</span>
+                <span class="tag">Biophilic</span>
+                <span class="tag">Urban Design</span>
+                <span class="tag">Eco-Friendly</span>
+                <span class="tag">Innovation</span>
+                <span class="tag">Green Building</span>
+              </div>
+            </div>
+            <div class="author-bio-card">
+                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=200&auto=format" alt="Arjun Mehta">
+                <div class="author-info">
+                  <h5>Arjun Mehta</h5>
+                  <div class="author-role">Architecture Director</div>
+                  <p>With over 15 years of experience in architectural design and urban planning, Arjun leads the design team at Compass Housing Society. He specializes in sustainable architecture and has been recognized with multiple awards for innovative residential design.</p>
+                  
+                </div>
+            </div>
+
+            <div class="comment-section-wrap">
+                <h4 class="fw-bold mb-3"><i class="fas fa-comments" style="color: var(--accent);"></i> Comments (5)</h4>
+                
+                <div class="comment-item">
+                  <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="User">
+                  <div class="comment-body">
+                    <div>
+                      <span class="comment-author">Priya Sharma</span>
+                      <span class="comment-date">June 23, 2026</span>
+                    </div>
+                    <p>This is such an insightful read! I'm an architecture student and these trends are exactly what we're studying. Love the focus on biophilic design.</p>
+                    <span class="reply-btn">Reply</span>
+                  </div>
+                </div>
+
+                <div class="comment-item">
+                  <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="User">
+                  <div class="comment-body">
+                    <div>
+                      <span class="comment-author">Vikram Desai</span>
+                      <span class="comment-date">June 23, 2026</span>
+                    </div>
+                    <p>Great article! The section on adaptive reuse is particularly important. We need to preserve our architectural heritage while meeting modern needs.</p>
+                    <span class="reply-btn">Reply</span>
+                  </div>
+                </div>
+
+                <div class="comment-item">
+                  <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="User">
+                  <div class="comment-body">
+                    <div>
+                      <span class="comment-author">Ananya Reddy</span>
+                      <span class="comment-date">June 24, 2026</span>
+                    </div>
+                    <p>I'm planning to build a sustainable home and this article gave me so many great ideas. The smart home integration point is especially relevant.</p>
+                    <span class="reply-btn">Reply</span>
+                  </div>
+                </div>
+
+                <!-- Comment Form -->
+                <div class="comment-form-wrap mt-4">
+                  <h5 class="fw-bold">Leave a Comment</h5>
+                  <form id="commentForm">
+                    <div class="row g-3">
+                      <div class="col-md-6">
+                        <input type="text" id="commentName" placeholder="Your Name" required>
+                      </div>
+                      <div class="col-md-6">
+                        <input type="email" id="commentEmail" placeholder="Your Email" required>
+                      </div>
+                      <div class="col-12">
+                        <textarea rows="4" id="commentMessage" placeholder="Write your comment here..." required></textarea>
+                      </div>
+                      <div class="col-12">
+                        <button type="submit" class="btn-primary-custom">Post Comment <i class="fas fa-arrow-right ms-2"></i></button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RELATED POSTS -->
+    <div class="container my-5">
+      <div class="text-center mb-4">
+        <h2 class="fw-bold"><i class="fas fa-arrow-right" style="color: var(--accent);"></i> Related Articles</h2>
+        <p class="text-muted">You might also find these articles helpful</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="related-post-card">
+            <img src="https://images.unsplash.com/photo-1513584684374-8bab748fbf90?w=500&auto=format" alt="Related Post">
+            <div class="related-body">
+              <h6>Sustainable Building Materials Guide</h6>
+              <div class="related-meta">June 18, 2026</div>
+              <a href="blogdetails.html" style="color: var(--accent); font-weight: 600; font-size: 0.85rem !important;">Read More →</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="related-post-card">
+            <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=500&auto=format" alt="Related Post">
+            <div class="related-body">
+              <h6>The Future of Smart Cities</h6>
+              <div class="related-meta">June 15, 2026</div>
+              <a href="blogdetails.html" style="color: var(--accent); font-weight: 600; font-size: 0.85rem !important;">Read More →</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="related-post-card">
+            <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=500&auto=format" alt="Related Post">
+            <div class="related-body">
+              <h6>Biophilic Design: Bringing Nature Indoors</h6>
+              <div class="related-meta">June 12, 2026</div>
+              <a href="blogdetails.html" style="color: var(--accent); font-weight: 600; font-size: 0.85rem !important;">Read More →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== NEWSLETTER SECTION ========== -->
+   
+    <!-- CTA BANNER -->
+    <div class="container my-5">
+      <div class="contact-card p-4 p-md-5">
+        <div class="row align-items-center text-center text-md-start">
+          <div class="col-md-7 mb-4 mb-md-0">
+            <h2 class="fw-bold"><i class="fas fa-home" style="color: var(--accent);"></i> Looking for a Modern, Sustainable Home?</h2>
+            <p class="lead mb-0">Explore our latest projects featuring cutting-edge architectural design and sustainable living solutions.</p>
+          </div>
+          <div class="col-md-5 text-center">
+            <button class="btn-primary-custom btn-lg me-2 mb-2"><i class="fas fa-arrow-right"></i> <a href="contactus.html">Explore Properties</a></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <h2>COMPASS HOUSING SOCIETY</h2>
+      </div>
+      <p class="footer-tagline">
+        India's most trusted real estate platform since 2008. We help you find the perfect home with transparency, expertise, and care.
+      </p>
+      <div class="footer-social-icons">
+        <a href="http://www.facebook.com" class="footer-social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="http://www.twitter.com" class="footer-social-icon" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="http://www.instagram.com" class="footer-social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="http://www.linkedIn.com" class="footer-social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+      <hr class="footer-divider">
+      <div class="footer-bottom-row">
+        <p class="footer-copyright">© 2026 Compass Housing Society. All rights reserved.</p>
+        <ul class="footer-links">
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Sitemap</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll to top -->
+  <div class="scroll-widget"><button class="scroll-up-btn" id="scrollUpBtn"><i class="fas fa-arrow-up"></i></button></div>
+
+  <!-- ========== SCRIPT ========== -->
+  <script>
+    (function() {
+      // Dark mode toggle
+      const body = document.body;
+      const modeToggles = document.querySelectorAll(".mode-toggle");
+      const modeIcons = document.querySelectorAll(".mode-icon");
+      const stored = localStorage.getItem("compass-theme");
+      if (stored === "dark") { body.classList.add("dark-mode"); modeIcons.forEach(icon => icon.textContent = "☀️"); } 
+      else { modeIcons.forEach(icon => icon.textContent = "🌙"); }
+      modeToggles.forEach(t => t.addEventListener("click", () => { 
+        const isDark = body.classList.toggle("dark-mode"); 
+        modeIcons.forEach(icon => icon.textContent = isDark ? "☀️" : "🌙"); 
+        localStorage.setItem("compass-theme", isDark ? "dark" : "light"); 
+      }));
+
+      // Mobile menu
+      const menuToggle = document.querySelector(".menu-toggle");
+      const navMenu = document.querySelector(".nav-menu");
+
+      function closeMenu() {
+        if (navMenu) navMenu.classList.remove("nav-open");
+        if (menuToggle) menuToggle.innerHTML = "☰";
+      }
+
+      if (menuToggle && navMenu) {
+        menuToggle.addEventListener("click", function (e) {
+          e.stopPropagation();
+          navMenu.classList.toggle("nav-open");
+          this.innerHTML = navMenu.classList.contains("nav-open") ? "✕" : "☰";
+        });
+
+        document.addEventListener('click', function(event) {
+          const isClickInsideMenu = navMenu.contains(event.target);
+          const isClickOnToggle = menuToggle.contains(event.target);
+          if (window.innerWidth <= 1030 && !isClickInsideMenu && !isClickOnToggle && navMenu.classList.contains('nav-open')) {
+            closeMenu();
+          }
+        });
+
+        document.addEventListener('keydown', function(event) {
+          if (event.key === 'Escape' && window.innerWidth <= 1030 && navMenu.classList.contains('nav-open')) {
+            closeMenu();
+          }
+        });
+
+        const menuLinks = navMenu.querySelectorAll('.nav-item:not(.dropdown) .nav-link-custom, .nav-item:not(.dropdown) a');
+        menuLinks.forEach(link => {
+          link.addEventListener('click', function() {
+            if (window.innerWidth <= 1030) closeMenu();
+          });
+        });
+      }
+
+      // Dropdowns
+      const dropdownItems = document.querySelectorAll(".nav-item.dropdown > .nav-link-custom");
+      dropdownItems.forEach(link => {
+        link.addEventListener("click", function (e) {
+          e.preventDefault();
+          const parent = this.parentElement;
+          document.querySelectorAll(".nav-item.dropdown.open").forEach(item => {
+            if (item !== parent) item.classList.remove("open");
+          });
+          parent.classList.toggle("open");
+        });
+      });
+
+      window.addEventListener("resize", () => {
+        if (window.innerWidth > 1030) closeMenu();
+      });
+
+      document.getElementById("scrollUpBtn")?.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+
+      // Search functionality
+      const searchBtn = document.querySelector('.search-box .search-btn');
+      const searchInput = document.querySelector('.search-box input');
+      if (searchBtn && searchInput) {
+        searchBtn.addEventListener('click', function() {
+          const query = searchInput.value.trim();
+          if (query) {
+            alert('Searching for: "' + query + '"');
+          } else {
+            alert('Please enter a search term.');
+          }
+        });
+
+        searchInput.addEventListener('keypress', function(e) {
+          if (e.key === 'Enter') {
+            e.preventDefault();
+            searchBtn.click();
+          }
+        });
+      }
+
+      // Reply button functionality
+      const replyBtns = document.querySelectorAll('.reply-btn');
+      replyBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+          const commentForm = document.querySelector('.comment-form-wrap');
+          if (commentForm) {
+            commentForm.scrollIntoView({ behavior: 'smooth' });
+            const textarea = commentForm.querySelector('textarea');
+            if (textarea) {
+              textarea.focus();
+              textarea.placeholder = 'Reply to this comment...';
+            }
+          }
+        });
+      });
+
+      // Email validation regex
+      const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z-]{2,}\.(com|in|org|net)$/i;
+
+      // Comment form submission with email validation
+      const commentForm = document.getElementById('commentForm');
+      if (commentForm) {
+        commentForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          
+          // Get form fields
+          const nameInput = document.getElementById('commentName');
+          const emailInput = document.getElementById('commentEmail');
+          const messageInput = document.getElementById('commentMessage');
+          
+          // Validate email
+          if (!emailRegex.test(emailInput.value.trim())) {
+            alert('Please enter a valid email address (e.g., name@domain.com, .in, .org, .net)');
+            emailInput.focus();
+            return;
+          }
+          
+          // If all valid, show success message
+          alert('Thank you for your comment! It will be published after moderation.');
+          this.reset();
+          
+          // Reset placeholder for textarea
+          const textarea = this.querySelector('textarea');
+          if (textarea) {
+            textarea.placeholder = 'Write your comment here...';
+          }
+        });
+      }
+
+      // Newsletter form submission with email validation
+      const newsletterForm = document.getElementById('newsletterForm');
+      if (newsletterForm) {
+        newsletterForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          
+          const emailInput = document.getElementById('newsletterEmail');
+          
+          // Validate email
+          if (!emailRegex.test(emailInput.value.trim())) {
+            alert('Please enter a valid email address (e.g., name@domain.com, .in, .org, .net)');
+            emailInput.focus();
+            return;
+          }
+          
+          // If valid, show success message
+          alert('Thank you for subscribing to our newsletter!');
+          this.reset();
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

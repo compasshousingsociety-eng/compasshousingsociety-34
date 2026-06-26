@@ -1,0 +1,1616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="description" content="Compass Housing Blog – insights, tips, and news about real estate, home buying, selling, and property investment." />
+  <meta name="keywords" content="real estate blog, home buying tips, property investment, housing news, compass housing" />
+  <title>Blog – Compass Housing Society</title>
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Google Fonts: Gantari + Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Gantari:ital,wght@0,100..900;1,100..900&family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* ============================================================
+       GLOBAL STYLES – same as homepage
+       ============================================================ */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --accent: #1B5E20;
+      --accent-light: #F4A261;
+      --primary-green: #FDFD96;
+      --primary-dark: #E8E85A;
+      --white: #FFFFFF;
+      --black: #000000;
+      --btn-green: #2E7D32;
+      --btn-green-hover: #1B5E20;
+      --footer-bg: #1a1a2e;
+    }
+
+    body {
+      font-family: 'Gantari', sans-serif;
+      color: #1E293B;
+      background-color: #F8FAFC;
+      transition: all 0.3s ease;
+      overflow-x: hidden;
+      font-size: 18px;
+    }
+
+    /* Transparent logo background */
+    main {
+      position: relative;
+      background-color: transparent;
+      min-height: 60vh;
+    }
+    main::before {
+      content: "";
+      position: fixed;
+      top: 80px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: url("Images/transparent-logo.jpeg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 570px auto;
+      opacity: 0.10;
+      pointer-events: none;
+      z-index: 0;
+    }
+    main > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    h1 { font-size: 3.2rem !important; font-weight: 800 !important; letter-spacing: -0.02em !important; }
+    h2 { font-size: 2.4rem !important; font-weight: 700 !important; }
+    h3 { font-size: 1.8rem !important; font-weight: 700 !important; }
+    h4 { font-size: 1.5rem !important; font-weight: 600 !important; }
+    h5 { font-size: 1.3rem !important; font-weight: 600 !important; }
+    h6 { font-size: 1.1rem !important; font-weight: 600 !important; }
+
+    p, li, span, a, .text-muted, .lead { font-size: 1.05rem !important; line-height: 1.5 !important; }
+    .lead { font-size: 1.2rem !important; }
+
+    .nav-menu, .nav-menu ul, .dropdown-menu-custom, .dropdown-menu-custom li, .nav-menu li,
+    header ul, header li, .navbar-custom ul, .navbar-custom li {
+      list-style: none !important;
+      list-style-type: none !important;
+      padding-left: 0 !important;
+      margin: 0 !important;
+    }
+
+    a, a:hover, a:focus, a:active, button, button:hover, button:focus {
+      text-decoration: none !important;
+      outline: none !important;
+      color: inherit !important;
+    }
+
+    /* HEADER */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: var(--primary-green) !important;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      transition: background-color 0.3s ease;
+    }
+
+    .navbar-custom { 
+      display: flex; 
+      align-items: center; 
+      justify-content: space-between; 
+      gap: 20px; 
+      position: relative;
+      padding: 12px 24px;
+      min-height: 80px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+    .brand span {
+      color: #1E293B !important;
+      font-weight: 700;
+      font-size: 1.1rem !important;
+      line-height: 1.2;
+    }
+    .brand img { 
+      width: 55px; 
+      height: 55px; 
+      object-fit: cover; 
+      border-radius: 10px !important;
+      border: 2px solid var(--accent); 
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      background: var(--white);
+    }
+
+    .desktop-nav-menu { 
+      display: flex; 
+      align-items: center; 
+      gap: 32px; 
+      flex: 1; 
+      justify-content: center; 
+    }
+    .desktop-nav-menu .nav-item { position: relative; }
+    .nav-link-custom {
+      color: #1E293B !important;
+      padding: 8px 0;
+      font-weight: 600;
+      font-size: 1.05rem !important;
+      cursor: pointer;
+      display: inline-block;
+      transition: color 0.2s;
+    }
+    .nav-link-custom:hover { color: var(--accent) !important; }
+    .dropdown-toggle-custom::after { content: " ▾"; margin-left: 6px; font-size: 0.9rem; }
+
+    .dropdown-menu-custom {
+      position: absolute;
+      left: 0;
+      top: calc(100% + 8px);
+      background-color: #E8E85A !important;
+      border-radius: 12px;
+      min-width: 220px;
+      display: none;
+      padding: 10px 0 !important;
+      box-shadow: 0 12px 20px rgba(0, 0, 0, 0.4);
+      z-index: 1001;
+    }
+    .dropdown-menu-custom li a {
+      display: block;
+      padding: 10px 22px;
+      color: #1E293B !important;
+      font-size: 1rem !important;
+      cursor: pointer;
+    }
+    .dropdown-menu-custom li a:hover { background-color: rgba(0, 0, 0, 0.08); color: var(--accent) !important; }
+    .nav-item.dropdown.open > .dropdown-menu-custom { display: block; }
+
+    /* Buttons – consistent with homepage */
+    .btn-signin, .btn-accent, .btn-primary-custom, 
+    .realty-card .btn-primary-custom, .contact-card .btn-primary-custom,
+    .hero-section .btn-primary-custom, .btn-learn-more {
+      transition: all 0.2s ease;
+      text-decoration: none !important;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      cursor: pointer;
+      color: var(--white) !important;
+      background: var(--btn-green) !important;
+      border: none;
+      padding: 10px 28px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 1rem !important;
+    }
+    .btn-signin:hover, .btn-primary-custom:hover, .btn-accent:hover, .btn-learn-more:hover {
+      background: var(--btn-green-hover) !important;
+      transform: scale(1.02);
+      color: var(--white) !important;
+    }
+    .btn-outline-accent {
+      background: transparent !important;
+      border: 2px solid var(--btn-green);
+      color: var(--btn-green) !important;
+      padding: 8px 26px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 1rem !important;
+      transition: all 0.2s ease;
+    }
+    .btn-outline-accent:hover {
+      background: var(--btn-green) !important;
+      color: var(--white) !important;
+      transform: scale(1.02);
+    }
+    .btn-outline-accent:hover a { color: var(--white) !important; }
+
+    .mode-toggle {
+      border: 1px solid #1E293B;
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: 18px;
+      cursor: pointer;
+      background: rgba(0,0,0,0.08);
+      width: 42px;
+      height: 42px;
+      color: #1E293B;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+    .mode-toggle:hover { background: rgba(0,0,0,0.15); transform: scale(1.05); }
+
+    .right-actions {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      flex-shrink: 0;
+    }
+    .menu-toggle {
+      display: none;
+      border: 1px solid var(--light);
+      background: transparent;
+      font-size: 28px;
+      line-height: 1;
+      cursor: pointer;
+      color: #1E293B;
+      padding: 6px 12px;
+      border-radius: 10px;
+      background: rgba(0,0,0,0.08);
+      border: 1px solid #1E293B;
+      transition: all 0.3s ease;
+    }
+    .menu-toggle:hover { background: rgba(0,0,0,0.15); }
+
+    .scroll-widget { position: fixed; right: 20px; bottom: 30px; z-index: 1000; }
+    .scroll-up-btn {
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      background: var(--btn-green) !important;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-size: 24px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+    .scroll-up-btn:hover { transform: scale(1.08); background: var(--btn-green-hover) !important; }
+
+    /* ============================================ */
+    /* MOBILE MENU */
+    /* ============================================ */
+    @media (max-width: 1030px) {
+      body { font-size: 16px; }
+      h1 { font-size: 2.2rem !important; }
+      h2 { font-size: 1.8rem !important; }
+      h3 { font-size: 1.5rem !important; }
+      h4 { font-size: 1.3rem !important; }
+      h5 { font-size: 1.2rem !important; }
+      p, li, span, .text-muted { font-size: 0.95rem !important; }
+      .navbar-custom { padding: 10px 16px; gap: 12px; justify-content: space-between; min-height: 68px; }
+      .brand { order: 1; flex: 1; }
+      .brand span { font-size: 1.2rem !important; font-weight: 700; }
+      .brand img { width: 45px; height: 45px; }
+      .desktop-nav-menu { display: none !important; }
+      .right-actions.desktop-actions { display: none; }
+      .menu-toggle { display: inline-flex; order: 2; align-items: center; justify-content: center; font-size: 26px; padding: 5px 12px; }
+      .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 300px;
+        height: 70vh;
+        top: 0;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        background: var(--primary-green) !important;
+        padding: 80px 20px 30px;
+        box-shadow: -8px 0 30px rgba(0, 0, 0, 0.5);
+        z-index: 1050;
+        gap: 4px;
+        transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        overflow-y: auto;
+        padding-top: 85px;
+        border-bottom-left-radius: 30px;
+        display: flex !important;
+      }
+      .nav-item { width: 100%; text-align: center; border-bottom: 1px solid rgba(0,0,0,0.08); padding: 2px 0; }
+      .nav-link-custom { width: 100%; padding: 14px 0; font-size: 1.1rem !important; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 6px; color: #1E293B !important; }
+      .dropdown-toggle-custom::after { margin-left: 6px; }
+      .dropdown-menu-custom { position: static; margin-top: 4px; background: rgba(0, 0, 0, 0.06); border-radius: 10px; border: none; box-shadow: none; padding: 0 0 6px 0 !important; display: none; width: 100%; text-align: center; }
+      .dropdown-menu-custom li a { padding: 10px 0; font-size: 0.95rem !important; opacity: 0.9; text-align: center; justify-content: center; }
+      .nav-item.dropdown.open > .dropdown-menu-custom { display: block; }
+      .mobile-menu-actions { margin-top: auto; padding-top: 20px; border-top: 2px solid rgba(0,0,0,0.12); width: 100%; display: flex; flex-direction: column; align-items: center; gap: 15px; padding-bottom: 20px; }
+      .mobile-menu-actions .mode-toggle-wrapper { display: flex; align-items: center; justify-content: center; gap: 15px; width: 100%; padding: 8px 0; color: #1E293B; font-weight: 600; font-size: 1rem !important; }
+      .mobile-menu-actions .mode-toggle-wrapper .mode-toggle { width: 44px; height: 44px; font-size: 18px; background: rgba(0,0,0,0.08); border-color: rgba(0,0,0,0.3); color: #1E293B; }
+      .mobile-menu-actions .btn-signin { width: 100%; justify-content: center; padding: 14px; font-size: 1rem !important; max-width: 200px; }
+      .nav-menu.nav-open { right: 0; }
+      main::before { top: 60px; background-size: 300px auto; }
+    }
+
+    @media (min-width: 1031px) {
+      .right-actions.desktop-actions { display: flex; }
+      .mobile-actions { display: none !important; }
+      .nav-menu { display: none !important; }
+    }
+
+    @media (max-width: 576px) {
+      h1 { font-size: 1.8rem !important; }
+      h2 { font-size: 1.5rem !important; }
+      h3 { font-size: 1.3rem !important; }
+      .navbar-custom { padding: 8px 12px; min-height: 60px; }
+      .brand span { font-size: 1.0rem !important; }
+      .brand img { width: 38px; height: 38px; }
+      .nav-menu { width: 280px; right: -280px; padding: 75px 16px 20px; height: 70vh; }
+      .menu-toggle { font-size: 22px; padding: 4px 10px; }
+      .btn-signin { padding: 5px 14px; font-size: 0.75rem !important; }
+      .mode-toggle { width: 34px; height: 34px; font-size: 14px; }
+      main::before { background-size: 250px auto; }
+    }
+
+    /* ============================================ */
+    /* BLOG PAGE SPECIFIC STYLES                    */
+    /* ============================================ */
+    .blog-hero {
+      background: linear-gradient(135deg, #FDFD96 0%, #E8E85A 100%);
+      padding: 80px 20px 60px;
+      text-align: center;
+      margin-top: 80px;
+      color: #1E293B;
+    }
+    .blog-hero h1 {
+      font-size: 3.5rem !important;
+      font-weight: 800;
+    }
+    .blog-hero .lead {
+      font-size: 1.3rem !important;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* Featured Article Section */
+    .featured-article {
+      background: white;
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+      transition: all 0.3s;
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .featured-article:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.12);
+    }
+    .featured-article .featured-img {
+      flex: 0 0 45%;
+      min-height: 300px;
+      background-size: cover;
+      background-position: center;
+    }
+    .featured-article .featured-body {
+      flex: 1;
+      padding: 40px 35px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .featured-article .featured-body .badge-featured {
+      display: inline-block;
+      background: var(--accent);
+      color: white;
+      padding: 4px 18px;
+      border-radius: 999px;
+      font-size: 0.75rem !important;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 15px;
+      align-self: flex-start;
+    }
+    .featured-article .featured-body h3 {
+      font-size: 2rem !important;
+      font-weight: 800;
+      margin-bottom: 15px;
+    }
+    .featured-article .featured-body p {
+      font-size: 1rem !important;
+      color: #6c757d;
+      margin-bottom: 20px;
+    }
+    .featured-article .featured-body .featured-meta {
+      font-size: 0.85rem !important;
+      color: #6c757d;
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+    .featured-article .featured-body .featured-meta i {
+      margin-right: 4px;
+    }
+
+    .blog-card {
+      background: white;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+      transition: all 0.3s;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    .blog-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 35px rgba(0,0,0,0.1);
+    }
+
+    .blog-card .blog-img {
+      height: 220px;
+      background-size: cover;
+      background-position: center;
+      flex-shrink: 0;
+      position: relative;
+    }
+    .blog-card .blog-category {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      background: var(--btn-green);
+      color: white;
+      padding: 5px 16px;
+      border-radius: 999px;
+      font-size: 0.75rem !important;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .blog-card .blog-body {
+      padding: 25px 25px 20px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .blog-card .blog-body .blog-meta {
+      font-size: 0.85rem !important;
+      color: #6c757d;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+    .blog-card .blog-body .blog-meta i {
+      margin-right: 4px;
+    }
+    .blog-card .blog-body h4 {
+      font-size: 1.3rem !important;
+      font-weight: 700;
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+    .blog-card .blog-body p {
+      font-size: 0.95rem !important;
+      color: #6c757d;
+      margin-bottom: 15px;
+      flex: 1;
+    }
+    /* Removed .btn-learn-more from blog cards */
+
+    .sidebar-card {
+      background: white;
+      border-radius: 20px;
+      padding: 25px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+      margin-bottom: 25px;
+    }
+    .sidebar-card h5 {
+      font-size: 1.1rem !important;
+      font-weight: 700;
+      margin-bottom: 15px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--primary-green);
+    }
+    .sidebar-card ul {
+      list-style: none !important;
+      padding: 0;
+      margin: 0;
+    }
+    .sidebar-card ul li {
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+      font-size: 0.95rem !important;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .sidebar-card ul li:last-child {
+      border-bottom: none;
+    }
+    .sidebar-card ul li i {
+      color: var(--accent);
+      width: 20px;
+    }
+    .sidebar-card ul li a {
+      color: #1E293B;
+      transition: color 0.2s;
+    }
+    .sidebar-card ul li a:hover {
+      color: var(--accent);
+    }
+
+    .search-box {
+      display: flex;
+      gap: 10px;
+    }
+    .search-box input {
+      flex: 1;
+      padding: 10px 16px;
+      border: 2px solid #e9ecef;
+      border-radius: 999px;
+      font-size: 0.95rem !important;
+      transition: border-color 0.2s;
+    }
+    .search-box input:focus {
+      border-color: var(--btn-green);
+      outline: none;
+    }
+    .search-box .search-btn {
+      padding: 10px 18px;
+      border: none;
+      background: var(--btn-green);
+      color: white;
+      border-radius: 999px;
+      font-weight: 600;
+      transition: background 0.2s;
+      cursor: pointer;
+      font-size: 1.1rem;
+    }
+    .search-box .search-btn:hover {
+      background: var(--btn-green-hover);
+    }
+
+    .tag-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .tag-cloud .tag {
+      background: #f1f3f5;
+      padding: 5px 14px;
+      border-radius: 999px;
+      font-size: 0.8rem !important;
+      font-weight: 600;
+      color: #1E293B;
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+    .tag-cloud .tag:hover {
+      background: var(--btn-green);
+      color: white;
+    }
+
+    .pagination-custom {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .pagination-custom .page-link {
+      padding: 8px 16px;
+      border: 2px solid #e9ecef;
+      border-radius: 999px;
+      font-weight: 600;
+      color: #1E293B;
+      transition: all 0.2s;
+      background: white;
+    }
+    .pagination-custom .page-link:hover,
+    .pagination-custom .page-link.active {
+      background: var(--btn-green);
+      color: white;
+      border-color: var(--btn-green);
+    }
+
+    .contact-card {
+      background: linear-gradient(115deg, #fdfd96 0%, #f5f57a 100%);
+      border-radius: 32px;
+      padding: 35px !important;
+      transition: background 0.3s ease;
+    }
+    .contact-card h2,
+    .contact-card p,
+    .contact-card .lead {
+      color: #1E293B !important;
+    }
+
+    /* Newsletter Subscription */
+    .newsletter-section {
+      background: white;
+      border-radius: 28px;
+      padding: 50px 40px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+    }
+    .newsletter-section .newsletter-icon {
+      font-size: 3.5rem !important;
+      color: var(--accent);
+      margin-bottom: 15px;
+    }
+    .newsletter-section .newsletter-form {
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    .newsletter-section .newsletter-form .input-group {
+      border-radius: 999px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    }
+    .newsletter-section .newsletter-form .form-control {
+      padding: 14px 24px;
+      border: 2px solid #e9ecef;
+      border-right: none;
+      font-size: 1rem !important;
+      border-radius: 999px 0 0 999px;
+    }
+    .newsletter-section .newsletter-form .form-control:focus {
+      border-color: var(--btn-green);
+      box-shadow: none;
+    }
+    .newsletter-section .newsletter-form .btn-primary-custom {
+      border-radius: 0 999px 999px 0;
+      padding: 14px 28px;
+      font-size: 1rem !important;
+    }
+    .newsletter-feedback {
+      font-size: 0.85rem !important;
+      margin-top: 8px;
+      display: none;
+    }
+    .newsletter-feedback.error {
+      display: block;
+      color: #dc3545;
+    }
+    .newsletter-feedback.success {
+      display: block;
+      color: #28a745;
+    }
+
+    /* Popular Authors */
+    .author-card {
+      background: white;
+      border-radius: 20px;
+      padding: 25px 20px;
+      text-align: center;
+      height: 100%;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      transition: all 0.3s;
+    }
+    .author-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+    }
+    .author-card img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 15px;
+      border: 3px solid var(--accent);
+    }
+    .author-card h5 {
+      font-size: 1.1rem !important;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .author-card .author-role {
+      font-size: 0.85rem !important;
+      color: #6c757d;
+      margin-bottom: 10px;
+    }
+    .author-card .author-social {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+    }
+    .author-card .author-social a {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #f1f3f5;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #1E293B;
+      transition: all 0.2s;
+    }
+    .author-card .author-social a:hover {
+      background: var(--btn-green);
+      color: white;
+    }
+
+    /* FOOTER */
+    .site-footer {
+      background: var(--primary-green) !important;
+      color: #1E293B !important;
+      padding: 45px 0 25px;
+      margin-top: 0;
+      transition: background 0.3s ease;
+      position: relative;
+      z-index: 10;
+    }
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      text-align: center;
+    }
+    .footer-brand h2 {
+      font-size: 1.8rem !important;
+      font-weight: 700;
+      color: #1E293B !important;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+    }
+    .footer-brand h2 span { color: var(--btn-green) !important; }
+    .footer-tagline {
+      font-size: 0.95rem !important;
+      color: rgba(30, 41, 59, 0.8) !important;
+      max-width: 650px;
+      margin: 0 auto 25px;
+      line-height: 1.7;
+    }
+    .footer-social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      margin-bottom: 25px;
+    }
+    .footer-social-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(30, 41, 59, 0.08);
+      color: #1E293B !important;
+      transition: all 0.3s ease;
+      font-size: 18px;
+      border: 1px solid rgba(30, 41, 59, 0.1);
+    }
+    .footer-social-icon:hover {
+      background: var(--btn-green);
+      color: #FFFFFF !important;
+      transform: translateY(-2px);
+      border-color: var(--btn-green);
+    }
+    .footer-divider {
+      border: none;
+      border-top: 1px solid rgba(30, 41, 59, 0.15);
+      margin: 20px auto 22px;
+      max-width: 900px;
+    }
+    .footer-bottom-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .footer-copyright {
+      font-size: 0.85rem !important;
+      color: rgba(30, 41, 59, 0.6) !important;
+      margin: 0;
+    }
+    .footer-links {
+      display: flex;
+      gap: 22px;
+      flex-wrap: wrap;
+      margin: 0;
+      padding: 0;
+      list-style: none !important;
+    }
+    .footer-links li { display: inline-block; margin: 0; padding: 0; }
+    .footer-links li a {
+      font-size: 0.85rem !important;
+      color: rgba(30, 41, 59, 0.6) !important;
+      transition: color 0.3s ease;
+    }
+    .footer-links li a:hover { color: var(--btn-green) !important; }
+
+    /* ================================================================
+       DARK MODE – ENTIRE SCREEN BLACK, ALL TEXT WHITE
+       ================================================================ */
+    body.dark-mode {
+      background-color: #000000 !important;
+      color: #FFFFFF !important;
+    }
+
+    body.dark-mode header { background: #1a1a00 !important; }
+    body.dark-mode .dropdown-menu-custom { background-color: #2a2a00 !important; }
+    body.dark-mode .site-footer { background: #1a1a00 !important; }
+    body.dark-mode .footer-social-icon { background: rgba(255, 255, 255, 0.1); }
+    body.dark-mode .mode-toggle { background: rgba(255,255,255,0.1); border-color: #666; }
+    body.dark-mode .menu-toggle { background: rgba(255,255,255,0.1); border-color: #666; }
+    body.dark-mode .desktop-nav-menu { background: transparent !important; }
+    body.dark-mode .nav-menu { background: #1a1a00 !important; }
+    
+    /* Blog dark mode */
+    body.dark-mode .blog-hero {
+      background: linear-gradient(135deg, #2a2a00 0%, #1a1a00 100%);
+    }
+    body.dark-mode .blog-hero * {
+      color: #FFFFFF !important;
+    }
+    body.dark-mode .blog-hero .lead {
+      color: #cccccc !important;
+    }
+    
+    body.dark-mode .featured-article,
+    body.dark-mode .blog-card,
+    body.dark-mode .sidebar-card,
+    body.dark-mode .newsletter-section,
+    body.dark-mode .author-card {
+      background: #111111 !important;
+      border-color: #2a2a2a;
+    }
+    body.dark-mode .featured-article *,
+    body.dark-mode .blog-card *,
+    body.dark-mode .sidebar-card *,
+    body.dark-mode .newsletter-section *,
+    body.dark-mode .author-card * {
+      color: #FFFFFF !important;
+    }
+    body.dark-mode .featured-article .featured-body p,
+    body.dark-mode .blog-card .blog-body p {
+      color: #cccccc !important;
+    }
+    body.dark-mode .featured-article .featured-body .featured-meta,
+    body.dark-mode .blog-card .blog-body .blog-meta {
+      color: #aaaaaa !important;
+    }
+    body.dark-mode .sidebar-card ul li {
+      border-bottom-color: #2a2a2a;
+    }
+    body.dark-mode .sidebar-card ul li a {
+      color: #FFFFFF !important;
+    }
+    body.dark-mode .sidebar-card ul li a:hover {
+      color: #4CAF50 !important;
+    }
+    body.dark-mode .sidebar-card h5 {
+      border-bottom-color: #2a2a00;
+    }
+    body.dark-mode .search-box input {
+      background: #1a1a1a;
+      border-color: #333;
+      color: #FFFFFF;
+    }
+    body.dark-mode .search-box input::placeholder {
+      color: #888;
+    }
+    body.dark-mode .search-box .search-btn {
+      background: #4CAF50;
+    }
+    body.dark-mode .search-box .search-btn:hover {
+      background: #2E7D32;
+    }
+    body.dark-mode .tag-cloud .tag {
+      background: #1a1a1a;
+      color: #FFFFFF;
+    }
+    body.dark-mode .tag-cloud .tag:hover {
+      background: #4CAF50;
+      color: #FFFFFF;
+    }
+    body.dark-mode .pagination-custom .page-link {
+      background: #1a1a1a;
+      border-color: #333;
+      color: #FFFFFF;
+    }
+    body.dark-mode .pagination-custom .page-link:hover,
+    body.dark-mode .pagination-custom .page-link.active {
+      background: #4CAF50;
+      border-color: #4CAF50;
+      color: #FFFFFF;
+    }
+    body.dark-mode .text-muted {
+      color: #cccccc !important;
+    }
+    body.dark-mode .author-card .author-role {
+      color: #aaaaaa !important;
+    }
+    body.dark-mode .author-card .author-social a {
+      background: #1a1a1a;
+      color: #FFFFFF;
+    }
+    body.dark-mode .author-card .author-social a:hover {
+      background: #4CAF50;
+      color: #FFFFFF;
+    }
+    body.dark-mode .newsletter-section .newsletter-form .form-control {
+      background: #1a1a1a;
+      border-color: #333;
+      color: #FFFFFF;
+    }
+    body.dark-mode .newsletter-section .newsletter-form .form-control::placeholder {
+      color: #888;
+    }
+    body.dark-mode .newsletter-feedback.error {
+      color: #ff6b6b !important;
+    }
+    body.dark-mode .newsletter-feedback.success {
+      color: #51cf66 !important;
+    }
+    
+    /* Contact Card dark mode */
+    body.dark-mode .contact-card {
+      background: #1a1a00 !important;
+      border: 1px solid #2a2a00;
+    }
+    body.dark-mode .contact-card * {
+      color: #FFFFFF !important;
+    }
+    body.dark-mode .contact-card h2,
+    body.dark-mode .contact-card p,
+    body.dark-mode .contact-card .lead {
+      color: #FFFFFF !important;
+    }
+    body.dark-mode .contact-card .btn-primary-custom {
+      color: var(--white) !important;
+      background: var(--btn-green) !important;
+    }
+    body.dark-mode .contact-card .btn-primary-custom:hover {
+      background: var(--btn-green-hover) !important;
+      color: var(--white) !important;
+    }
+    
+    /* Footer dark */
+    body.dark-mode .footer-brand h2 { color: #FFFFFF !important; }
+    body.dark-mode .footer-tagline { color: rgba(255,255,255,0.7) !important; }
+    body.dark-mode .footer-social-icon { color: rgba(255,255,255,0.7) !important; border-color: rgba(255,255,255,0.1); }
+    body.dark-mode .footer-social-icon:hover { background: #4CAF50; color: #FFFFFF !important; }
+    body.dark-mode .footer-copyright { color: rgba(255,255,255,0.45) !important; }
+    body.dark-mode .footer-links li a { color: rgba(255,255,255,0.45) !important; }
+    body.dark-mode .footer-links li a:hover { color: #4CAF50 !important; }
+    body.dark-mode .footer-divider { border-top-color: rgba(255,255,255,0.08); }
+
+    /* Nav & header dark */
+    body.dark-mode .brand span { color: #FFFFFF !important; }
+    body.dark-mode .nav-link-custom { color: #FFFFFF !important; }
+    body.dark-mode .mode-toggle { color: #FFFFFF !important; border-color: #FFFFFF; }
+    body.dark-mode .menu-toggle { color: #FFFFFF !important; border-color: #FFFFFF; }
+    body.dark-mode .dropdown-menu-custom li a { color: #FFFFFF !important; }
+    body.dark-mode .dropdown-menu-custom li a:hover { background: rgba(255,255,255,0.15) !important; color: #FFFFFF !important; }
+
+    /* Buttons in dark mode */
+    body.dark-mode .btn-primary-custom {
+      background: var(--btn-green) !important;
+      color: var(--white) !important;
+    }
+    body.dark-mode .btn-primary-custom:hover {
+      background: var(--btn-green-hover) !important;
+      color: var(--white) !important;
+    }
+    body.dark-mode .btn-outline-accent { 
+      border-color: var(--white); 
+      color: var(--white) !important; 
+    }
+    body.dark-mode .btn-outline-accent:hover { 
+      background: var(--white) !important; 
+      color: var(--black) !important; 
+    }
+    body.dark-mode .btn-outline-accent:hover a { 
+      color: var(--black) !important; 
+    }
+
+    /* Ensure main background is black in dark mode */
+    body.dark-mode main {
+      background-color: #000000 !important;
+    }
+
+    @media (max-width: 768px) {
+      .footer-bottom-row { flex-direction: column; text-align: center; gap: 12px; }
+      .footer-links { justify-content: center; gap: 16px; }
+      .footer-brand h2 { font-size: 1.4rem !important; }
+      .footer-tagline { font-size: 0.85rem !important; padding: 0 10px; }
+      .blog-hero { padding: 60px 20px 40px; margin-top: 68px; }
+      .blog-hero h1 { font-size: 2.4rem !important; }
+      .blog-card .blog-img { height: 180px; }
+      .featured-article .featured-img { flex: 0 0 100%; min-height: 200px; }
+      .featured-article .featured-body { padding: 25px 20px; }
+      .featured-article .featured-body h3 { font-size: 1.5rem !important; }
+      .contact-card { padding: 25px 20px !important; }
+      .newsletter-section { padding: 30px 20px; }
+      .newsletter-section .newsletter-form .form-control { padding: 12px 18px; font-size: 0.9rem !important; }
+      .newsletter-section .newsletter-form .btn-primary-custom { padding: 12px 20px; font-size: 0.9rem !important; }
+    }
+  </style>
+</head>
+<body>
+  <!-- ========== HEADER ========== -->
+  <header>
+    <nav class="navbar-custom">
+      <div class="brand">
+        <img src="Images/logo.jpeg" alt="Logo" onerror="this.src='https://via.placeholder.com/55?text=CH'">
+        <span>Compass Housing<br> Society</span>
+      </div>
+
+      <ul class="desktop-nav-menu">
+        <li class="nav-item dropdown">
+          <span class="nav-link-custom dropdown-toggle-custom">Home</span>
+          <ul class="dropdown-menu-custom">
+            <li><a href="index.html">Home 1</a></li>
+            <li><a href="home2.html">Home 2</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <span class="nav-link-custom dropdown-toggle-custom">About Us</span>
+          <ul class="dropdown-menu-custom">
+            <li><a href="aboutus.html">About Us</a></li>
+            <li><a href="404.html">404</a></li>
+            <li><a href="commingsoon.html">Comming Soon</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a href="service.html" class="nav-link-custom">Service</a></li>
+        <li class="nav-item"><a href="servicedetails.html" class="nav-link-custom">Service Details</a></li>
+        <li class="nav-item dropdown">
+          <span class="nav-link-custom dropdown-toggle-custom">Blog</span>
+          <ul class="dropdown-menu-custom">
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="blogdetails.html">Blog Details</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a href="contactus.html" class="nav-link-custom">Contact Us</a></li>
+      </ul>
+
+      <div class="right-actions desktop-actions">
+        <button class="mode-toggle" type="button" aria-label="Toggle dark mode">
+          <span class="mode-icon">🌙</span>
+        </button>
+        <a href="register.html"><button class="btn-signin">Register</button></a>
+      </div>
+
+      <button class="menu-toggle" type="button" aria-label="Toggle menu">☰</button>
+    </nav>
+  </header>
+
+  <!-- Mobile Menu -->
+  <ul class="nav-menu" id="mobileNavMenu">
+    <li class="nav-item dropdown">
+      <span class="nav-link-custom dropdown-toggle-custom">Home</span>
+      <ul class="dropdown-menu-custom">
+        <li><a href="index.html">Home 1</a></li>
+        <li><a href="home2.html">Home 2</a></li>
+      </ul>
+    </li>
+    <li class="nav-item dropdown">
+      <span class="nav-link-custom dropdown-toggle-custom">About Us</span>
+      <ul class="dropdown-menu-custom">
+        <li><a href="aboutus.html">About Us</a></li>
+        <li><a href="404.html">404</a></li>
+        <li><a href="commingsoon.html">Comming Soon</a></li>
+      </ul>
+    </li>
+    <li class="nav-item"><a href="service.html" class="nav-link-custom">Service</a></li>
+    <li class="nav-item"><a href="servicedetails.html" class="nav-link-custom">Service Details</a></li>
+    <li class="nav-item dropdown">
+      <span class="nav-link-custom dropdown-toggle-custom">Blog</span>
+      <ul class="dropdown-menu-custom">
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="blogdetails.html">Blog Details</a></li>
+      </ul>
+    </li>
+    <li class="nav-item"><a href="contactus.html" class="nav-link-custom">Contact Us</a></li>
+    <li class="mobile-menu-actions">
+      <div class="mode-toggle-wrapper">
+        <button class="mode-toggle" type="button" aria-label="Toggle dark mode">
+          <span class="mode-icon">🌙</span>
+        </button>
+      </div>
+      <a href="register.html"><button class="btn-signin">Register</button></a>
+    </li>
+  </ul>
+
+  <!-- ========== MAIN: BLOG PAGE ========== -->
+  <main>
+    <!-- SECTION 1: HERO -->
+    <div class="blog-hero">
+      <div class="container">
+        <h1><i class="fas fa-pen-fancy" style="color: var(--accent);"></i> Our Blog</h1>
+        <p class="lead">Insights, tips, and news to help you navigate the real estate world with confidence.</p>
+        <div class="mt-4">
+          <button class="btn-primary-custom"><a href="#blog-posts"><i class="fas fa-arrow-down"></i> Browse Articles</a></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- FEATURED ARTICLE -->
+    <div class="container my-5">
+      <div class="featured-article">
+        <div class="featured-img" style="background-image: url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&auto=format');"></div>
+        <div class="featured-body">
+          <span class="badge-featured"><i class="fas fa-star me-1"></i> Featured</span>
+          <h3>The Future of Real Estate: Trends Shaping 2025 and Beyond</h3>
+          <div class="featured-meta">
+            <span><i class="far fa-calendar-alt"></i> June 18, 2025</span>
+            <span><i class="far fa-user"></i> By Admin</span>
+            <span><i class="far fa-clock"></i> 8 min read</span>
+          </div>
+          <p>Explore the emerging trends in real estate, from smart home technology to sustainable living and changing buyer preferences. Our experts share their predictions for the future of the housing market.</p>
+          <a href="blogdetails.html" class="btn-primary-custom" style="align-self: flex-start; padding: 10px 30px; font-size: 0.9rem !important;">Read Full Article →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 2: BLOG POSTS + SIDEBAR -->
+    <div class="container my-5" id="blog-posts">
+      <div class="row g-4">
+        <!-- Main Content -->
+        <div class="col-lg-8">
+          <div class="row g-4">
+            <!-- Blog Post 1 -->
+            <div class="col-md-6">
+              <div class="blog-card">
+                <div class="blog-img" style="background-image: url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=500&auto=format');">
+                  <span class="blog-category">Buying Tips</span>
+                </div>
+                <div class="blog-body">
+                  <div class="blog-meta">
+                    <span><i class="far fa-calendar-alt"></i> June 15, 2025</span>
+                    <span><i class="far fa-user"></i> Admin</span>
+                  </div>
+                  <h4>10 Essential Tips for First-Time Home Buyers</h4>
+                  <p>Buying your first home? Discover expert tips on budgeting, mortgage options, and finding the perfect property.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Blog Post 2 -->
+            <div class="col-md-6">
+              <div class="blog-card">
+                <div class="blog-img" style="background-image: url('https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=500&auto=format');">
+                  <span class="blog-category">Investment</span>
+                </div>
+                <div class="blog-body">
+                  <div class="blog-meta">
+                    <span><i class="far fa-calendar-alt"></i> June 12, 2025</span>
+                    <span><i class="far fa-user"></i> Admin</span>
+                  </div>
+                  <h4>Real Estate Investment Strategies for 2025</h4>
+                  <p>Learn about emerging markets, rental yields, and smart investment strategies for the year ahead.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Blog Post 3 -->
+            <div class="col-md-6">
+              <div class="blog-card">
+                <div class="blog-img" style="background-image: url('https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=500&auto=format');">
+                  <span class="blog-category">Market Trends</span>
+                </div>
+                <div class="blog-body">
+                  <div class="blog-meta">
+                    <span><i class="far fa-calendar-alt"></i> June 8, 2025</span>
+                    <span><i class="far fa-user"></i> Admin</span>
+                  </div>
+                  <h4>2025 Real Estate Market Outlook: What to Expect</h4>
+                  <p>Get insights into housing market trends, price predictions, and key factors shaping the real estate industry.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Blog Post 4 -->
+            <div class="col-md-6">
+              <div class="blog-card">
+                <div class="blog-img" style="background-image: url('https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=500&auto=format');">
+                  <span class="blog-category">Home Improvement</span>
+                </div>
+                <div class="blog-body">
+                  <div class="blog-meta">
+                    <span><i class="far fa-calendar-alt"></i> June 5, 2025</span>
+                    <span><i class="far fa-user"></i> Admin</span>
+                  </div>
+                  <h4>Home Renovations That Add the Most Value</h4>
+                  <p>Discover which home improvements offer the highest return on investment and boost your property's value.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Blog Post 5 -->
+            <div class="col-md-6">
+              <div class="blog-card">
+                <div class="blog-img" style="background-image: url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=500&auto=format');">
+                  <span class="blog-category">Selling Tips</span>
+                </div>
+                <div class="blog-body">
+                  <div class="blog-meta">
+                    <span><i class="far fa-calendar-alt"></i> June 2, 2025</span>
+                    <span><i class="far fa-user"></i> Admin</span>
+                  </div>
+                  <h4>How to Sell Your Home Fast in a Competitive Market</h4>
+                  <p>Proven strategies to attract buyers, stage your home effectively, and close deals quickly.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Blog Post 6 -->
+            <div class="col-md-6">
+              <div class="blog-card">
+                <div class="blog-img" style="background-image: url('https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=500&auto=format');">
+                  <span class="blog-category">Community</span>
+                </div>
+                <div class="blog-body">
+                  <div class="blog-meta">
+                    <span><i class="far fa-calendar-alt"></i> May 28, 2025</span>
+                    <span><i class="far fa-user"></i> Admin</span>
+                  </div>
+                  <h4>Building Communities: The Compass Housing Difference</h4>
+                  <p>Learn how we're creating thriving communities through sustainable development and community engagement.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pagination -->
+          
+        </div>
+
+        <!-- Sidebar -->
+        <div class="col-lg-4">
+          <!-- Search -->
+          <div class="sidebar-card">
+            <h5><i class="fas fa-search" style="color: var(--accent);"></i> Search</h5>
+            <div class="search-box">
+              <input type="text" placeholder="Search articles...">
+              <button class="search-btn"><i class="fas fa-search"></i></button>
+            </div>
+          </div>
+
+          <!-- Categories -->
+          <div class="sidebar-card">
+            <h5><i class="fas fa-folder" style="color: var(--accent);"></i> Categories</h5>
+            <ul>
+              <li><i class="fas fa-chevron-right"></i> <a href="#">Buying Tips (12)</a></li>
+              <li><i class="fas fa-chevron-right"></i> <a href="#">Selling Tips (8)</a></li>
+              <li><i class="fas fa-chevron-right"></i> <a href="#">Investment (15)</a></li>
+              <li><i class="fas fa-chevron-right"></i> <a href="#">Market Trends (10)</a></li>
+              <li><i class="fas fa-chevron-right"></i> <a href="#">Home Improvement (7)</a></li>
+              <li><i class="fas fa-chevron-right"></i> <a href="#">Community (5)</a></li>
+            </ul>
+          </div>
+
+          <!-- Recent Posts -->
+          <div class="sidebar-card">
+            <h5><i class="fas fa-clock" style="color: var(--accent);"></i> Recent Posts</h5>
+            <ul>
+              <li><i class="fas fa-chevron-right"></i> <a href="#">10 Essential Tips for First-Time Home Buyers</a></li>
+              <li><i class="fas fa-chevron-right"></i> <a href="#">Real Estate Investment Strategies for 2025</a></li>
+              <li><i class="fas fa-chevron-right"></i> <a href="#">2025 Real Estate Market Outlook</a></li>
+              <li><i class="fas fa-chevron-right"></i> <a href="#">Home Renovations That Add the Most Value</a></li>
+            </ul>
+          </div>
+
+          <!-- Tags -->
+          <div class="sidebar-card">
+            <h5><i class="fas fa-tags" style="color: var(--accent);"></i> Popular Tags</h5>
+            <div class="tag-cloud">
+              <span class="tag">Real Estate</span>
+              <span class="tag">Home Buying</span>
+              <span class="tag">Investment</span>
+              <span class="tag">Market Trends</span>
+              <span class="tag">Mortgage</span>
+              <span class="tag">Renovation</span>
+              <span class="tag">Selling</span>
+              <span class="tag">Property</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- POPULAR AUTHORS -->
+    <div class="container my-5">
+      <div class="text-center mb-5">
+        <h2 class="fw-bold"><i class="fas fa-user-edit" style="color: var(--accent);"></i> Meet Our Expert Authors</h2>
+        <p class="text-muted">Insights from industry professionals with years of real estate experience</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-3 col-6">
+          <div class="author-card">
+            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Author">
+            <h5>John Mitchell</h5>
+            <p class="author-role">Senior Real Estate Advisor</p>
+            <div class="author-social">
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 col-6">
+          <div class="author-card">
+            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Author">
+            <h5>Sarah Chen</h5>
+            <p class="author-role">Luxury Property Specialist</p>
+            <div class="author-social">
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 col-6">
+          <div class="author-card">
+            <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Author">
+            <h5>David Rodriguez</h5>
+            <p class="author-role">Investment Analyst</p>
+            <div class="author-social">
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 col-6">
+          <div class="author-card">
+            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Author">
+            <h5>Emily Thompson</h5>
+            <p class="author-role">Client Relations Manager</p>
+            <div class="author-social">
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- NEWSLETTER SUBSCRIPTION -->
+    <div class="container my-5">
+      <div class="newsletter-section text-center">
+        <div class="newsletter-icon"><i class="fas fa-envelope-open-text"></i></div>
+        <h3 class="fw-bold">Subscribe to Our Newsletter</h3>
+        <p class="text-muted" style="max-width: 550px; margin: 0 auto 25px;">Get the latest real estate insights, market updates, and expert tips delivered straight to your inbox.</p>
+        <div class="newsletter-form">
+          <div class="input-group">
+            <input type="email" class="form-control" id="newsletterEmail" placeholder="Enter your email address" aria-label="Email for newsletter">
+            <button class="btn-primary-custom" id="newsletterSubscribeBtn" type="button">
+              <i class="fas fa-paper-plane me-1"></i> Subscribe
+            </button>
+          </div>
+          <div class="newsletter-feedback" id="newsletterFeedback"></div>
+          <p class="text-muted mt-2" style="font-size: 0.8rem !important;">
+            <i class="fas fa-lock me-1"></i> We'll never share your email. Unsubscribe anytime.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA BANNER -->
+    <div class="container my-5">
+      <div class="contact-card p-4 p-md-5">
+        <div class="row align-items-center text-center text-md-start">
+          <div class="col-md-7 mb-4 mb-md-0">
+            <h2 class="fw-bold"><i class="fas fa-comment" style="color: var(--accent);"></i> Have a Question?</h2>
+            <p class="lead mb-0">Our real estate experts are here to help you with any queries about buying, selling, or investing.</p>
+          </div>
+          <div class="col-md-5 text-center">
+            <button class="btn-primary-custom btn-lg me-2 mb-2"><i class="fas fa-headset"></i> <a href="contactus.html">Contact Us</a></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <h2>COMPASS HOUSING SOCIETY</h2>
+      </div>
+      <p class="footer-tagline">
+        India's most trusted real estate platform since 2008. We help you find the perfect home with transparency, expertise, and care.
+      </p>
+      <div class="footer-social-icons">
+        <a href="http://www.facebook.com" class="footer-social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="http://www.twitter.com" class="footer-social-icon" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="http://www.instagram.com" class="footer-social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="http://www.linkedIn.com" class="footer-social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+      <hr class="footer-divider">
+      <div class="footer-bottom-row">
+        <p class="footer-copyright">© 2025 Compass Housing Society. All rights reserved.</p>
+        <ul class="footer-links">
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Sitemap</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll to top -->
+  <div class="scroll-widget"><button class="scroll-up-btn" id="scrollUpBtn"><i class="fas fa-arrow-up"></i></button></div>
+
+  <!-- ========== SCRIPT ========== -->
+  <script>
+    (function() {
+      // Dark mode toggle
+      const body = document.body;
+      const modeToggles = document.querySelectorAll(".mode-toggle");
+      const modeIcons = document.querySelectorAll(".mode-icon");
+      const stored = localStorage.getItem("compass-theme");
+      if (stored === "dark") { body.classList.add("dark-mode"); modeIcons.forEach(icon => icon.textContent = "☀️"); } 
+      else { modeIcons.forEach(icon => icon.textContent = "🌙"); }
+      modeToggles.forEach(t => t.addEventListener("click", () => { 
+        const isDark = body.classList.toggle("dark-mode"); 
+        modeIcons.forEach(icon => icon.textContent = isDark ? "☀️" : "🌙"); 
+        localStorage.setItem("compass-theme", isDark ? "dark" : "light"); 
+      }));
+
+      // Mobile menu
+      const menuToggle = document.querySelector(".menu-toggle");
+      const navMenu = document.querySelector(".nav-menu");
+
+      function closeMenu() {
+        if (navMenu) navMenu.classList.remove("nav-open");
+        if (menuToggle) menuToggle.innerHTML = "☰";
+      }
+
+      if (menuToggle && navMenu) {
+        menuToggle.addEventListener("click", function (e) {
+          e.stopPropagation();
+          navMenu.classList.toggle("nav-open");
+          this.innerHTML = navMenu.classList.contains("nav-open") ? "✕" : "☰";
+        });
+
+        document.addEventListener('click', function(event) {
+          const isClickInsideMenu = navMenu.contains(event.target);
+          const isClickOnToggle = menuToggle.contains(event.target);
+          if (window.innerWidth <= 1030 && !isClickInsideMenu && !isClickOnToggle && navMenu.classList.contains('nav-open')) {
+            closeMenu();
+          }
+        });
+
+        document.addEventListener('keydown', function(event) {
+          if (event.key === 'Escape' && window.innerWidth <= 1030 && navMenu.classList.contains('nav-open')) {
+            closeMenu();
+          }
+        });
+
+        const menuLinks = navMenu.querySelectorAll('.nav-item:not(.dropdown) .nav-link-custom, .nav-item:not(.dropdown) a');
+        menuLinks.forEach(link => {
+          link.addEventListener('click', function() {
+            if (window.innerWidth <= 1030) closeMenu();
+          });
+        });
+      }
+
+      // Dropdowns
+      const dropdownItems = document.querySelectorAll(".nav-item.dropdown > .nav-link-custom");
+      dropdownItems.forEach(link => {
+        link.addEventListener("click", function (e) {
+          e.preventDefault();
+          const parent = this.parentElement;
+          document.querySelectorAll(".nav-item.dropdown.open").forEach(item => {
+            if (item !== parent) item.classList.remove("open");
+          });
+          parent.classList.toggle("open");
+        });
+      });
+
+      window.addEventListener("resize", () => {
+        if (window.innerWidth > 1030) closeMenu();
+      });
+
+      document.getElementById("scrollUpBtn")?.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+
+      // ============================================
+      // NEWSLETTER EMAIL VALIDATION
+      // ============================================
+      const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z-]{2,}\.(com|in|org|net)$/i;
+      const newsletterInput = document.getElementById('newsletterEmail');
+      const newsletterBtn = document.getElementById('newsletterSubscribeBtn');
+      const newsletterFeedback = document.getElementById('newsletterFeedback');
+
+      function validateEmail(email) {
+        return emailPattern.test(email);
+      }
+
+      function showNewsletterFeedback(message, type) {
+        newsletterFeedback.textContent = message;
+        newsletterFeedback.className = 'newsletter-feedback ' + type;
+      }
+
+      function hideNewsletterFeedback() {
+        newsletterFeedback.className = 'newsletter-feedback';
+        newsletterFeedback.textContent = '';
+      }
+
+      // Real-time validation
+      if (newsletterInput) {
+        newsletterInput.addEventListener('input', function() {
+          const email = this.value.trim();
+          if (email === '') {
+            hideNewsletterFeedback();
+            return;
+          }
+          if (validateEmail(email)) {
+            showNewsletterFeedback('✓ Valid email address!', 'success');
+          } else {
+            showNewsletterFeedback('✗ Please enter a valid email (e.g., name@domain.com/in/org/net)', 'error');
+          }
+        });
+
+        newsletterInput.addEventListener('blur', function() {
+          const email = this.value.trim();
+          if (email === '') {
+            hideNewsletterFeedback();
+            return;
+          }
+          if (!validateEmail(email)) {
+            showNewsletterFeedback('✗ Please enter a valid email (e.g., name@domain.com/in/org/net)', 'error');
+          }
+        });
+      }
+
+      // Subscribe button click
+      if (newsletterBtn && newsletterInput) {
+        newsletterBtn.addEventListener('click', function() {
+          const email = newsletterInput.value.trim();
+          
+          if (email === '') {
+            showNewsletterFeedback('✗ Please enter your email address', 'error');
+            newsletterInput.focus();
+            return;
+          }
+
+          if (!validateEmail(email)) {
+            showNewsletterFeedback('✗ Please enter a valid email (e.g., name@domain.com/in/org/net)', 'error');
+            newsletterInput.focus();
+            return;
+          }
+
+          showNewsletterFeedback('✓ Thank you! You\'ll receive our latest updates at ' + email, 'success');
+          newsletterInput.value = '';
+          
+          setTimeout(function() {
+            hideNewsletterFeedback();
+          }, 5000);
+        });
+
+        newsletterInput.addEventListener('keypress', function(e) {
+          if (e.key === 'Enter') {
+            e.preventDefault();
+            newsletterBtn.click();
+          }
+        });
+      }
+
+      // Search button functionality
+      const searchBtn = document.querySelector('.search-box .search-btn');
+      const searchInput = document.querySelector('.search-box input');
+      if (searchBtn && searchInput) {
+        searchBtn.addEventListener('click', function() {
+          const query = searchInput.value.trim();
+          if (query) {
+            alert('Searching for: "' + query + '"');
+          } else {
+            alert('Please enter a search term.');
+          }
+        });
+
+        searchInput.addEventListener('keypress', function(e) {
+          if (e.key === 'Enter') {
+            e.preventDefault();
+            searchBtn.click();
+          }
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

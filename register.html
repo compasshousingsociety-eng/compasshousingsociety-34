@@ -1,0 +1,1799 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="description" content="Register or Sign In – Compass Housing Society" />
+  <meta name="keywords" content="register, sign in, login, create account, compass housing" />
+  <title>Register | Compass Housing Society</title>
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Google Fonts: Gantari + Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Gantari:ital,wght@0,100..900;1,100..900&family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* ============================================================
+       GLOBAL STYLES – same as homepage
+       ============================================================ */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --accent: #1B5E20;
+      --accent-light: #F4A261;
+      --primary-green: #FDFD96;
+      --primary-dark: #E8E85A;
+      --white: #FFFFFF;
+      --black: #000000;
+      --btn-green: #2E7D32;
+      --btn-green-hover: #1B5E20;
+      --footer-bg: #1a1a2e;
+    }
+
+    body {
+      font-family: 'Gantari', sans-serif;
+      color: #1E293B;
+      background-color: #F8FAFC;
+      transition: all 0.3s ease;
+      overflow-x: hidden;
+      font-size: 18px;
+    }
+
+    /* Transparent logo background */
+    main {
+      position: relative;
+      background-color: transparent;
+      min-height: 60vh;
+    }
+    main::before {
+      content: "";
+      position: fixed;
+      top: 80px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: url("Images/transparent-logo.jpeg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 570px auto;
+      opacity: 0.10;
+      pointer-events: none;
+      z-index: 0;
+    }
+    main > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    h1 { font-size: 3.2rem !important; font-weight: 800 !important; letter-spacing: -0.02em !important; }
+    h2 { font-size: 2.4rem !important; font-weight: 700 !important; }
+    h3 { font-size: 1.8rem !important; font-weight: 700 !important; }
+    h4 { font-size: 1.5rem !important; font-weight: 600 !important; }
+    h5 { font-size: 1.3rem !important; font-weight: 600 !important; }
+    h6 { font-size: 1.1rem !important; font-weight: 600 !important; }
+
+    p, li, span, a, .text-muted, .lead { font-size: 1.05rem !important; line-height: 1.5 !important; }
+    .lead { font-size: 1.2rem !important; }
+
+    .nav-menu, .nav-menu ul, .dropdown-menu-custom, .dropdown-menu-custom li, .nav-menu li,
+    header ul, header li, .navbar-custom ul, .navbar-custom li {
+      list-style: none !important;
+      list-style-type: none !important;
+      padding-left: 0 !important;
+      margin: 0 !important;
+    }
+
+    a, a:hover, a:focus, a:active, button, button:hover, button:focus {
+      text-decoration: none !important;
+      outline: none !important;
+      color: inherit !important;
+    }
+
+    /* HEADER */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: var(--primary-green) !important;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      transition: background-color 0.3s ease;
+    }
+
+    .navbar-custom { 
+      display: flex; 
+      align-items: center; 
+      justify-content: space-between; 
+      gap: 20px; 
+      position: relative;
+      padding: 12px 24px;
+      min-height: 80px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+    .brand span {
+      color: #1E293B !important;
+      font-weight: 700;
+      font-size: 1.1rem !important;
+      line-height: 1.2;
+    }
+    .brand img { 
+      width: 55px; 
+      height: 55px; 
+      object-fit: cover; 
+      border-radius: 10px !important;
+      border: 2px solid var(--accent); 
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      background: var(--white);
+    }
+
+    .desktop-nav-menu { 
+      display: flex; 
+      align-items: center; 
+      gap: 32px; 
+      flex: 1; 
+      justify-content: center; 
+    }
+    .desktop-nav-menu .nav-item { position: relative; }
+    .nav-link-custom {
+      color: #1E293B !important;
+      padding: 8px 0;
+      font-weight: 600;
+      font-size: 1.05rem !important;
+      cursor: pointer;
+      display: inline-block;
+      transition: color 0.2s;
+    }
+    .nav-link-custom:hover { color: var(--accent) !important; }
+    .dropdown-toggle-custom::after { content: " ▾"; margin-left: 6px; font-size: 0.9rem; }
+
+    .dropdown-menu-custom {
+      position: absolute;
+      left: 0;
+      top: calc(100% + 8px);
+      background-color: #E8E85A !important;
+      border-radius: 12px;
+      min-width: 220px;
+      display: none;
+      padding: 10px 0 !important;
+      box-shadow: 0 12px 20px rgba(0, 0, 0, 0.4);
+      z-index: 1001;
+    }
+    .dropdown-menu-custom li a {
+      display: block;
+      padding: 10px 22px;
+      color: #1E293B !important;
+      font-size: 1rem !important;
+      cursor: pointer;
+    }
+    .dropdown-menu-custom li a:hover { background-color: rgba(0, 0, 0, 0.08); color: var(--accent) !important; }
+    .nav-item.dropdown.open > .dropdown-menu-custom { display: block; }
+
+    /* Buttons – consistent with homepage */
+    .btn-signin, .btn-accent, .btn-primary-custom, 
+    .realty-card .btn-primary-custom, .contact-card .btn-primary-custom,
+    .hero-section .btn-primary-custom, .btn-learn-more {
+      transition: all 0.2s ease;
+      text-decoration: none !important;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      cursor: pointer;
+      color: var(--white) !important;
+      background: var(--btn-green) !important;
+      border: none;
+      padding: 10px 28px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 1rem !important;
+    }
+    .btn-signin:hover, .btn-primary-custom:hover, .btn-accent:hover, .btn-learn-more:hover {
+      background: var(--btn-green-hover) !important;
+      transform: scale(1.02);
+      color: var(--white) !important;
+    }
+    .btn-outline-accent {
+      background: transparent !important;
+      border: 2px solid var(--btn-green);
+      color: var(--btn-green) !important;
+      padding: 8px 26px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 1rem !important;
+      transition: all 0.2s ease;
+    }
+    .btn-outline-accent:hover {
+      background: var(--btn-green) !important;
+      color: var(--white) !important;
+      transform: scale(1.02);
+    }
+    .btn-outline-accent:hover a { color: var(--white) !important; }
+
+    .mode-toggle {
+      border: 1px solid #1E293B;
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: 18px;
+      cursor: pointer;
+      background: rgba(0,0,0,0.08);
+      width: 42px;
+      height: 42px;
+      color: #1E293B;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+    .mode-toggle:hover { background: rgba(0,0,0,0.15); transform: scale(1.05); }
+
+    .right-actions {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      flex-shrink: 0;
+    }
+    .menu-toggle {
+      display: none;
+      border: 1px solid var(--light);
+      background: transparent;
+      font-size: 28px;
+      line-height: 1;
+      cursor: pointer;
+      color: #1E293B;
+      padding: 6px 12px;
+      border-radius: 10px;
+      background: rgba(0,0,0,0.08);
+      border: 1px solid #1E293B;
+      transition: all 0.3s ease;
+    }
+    .menu-toggle:hover { background: rgba(0,0,0,0.15); }
+
+    .scroll-widget { position: fixed; right: 20px; bottom: 30px; z-index: 1000; }
+    .scroll-up-btn {
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      background: var(--btn-green) !important;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-size: 24px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+    .scroll-up-btn:hover { transform: scale(1.08); background: var(--btn-green-hover) !important; }
+
+    /* ============================================ */
+    /* MOBILE MENU */
+    /* ============================================ */
+    @media (max-width: 1030px) {
+      body { font-size: 16px; }
+      h1 { font-size: 2.2rem !important; }
+      h2 { font-size: 1.8rem !important; }
+      h3 { font-size: 1.5rem !important; }
+      h4 { font-size: 1.3rem !important; }
+      h5 { font-size: 1.2rem !important; }
+      p, li, span, .text-muted { font-size: 0.95rem !important; }
+      .navbar-custom { padding: 10px 16px; gap: 12px; justify-content: space-between; min-height: 68px; }
+      .brand { order: 1; flex: 1; }
+      .brand span { font-size: 1.2rem !important; font-weight: 700; }
+      .brand img { width: 45px; height: 45px; }
+      .desktop-nav-menu { display: none !important; }
+      .right-actions.desktop-actions { display: none; }
+      .menu-toggle { display: inline-flex; order: 2; align-items: center; justify-content: center; font-size: 26px; padding: 5px 12px; }
+      .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 300px;
+        height: 70vh;
+        top: 0;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        background: var(--primary-green) !important;
+        padding: 80px 20px 30px;
+        box-shadow: -8px 0 30px rgba(0, 0, 0, 0.5);
+        z-index: 1050;
+        gap: 4px;
+        transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        overflow-y: auto;
+        padding-top: 85px;
+        border-bottom-left-radius: 30px;
+        display: flex !important;
+      }
+      .nav-item { width: 100%; text-align: center; border-bottom: 1px solid rgba(0,0,0,0.08); padding: 2px 0; }
+      .nav-link-custom { width: 100%; padding: 14px 0; font-size: 1.1rem !important; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 6px; color: #1E293B !important; }
+      .dropdown-toggle-custom::after { margin-left: 6px; }
+      .dropdown-menu-custom { position: static; margin-top: 4px; background: rgba(0, 0, 0, 0.06); border-radius: 10px; border: none; box-shadow: none; padding: 0 0 6px 0 !important; display: none; width: 100%; text-align: center; }
+      .dropdown-menu-custom li a { padding: 10px 0; font-size: 0.95rem !important; opacity: 0.9; text-align: center; justify-content: center; }
+      .nav-item.dropdown.open > .dropdown-menu-custom { display: block; }
+      .mobile-menu-actions { margin-top: auto; padding-top: 20px; border-top: 2px solid rgba(0,0,0,0.12); width: 100%; display: flex; flex-direction: column; align-items: center; gap: 15px; padding-bottom: 20px; }
+      .mobile-menu-actions .mode-toggle-wrapper { display: flex; align-items: center; justify-content: center; gap: 15px; width: 100%; padding: 8px 0; color: #1E293B; font-weight: 600; font-size: 1rem !important; }
+      .mobile-menu-actions .mode-toggle-wrapper .mode-toggle { width: 44px; height: 44px; font-size: 18px; background: rgba(0,0,0,0.08); border-color: rgba(0,0,0,0.3); color: #1E293B; }
+      .mobile-menu-actions .btn-signin { width: 100%; justify-content: center; padding: 14px; font-size: 1rem !important; max-width: 200px; }
+      .nav-menu.nav-open { right: 0; }
+      main::before { top: 60px; background-size: 300px auto; }
+    }
+
+    @media (min-width: 1031px) {
+      .right-actions.desktop-actions { display: flex; }
+      .mobile-actions { display: none !important; }
+      .nav-menu { display: none !important; }
+    }
+
+    @media (max-width: 576px) {
+      h1 { font-size: 1.8rem !important; }
+      h2 { font-size: 1.5rem !important; }
+      h3 { font-size: 1.3rem !important; }
+      .navbar-custom { padding: 8px 12px; min-height: 60px; }
+      .brand span { font-size: 1.0rem !important; }
+      .brand img { width: 38px; height: 38px; }
+      .nav-menu { width: 280px; right: -280px; padding: 75px 16px 20px; height: 70vh; }
+      .menu-toggle { font-size: 22px; padding: 4px 10px; }
+      .btn-signin { padding: 5px 14px; font-size: 0.75rem !important; }
+      .mode-toggle { width: 34px; height: 34px; font-size: 14px; }
+      main::before { background-size: 250px auto; }
+    }
+
+    /* ============================================ */
+    /* REGISTER PAGE SPECIFIC STYLES                 */
+    /* ============================================ */
+    .register-hero {
+      background: linear-gradient(135deg, #FDFD96 0%, #E8E85A 100%);
+      padding: 100px 20px 50px;
+      text-align: center;
+      margin-top: 80px;
+      color: #1E293B;
+      position: relative;
+    }
+    .register-hero .breadcrumb-custom {
+      font-size: 0.95rem !important;
+      color: rgba(30, 41, 59, 0.7);
+      margin-bottom: 20px;
+    }
+    .register-hero .breadcrumb-custom a {
+      color: var(--accent);
+      font-weight: 600;
+    }
+    .register-hero h1 {
+      font-size: 2.8rem !important;
+      font-weight: 800;
+      max-width: 800px;
+      margin: 0 auto 15px;
+    }
+    .register-hero p {
+      max-width: 600px;
+      margin: 0 auto;
+      color: rgba(30, 41, 59, 0.8);
+    }
+
+    /* Two Column Layout */
+    .register-wrapper {
+      display: flex;
+      align-items: stretch;
+      gap: 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    /* Left Side - Info Panel */
+    .register-info {
+      flex: 1;
+      background: linear-gradient(135deg, var(--primary-green), var(--primary-dark));
+      border-radius: 28px;
+      padding: 50px 40px;
+      color: #1E293B;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 500px;
+    }
+    .register-info .info-icon {
+      font-size: 3rem;
+      color: var(--accent);
+      margin-bottom: 20px;
+    }
+    .register-info h2 {
+      font-size: 2.2rem !important;
+      font-weight: 800;
+      margin-bottom: 15px;
+    }
+    .register-info p {
+      font-size: 1.05rem !important;
+      line-height: 1.7;
+      opacity: 0.85;
+      margin-bottom: 25px;
+    }
+    .register-info .feature-list {
+      list-style: none;
+      padding: 0;
+    }
+    .register-info .feature-list li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 8px 0;
+      font-size: 1rem !important;
+    }
+    .register-info .feature-list li i {
+      color: var(--accent);
+      font-size: 1.2rem;
+      width: 24px;
+    }
+
+    /* Right Side - Auth Cards */
+    .register-auth {
+      flex: 1.2;
+      max-width: 520px;
+    }
+
+    /* Toggle Tabs - Smaller */
+    .auth-tabs {
+      display: flex;
+      background: #e9ecef;
+      border-radius: 999px;
+      padding: 4px;
+      margin-bottom: 25px;
+      position: relative;
+    }
+    .auth-tab {
+      flex: 1;
+      padding: 10px 16px;
+      text-align: center;
+      border-radius: 999px;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 0.9rem !important;
+      transition: all 0.3s ease;
+      color: #6c757d;
+      border: none;
+      background: transparent;
+    }
+    .auth-tab.active {
+      background: var(--btn-green);
+      color: white;
+      box-shadow: 0 4px 15px rgba(46, 125, 50, 0.3);
+    }
+    .auth-tab:hover:not(.active) {
+      color: #1E293B;
+    }
+
+    /* Auth Cards - Smaller */
+    .auth-card {
+      background: white;
+      border-radius: 24px;
+      padding: 30px 32px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+      display: none;
+      animation: fadeSlide 0.4s ease;
+    }
+    .auth-card.active {
+      display: block;
+    }
+
+    @keyframes fadeSlide {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .auth-card .form-control {
+      border: 2px solid #e9ecef;
+      border-radius: 10px;
+      padding: 10px 14px;
+      font-size: 0.95rem;
+      transition: border-color 0.2s;
+      background: white;
+    }
+    .auth-card .form-control:focus {
+      border-color: var(--btn-green);
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.1);
+    }
+    .auth-card label {
+      font-weight: 600;
+      margin-bottom: 5px;
+      font-size: 0.9rem !important;
+      color: #1E293B;
+    }
+    .auth-card h3 {
+      font-size: 1.5rem !important;
+      margin-bottom: 5px;
+    }
+    .auth-card .text-muted {
+      font-size: 0.9rem !important;
+      margin-bottom: 20px;
+    }
+
+    /* Validation error styles */
+    .auth-card .form-control.is-invalid {
+      border-color: #dc3545 !important;
+      border-width: 2px !important;
+    }
+    .auth-card .invalid-feedback-custom {
+      display: none;
+      width: 100%;
+      margin-top: 0.25rem;
+      font-size: 0.8rem;
+      color: #dc3545;
+      text-align: left;
+    }
+
+    .auth-divider {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 18px 0;
+    }
+    .auth-divider::before,
+    .auth-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: #e9ecef;
+    }
+    .auth-divider span {
+      color: #6c757d;
+      font-size: 0.8rem !important;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    .social-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px;
+      border: 2px solid #e9ecef;
+      border-radius: 10px;
+      background: white;
+      font-weight: 600;
+      font-size: 0.85rem !important;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      width: 100%;
+    }
+    .social-btn:hover {
+      border-color: var(--btn-green);
+      background: #f8fafc;
+      transform: translateY(-2px);
+    }
+    .social-btn i {
+      font-size: 1.1rem;
+    }
+    .social-btn.google i { color: #DB4437; }
+    .social-btn.facebook i { color: #1877F2; }
+
+    .forgot-link {
+      color: var(--btn-green);
+      font-weight: 600;
+      font-size: 0.85rem !important;
+      cursor: pointer;
+    }
+    .forgot-link:hover {
+      text-decoration: underline !important;
+    }
+
+    .toggle-link {
+      color: var(--btn-green);
+      font-weight: 700;
+      font-size: 0.9rem !important;
+      cursor: pointer;
+    }
+    .toggle-link:hover {
+      text-decoration: underline !important;
+    }
+
+    /* Password strength indicator */
+    .password-strength {
+      height: 4px;
+      border-radius: 4px;
+      margin-top: 6px;
+      background: #e9ecef;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    .password-strength .strength-bar {
+      height: 100%;
+      width: 0%;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+    }
+    .strength-text {
+      font-size: 0.75rem !important;
+      margin-top: 3px;
+      font-weight: 600;
+    }
+    .strength-text.weak { color: #dc3545; }
+    .strength-text.medium { color: #ffc107; }
+    .strength-text.strong { color: #28a745; }
+
+    /* Password toggle eye */
+    .password-toggle {
+      position: absolute;
+      right: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+      color: #6c757d;
+      background: none;
+      border: none;
+      font-size: 1rem;
+    }
+    .password-toggle:hover {
+      color: #1E293B;
+    }
+
+    .password-wrapper {
+      position: relative;
+    }
+    .password-wrapper .form-control {
+      padding-right: 40px;
+    }
+
+    .btn-primary-custom {
+      padding: 10px 24px;
+      font-size: 0.95rem !important;
+    }
+
+    /* FOOTER */
+    .site-footer {
+      background: var(--primary-green) !important;
+      color: #1E293B !important;
+      padding: 45px 0 25px;
+      margin-top: 0;
+      transition: background 0.3s ease;
+      position: relative;
+      z-index: 10;
+    }
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      text-align: center;
+    }
+    .footer-brand h2 {
+      font-size: 1.8rem !important;
+      font-weight: 700;
+      color: #1E293B !important;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+    }
+    .footer-brand h2 span { color: var(--btn-green) !important; }
+    .footer-tagline {
+      font-size: 0.95rem !important;
+      color: rgba(30, 41, 59, 0.8) !important;
+      max-width: 650px;
+      margin: 0 auto 25px;
+      line-height: 1.7;
+    }
+    .footer-social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      margin-bottom: 25px;
+    }
+    .footer-social-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(30, 41, 59, 0.08);
+      color: #1E293B !important;
+      transition: all 0.3s ease;
+      font-size: 18px;
+      border: 1px solid rgba(30, 41, 59, 0.1);
+    }
+    .footer-social-icon:hover {
+      background: var(--btn-green);
+      color: #FFFFFF !important;
+      transform: translateY(-2px);
+      border-color: var(--btn-green);
+    }
+    .footer-divider {
+      border: none;
+      border-top: 1px solid rgba(30, 41, 59, 0.15);
+      margin: 20px auto 22px;
+      max-width: 900px;
+    }
+    .footer-bottom-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .footer-copyright {
+      font-size: 0.85rem !important;
+      color: rgba(30, 41, 59, 0.6) !important;
+      margin: 0;
+    }
+    .footer-links {
+      display: flex;
+      gap: 22px;
+      flex-wrap: wrap;
+      margin: 0;
+      padding: 0;
+      list-style: none !important;
+    }
+    .footer-links li { display: inline-block; margin: 0; padding: 0; }
+    .footer-links li a {
+      font-size: 0.85rem !important;
+      color: rgba(30, 41, 59, 0.6) !important;
+      transition: color 0.3s ease;
+    }
+    .footer-links li a:hover { color: var(--btn-green) !important; }
+
+    /* ================================================================
+       DARK MODE – ENTIRE SCREEN BLACK, ALL TEXT WHITE
+       ================================================================ */
+    body.dark-mode {
+      background-color: #000000 !important;
+      color: #FFFFFF !important;
+    }
+
+    body.dark-mode header { background: #1a1a00 !important; }
+    body.dark-mode .dropdown-menu-custom { background-color: #2a2a00 !important; }
+    body.dark-mode .site-footer { background: #1a1a00 !important; }
+    body.dark-mode .footer-social-icon { background: rgba(255, 255, 255, 0.1); }
+    body.dark-mode .mode-toggle { background: rgba(255,255,255,0.1); border-color: #666; }
+    body.dark-mode .menu-toggle { background: rgba(255,255,255,0.1); border-color: #666; }
+    body.dark-mode .desktop-nav-menu { background: transparent !important; }
+    body.dark-mode .nav-menu { background: #1a1a00 !important; }
+    
+    /* Register Page dark mode */
+    body.dark-mode .register-hero {
+      background: linear-gradient(135deg, #2a2a00 0%, #1a1a00 100%);
+    }
+    body.dark-mode .register-hero * {
+      color: #FFFFFF !important;
+    }
+    body.dark-mode .register-hero .breadcrumb-custom {
+      color: #cccccc !important;
+    }
+    body.dark-mode .register-hero p {
+      color: #cccccc !important;
+    }
+    
+    body.dark-mode .register-info {
+      background: linear-gradient(135deg, #1a1a00, #2a2a00);
+      color: #FFFFFF !important;
+    }
+    body.dark-mode .register-info * {
+      color: #FFFFFF !important;
+    }
+    body.dark-mode .register-info .info-icon {
+      color: #4CAF50 !important;
+    }
+    body.dark-mode .register-info .feature-list li i {
+      color: #4CAF50 !important;
+    }
+
+    body.dark-mode .auth-card {
+      background: #111111 !important;
+      border-color: #2a2a2a;
+    }
+    body.dark-mode .auth-card * {
+      color: #FFFFFF !important;
+    }
+    body.dark-mode .auth-card .form-control {
+      background: #1a1a1a !important;
+      border-color: #333 !important;
+      color: #FFFFFF !important;
+    }
+    body.dark-mode .auth-card .form-control::placeholder {
+      color: #888 !important;
+    }
+    body.dark-mode .auth-card .form-control:focus {
+      border-color: #4CAF50 !important;
+      box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.15) !important;
+    }
+    body.dark-mode .auth-card label {
+      color: #FFFFFF !important;
+    }
+    body.dark-mode .auth-tabs {
+      background: #1a1a1a;
+    }
+    body.dark-mode .auth-tab {
+      color: #aaaaaa;
+    }
+    body.dark-mode .auth-tab.active {
+      background: var(--btn-green);
+      color: white;
+    }
+    body.dark-mode .auth-tab:hover:not(.active) {
+      color: #FFFFFF;
+    }
+    body.dark-mode .social-btn {
+      background: #1a1a1a;
+      border-color: #333;
+      color: #FFFFFF;
+    }
+    body.dark-mode .social-btn:hover {
+      border-color: #4CAF50;
+      background: #222;
+    }
+    body.dark-mode .auth-divider::before,
+    body.dark-mode .auth-divider::after {
+      background: #333;
+    }
+    body.dark-mode .auth-divider span {
+      color: #aaaaaa;
+    }
+    body.dark-mode .toggle-link {
+      color: #4CAF50;
+    }
+    body.dark-mode .forgot-link {
+      color: #4CAF50;
+    }
+    body.dark-mode .password-toggle {
+      color: #888;
+    }
+    body.dark-mode .password-toggle:hover {
+      color: #FFFFFF;
+    }
+    
+    /* Footer dark */
+    body.dark-mode .footer-brand h2 { color: #FFFFFF !important; }
+    body.dark-mode .footer-tagline { color: rgba(255,255,255,0.7) !important; }
+    body.dark-mode .footer-social-icon { color: rgba(255,255,255,0.7) !important; border-color: rgba(255,255,255,0.1); }
+    body.dark-mode .footer-social-icon:hover { background: #4CAF50; color: #FFFFFF !important; }
+    body.dark-mode .footer-copyright { color: rgba(255,255,255,0.45) !important; }
+    body.dark-mode .footer-links li a { color: rgba(255,255,255,0.45) !important; }
+    body.dark-mode .footer-links li a:hover { color: #4CAF50 !important; }
+    body.dark-mode .footer-divider { border-top-color: rgba(255,255,255,0.08); }
+
+    /* Nav & header dark */
+    body.dark-mode .brand span { color: #FFFFFF !important; }
+    body.dark-mode .nav-link-custom { color: #FFFFFF !important; }
+    body.dark-mode .mode-toggle { color: #FFFFFF !important; border-color: #FFFFFF; }
+    body.dark-mode .menu-toggle { color: #FFFFFF !important; border-color: #FFFFFF; }
+    body.dark-mode .dropdown-menu-custom li a { color: #FFFFFF !important; }
+    body.dark-mode .dropdown-menu-custom li a:hover { background: rgba(255,255,255,0.15) !important; color: #FFFFFF !important; }
+
+    /* Buttons in dark mode */
+    body.dark-mode .btn-primary-custom {
+      background: var(--btn-green) !important;
+      color: var(--white) !important;
+    }
+    body.dark-mode .btn-primary-custom:hover {
+      background: var(--btn-green-hover) !important;
+      color: var(--white) !important;
+    }
+
+    /* Ensure main background is black in dark mode */
+    body.dark-mode main {
+      background-color: #000000 !important;
+    }
+
+    @media (max-width: 992px) {
+      .register-wrapper {
+        flex-direction: column;
+        padding: 15px;
+      }
+      .register-info {
+        min-height: auto;
+        padding: 30px 25px;
+        text-align: center;
+      }
+      .register-info .feature-list {
+        text-align: left;
+      }
+      .register-auth {
+        max-width: 100%;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .footer-bottom-row { flex-direction: column; text-align: center; gap: 12px; }
+      .footer-links { justify-content: center; gap: 16px; }
+      .footer-brand h2 { font-size: 1.4rem !important; }
+      .footer-tagline { font-size: 0.85rem !important; padding: 0 10px; }
+      .register-hero { padding: 80px 20px 40px; margin-top: 68px; }
+      .register-hero h1 { font-size: 2rem !important; }
+      .auth-card { padding: 20px 18px; }
+      .auth-tabs { max-width: 100%; }
+      .auth-tab { font-size: 0.8rem !important; padding: 8px 12px; }
+    }
+
+    @media (max-width: 576px) {
+      .register-info { padding: 20px 16px; }
+      .register-info h2 { font-size: 1.5rem !important; }
+      .register-info .feature-list li { font-size: 0.9rem !important; }
+    }
+
+    /* ===== MENTAL BLOCK: prevent typing/pasting more than 8 chars ===== */
+    .password-limit-block {
+      /* no visual change, just a marker for JS */
+    }
+    input[type="password"]::-ms-reveal,
+input[type="password"]::-ms-clear {
+    display: none;
+}
+
+/* Hide password eye icon in Chrome / Chromium browsers */
+input[type="password"]::-webkit-credentials-auto-fill-button,
+input[type="password"]::-webkit-textfield-decoration-container {
+    display: none !important;
+}
+  </style>
+</head>
+<body>
+  <!-- ========== HEADER ========== -->
+  <header>
+    <nav class="navbar-custom">
+      <div class="brand">
+        <img src="Images/logo.jpeg" alt="Logo" onerror="this.src='https://via.placeholder.com/55?text=CH'">
+        <span>Compass Housing<br> Society</span>
+      </div>
+
+      <ul class="desktop-nav-menu">
+        <li class="nav-item dropdown">
+          <span class="nav-link-custom dropdown-toggle-custom">Home</span>
+          <ul class="dropdown-menu-custom">
+            <li><a href="index.html">Home 1</a></li>
+            <li><a href="home2.html">Home 2</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <span class="nav-link-custom dropdown-toggle-custom">About Us</span>
+          <ul class="dropdown-menu-custom">
+            <li><a href="aboutus.html">About Us</a></li>
+            <li><a href="404.html">404</a></li>
+            <li><a href="commingsoon.html">Comming Soon</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a href="service.html" class="nav-link-custom">Service</a></li>
+        <li class="nav-item"><a href="servicedetails.html" class="nav-link-custom">Service Details</a></li>
+        <li class="nav-item dropdown">
+          <span class="nav-link-custom dropdown-toggle-custom">Blog</span>
+          <ul class="dropdown-menu-custom">
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="blogdetails.html">Blog Details</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a href="contactus.html" class="nav-link-custom">Contact Us</a></li>
+      </ul>
+
+      <div class="right-actions desktop-actions">
+        <button class="mode-toggle" type="button" aria-label="Toggle dark mode">
+          <span class="mode-icon">🌙</span>
+        </button>
+        <a href="register.html"><button class="btn-signin">Register</button></a>
+      </div>
+
+      <button class="menu-toggle" type="button" aria-label="Toggle menu">☰</button>
+    </nav>
+  </header>
+
+  <!-- Mobile Menu -->
+  <ul class="nav-menu" id="mobileNavMenu">
+    <li class="nav-item dropdown">
+      <span class="nav-link-custom dropdown-toggle-custom">Home</span>
+      <ul class="dropdown-menu-custom">
+        <li><a href="index.html">Home 1</a></li>
+        <li><a href="home2.html">Home 2</a></li>
+      </ul>
+    </li>
+    <li class="nav-item dropdown">
+      <span class="nav-link-custom dropdown-toggle-custom">About Us</span>
+      <ul class="dropdown-menu-custom">
+        <li><a href="aboutus.html">About Us</a></li>
+        <li><a href="404.html">404</a></li>
+        <li><a href="commingsoon.html">Comming Soon</a></li>
+      </ul>
+    </li>
+    <li class="nav-item"><a href="service.html" class="nav-link-custom">Service</a></li>
+    <li class="nav-item"><a href="servicedetails.html" class="nav-link-custom">Service Details</a></li>
+    <li class="nav-item dropdown">
+      <span class="nav-link-custom dropdown-toggle-custom">Blog</span>
+      <ul class="dropdown-menu-custom">
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="blogdetails.html">Blog Details</a></li>
+      </ul>
+    </li>
+    <li class="nav-item"><a href="contactus.html" class="nav-link-custom">Contact Us</a></li>
+    <li class="mobile-menu-actions">
+      <div class="mode-toggle-wrapper">
+        <button class="mode-toggle" type="button" aria-label="Toggle dark mode">
+          <span class="mode-icon">🌙</span>
+        </button>
+      </div>
+      <a href="register.html"><button class="btn-signin">Register</button></a>
+    </li>
+  </ul>
+
+  <!-- ========== MAIN: REGISTER PAGE ========== -->
+  <main>
+    <!-- HERO SECTION -->
+    <div class="register-hero">
+      <div class="container">
+        <div class="breadcrumb-custom">
+          <a href="index.html">Home</a> <i class="fas fa-chevron-right" style="font-size: 0.7rem;"></i> 
+          <span>Register</span>
+        </div>
+        <h1>Welcome to Compass Housing</h1>
+        <p class="lead">Sign in to your account or create a new one to start your real estate journey with us.</p>
+      </div>
+    </div>
+
+    <!-- TWO COLUMN LAYOUT -->
+    <div class="register-wrapper">
+      <!-- LEFT SIDE - INFO PANEL -->
+      <div class="register-info">
+        <div class="info-icon">
+          <i class="fas fa-home"></i>
+        </div>
+        <h2>Your Dream Home Awaits</h2>
+        <p>Join thousands of happy homeowners who found their perfect property through Compass Housing Society.</p>
+        
+        <ul class="feature-list">
+          <li><i class="fas fa-check-circle"></i> Access to 5000+ verified properties</li>
+          <li><i class="fas fa-check-circle"></i> Expert guidance from real estate professionals</li>
+          <li><i class="fas fa-check-circle"></i> Secure and transparent transactions</li>
+          <li><i class="fas fa-check-circle"></i> Personalized property recommendations</li>
+          <li><i class="fas fa-check-circle"></i> 24/7 customer support</li>
+        </ul>
+        
+        <div style="margin-top: 25px; padding-top: 20px; border-top: 1px solid rgba(30, 41, 59, 0.15);">
+          <p style="font-size: 0.9rem !important; opacity: 0.7; margin: 0;">
+            <i class="fas fa-shield-alt" style="color: var(--accent);"></i> Your data is safe and secure with us
+          </p>
+        </div>
+      </div>
+
+      <!-- RIGHT SIDE - AUTH CARDS -->
+      <div class="register-auth">
+        <!-- AUTH TABS -->
+        <div class="auth-tabs" id="authTabs">
+          <button class="auth-tab active" data-tab="signin">Sign In</button>
+          <button class="auth-tab" data-tab="create">Create Account</button>
+        </div>
+
+        <!-- SIGN IN CARD -->
+        <div class="auth-card active" id="signinCard">
+          <h3 class="fw-bold"><i class="fas fa-sign-in-alt" style="color: var(--accent);"></i> Sign In</h3>
+          <p class="text-muted">Welcome back! Please enter your credentials.</p>
+          
+          <form id="signinForm" novalidate>
+            <div class="mb-3">
+              <label for="signinEmail" class="form-label">Email Address <span class="text-danger">*</span></label>
+              <input type="email" class="form-control" id="signinEmail" placeholder="Enter your email">
+              <div class="invalid-feedback-custom" id="signinEmailError"></div>
+            </div>
+            <div class="mb-3">
+              <label for="signinPassword" class="form-label">Password <span class="text-danger">*</span></label>
+              <div class="password-wrapper">
+                <input type="password" class="form-control" id="signinPassword" placeholder="Enter your password">
+                <button type="button" class="password-toggle" id="signinPasswordToggle" aria-label="Toggle password visibility">
+                  <i class="fas fa-eye"></i>
+                </button>
+              </div>
+              <div class="invalid-feedback-custom" id="signinPasswordError">Password is required</div>
+            </div>
+            <button type="submit" class="btn-primary-custom w-100"><i class="fas fa-sign-in-alt me-2"></i> Sign In</button>
+          </form>
+          
+          <div class="auth-divider"><span>or continue with</span></div>
+          
+          
+          <p class="text-center mt-3" style="font-size: 0.9rem !important;">
+            Don't have an account? <span class="toggle-link" id="switchToCreate">Create one now</span>
+          </p>
+        </div>
+
+        <!-- CREATE ACCOUNT CARD -->
+        <div class="auth-card" id="createCard">
+          <h3 class="fw-bold"><i class="fas fa-user-plus" style="color: var(--accent);"></i> Create Account</h3>
+          <p class="text-muted">Join Compass Housing and start exploring amazing properties.</p>
+          
+          <form id="createForm" novalidate>
+            <div class="row g-2">
+              <div class="col-md-6">
+                <label for="createFirstName" class="form-label">First Name <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="createFirstName" placeholder="First name">
+                <div class="invalid-feedback-custom" id="createFirstNameError">Please enter a valid name</div>
+              </div>
+              <div class="col-md-6">
+                <label for="createLastName" class="form-label">Last Name <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="createLastName" placeholder="Last name">
+                <div class="invalid-feedback-custom" id="createLastNameError">Please enter a valid name</div>
+              </div>
+            </div>
+            <div class="mb-2 mt-2">
+              <label for="createEmail" class="form-label">Email Address <span class="text-danger">*</span></label>
+              <input type="email" class="form-control" id="createEmail" placeholder="Enter your email">
+              <div class="invalid-feedback-custom" id="createEmailError"></div>
+            </div>
+            <div class="mb-2">
+              <label for="createPhone" class="form-label">Phone Number <span class="text-danger">*</span></label>
+              <input type="tel" class="form-control" id="createPhone" maxlength="10" placeholder="Enter 10-digit phone">
+              <div class="invalid-feedback-custom" id="createPhoneError">Please enter a valid 10-digit phone number starting with 6-9</div>
+            </div>
+            <div class="mb-2">
+              <label for="createPassword" class="form-label">Password <span class="text-danger">*</span></label>
+              <div class="password-wrapper">
+                <input type="password" class="form-control password-limit-block" id="createPassword" placeholder="Exactly 8 characters" maxlength="8">
+                <button type="button" class="password-toggle" id="createPasswordToggle" aria-label="Toggle password visibility">
+                  <i class="fas fa-eye"></i>
+                </button>
+              </div>
+              <div class="password-strength" id="passwordStrength">
+                <div class="strength-bar" id="strengthBar"></div>
+              </div>
+              <div class="strength-text" id="strengthText"></div>
+              <div class="invalid-feedback-custom" id="createPasswordError">Password must be exactly 8 characters long</div>
+            </div>
+            <div class="mb-2">
+              <label for="createConfirmPassword" class="form-label">Confirm Password <span class="text-danger">*</span></label>
+              <div class="password-wrapper">
+                <input type="password" class="form-control password-limit-block" id="createConfirmPassword" placeholder="Confirm your password" maxlength="8">
+                <button type="button" class="password-toggle" id="createConfirmToggle" aria-label="Toggle password visibility">
+                  <i class="fas fa-eye"></i>
+                </button>
+              </div>
+              <div class="invalid-feedback-custom" id="createConfirmError">Passwords do not match</div>
+            </div>
+            <div class="form-check mb-3">
+              <input type="checkbox" class="form-check-input" id="termsCheck">
+              <label class="form-check-label" for="termsCheck" style="font-size: 0.85rem !important;">
+                I agree to the <a href="#" style="color: var(--btn-green); font-weight: 600;">Terms of Service</a> &amp; <a href="#" style="color: var(--btn-green); font-weight: 600;">Privacy Policy</a>
+              </label>
+              <div class="invalid-feedback-custom" id="termsError">You must agree to the terms</div>
+            </div>
+            <button type="submit" class="btn-primary-custom w-100"><i class="fas fa-user-plus me-2"></i> Create Account</button>
+          </form>
+          
+          <div class="auth-divider"><span>or continue with</span></div>
+          
+          
+          <p class="text-center mt-3" style="font-size: 0.9rem !important;">
+            Already have an account? <span class="toggle-link" id="switchToSignin">Sign in here</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <h2>COMPASS HOUSING SOCIETY</h2>
+      </div>
+      <p class="footer-tagline">
+        India's most trusted real estate platform since 2008. We help you find the perfect home with transparency, expertise, and care.
+      </p>
+      <div class="footer-social-icons">
+        <a href="http://www.facebook.com" class="footer-social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="http://www.twitter.com" class="footer-social-icon" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="http://www.instagram.com" class="footer-social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="http://www.linkedIn.com" class="footer-social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+      <hr class="footer-divider">
+      <div class="footer-bottom-row">
+        <p class="footer-copyright">© 2026 Compass Housing Society. All rights reserved.</p>
+        <ul class="footer-links">
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Sitemap</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll to top -->
+  <div class="scroll-widget"><button class="scroll-up-btn" id="scrollUpBtn"><i class="fas fa-arrow-up"></i></button></div>
+
+  <!-- ========== SCRIPT ========== -->
+  <script>
+    (function() {
+      // Dark mode toggle
+      const body = document.body;
+      const modeToggles = document.querySelectorAll(".mode-toggle");
+      const modeIcons = document.querySelectorAll(".mode-icon");
+      const stored = localStorage.getItem("compass-theme");
+      if (stored === "dark") { body.classList.add("dark-mode"); modeIcons.forEach(icon => icon.textContent = "☀️"); } 
+      else { modeIcons.forEach(icon => icon.textContent = "🌙"); }
+      modeToggles.forEach(t => t.addEventListener("click", () => { 
+        const isDark = body.classList.toggle("dark-mode"); 
+        modeIcons.forEach(icon => icon.textContent = isDark ? "☀️" : "🌙"); 
+        localStorage.setItem("compass-theme", isDark ? "dark" : "light"); 
+      }));
+
+      // Mobile menu
+      const menuToggle = document.querySelector(".menu-toggle");
+      const navMenu = document.querySelector(".nav-menu");
+
+      function closeMenu() {
+        if (navMenu) navMenu.classList.remove("nav-open");
+        if (menuToggle) menuToggle.innerHTML = "☰";
+      }
+
+      if (menuToggle && navMenu) {
+        menuToggle.addEventListener("click", function (e) {
+          e.stopPropagation();
+          navMenu.classList.toggle("nav-open");
+          this.innerHTML = navMenu.classList.contains("nav-open") ? "✕" : "☰";
+        });
+
+        document.addEventListener('click', function(event) {
+          const isClickInsideMenu = navMenu.contains(event.target);
+          const isClickOnToggle = menuToggle.contains(event.target);
+          if (window.innerWidth <= 1030 && !isClickInsideMenu && !isClickOnToggle && navMenu.classList.contains('nav-open')) {
+            closeMenu();
+          }
+        });
+
+        document.addEventListener('keydown', function(event) {
+          if (event.key === 'Escape' && window.innerWidth <= 1030 && navMenu.classList.contains('nav-open')) {
+            closeMenu();
+          }
+        });
+
+        const menuLinks = navMenu.querySelectorAll('.nav-item:not(.dropdown) .nav-link-custom, .nav-item:not(.dropdown) a');
+        menuLinks.forEach(link => {
+          link.addEventListener('click', function() {
+            if (window.innerWidth <= 1030) closeMenu();
+          });
+        });
+      }
+
+      // Dropdowns
+      const dropdownItems = document.querySelectorAll(".nav-item.dropdown > .nav-link-custom");
+      dropdownItems.forEach(link => {
+        link.addEventListener("click", function (e) {
+          e.preventDefault();
+          const parent = this.parentElement;
+          document.querySelectorAll(".nav-item.dropdown.open").forEach(item => {
+            if (item !== parent) item.classList.remove("open");
+          });
+          parent.classList.toggle("open");
+        });
+      });
+
+      window.addEventListener("resize", () => {
+        if (window.innerWidth > 1030) closeMenu();
+      });
+
+      document.getElementById("scrollUpBtn")?.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+
+      // ==================== TAB SWITCHING ====================
+      const tabs = document.querySelectorAll('.auth-tab');
+      const signinCard = document.getElementById('signinCard');
+      const createCard = document.getElementById('createCard');
+
+      function switchTab(tabId) {
+        tabs.forEach(t => t.classList.remove('active'));
+        document.querySelector(`.auth-tab[data-tab="${tabId}"]`).classList.add('active');
+        
+        signinCard.classList.remove('active');
+        createCard.classList.remove('active');
+        if (tabId === 'signin') {
+          signinCard.classList.add('active');
+        } else {
+          createCard.classList.add('active');
+        }
+      }
+
+      tabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+          switchTab(this.dataset.tab);
+        });
+      });
+
+      document.getElementById('switchToCreate')?.addEventListener('click', () => switchTab('create'));
+      document.getElementById('switchToSignin')?.addEventListener('click', () => switchTab('signin'));
+
+      // ==================== PASSWORD TOGGLE ====================
+      const passwordToggles = document.querySelectorAll('.password-toggle');
+      passwordToggles.forEach(toggle => {
+        toggle.addEventListener('click', function() {
+          const input = this.parentElement.querySelector('input');
+          const icon = this.querySelector('i');
+          if (input.type === 'password') {
+            input.type = 'text';
+            icon.classList.remove('fa-eye');
+            icon.classList.add('fa-eye-slash');
+          } else {
+            input.type = 'password';
+            icon.classList.remove('fa-eye-slash');
+            icon.classList.add('fa-eye');
+          }
+        });
+      });
+
+      // ==================== MENTAL BLOCK: STRICTLY PREVENT > 8 CHARS ====================
+      // This function is applied to all password inputs with class 'password-limit-block'
+      function enforceMax8Chars(inputElement) {
+        if (!inputElement) return;
+        
+        // 1. Block on input (typing/pasting)
+        inputElement.addEventListener('input', function(e) {
+          // If the value is longer than 8, truncate it immediately
+          if (this.value.length > 8) {
+            // Save cursor position if needed, but we just truncate
+            this.value = this.value.slice(0, 8);
+          }
+        });
+
+        // 2. Block on paste (extra safety)
+        inputElement.addEventListener('paste', function(e) {
+          // Let the paste happen, then truncate in a microtask
+          setTimeout(() => {
+            if (this.value.length > 8) {
+              this.value = this.value.slice(0, 8);
+            }
+          }, 0);
+        });
+
+        // 3. Block on drop (drag and drop text)
+        inputElement.addEventListener('drop', function(e) {
+          e.preventDefault();
+          const text = e.dataTransfer.getData('text');
+          if (text) {
+            // Insert only up to 8 characters
+            const current = this.value;
+            const combined = current + text;
+            this.value = combined.slice(0, 8);
+          }
+        });
+
+        // 4. Block on keydown for extra keys that might insert text
+        inputElement.addEventListener('keydown', function(e) {
+          // If already at 8 characters, prevent any key that adds a character
+          if (this.value.length >= 8) {
+            // Allow navigation keys: Backspace, Delete, Arrow keys, Tab, Escape, etc.
+            const allowedKeys = ['Backspace', 'Delete', 'ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', 'Tab', 'Escape', 'Home', 'End', 'Enter'];
+            if (allowedKeys.includes(e.key)) {
+              return; // allow these
+            }
+            // Check if it's a character key (not a modifier)
+            if (e.key.length === 1 && !e.ctrlKey && !e.altKey && !e.metaKey) {
+              e.preventDefault(); // Block the character
+            }
+          }
+        });
+
+        // 5. Also block on change (in case of browser autofill)
+        inputElement.addEventListener('change', function() {
+          if (this.value.length > 8) {
+            this.value = this.value.slice(0, 8);
+          }
+        });
+
+        // 6. Block on blur (final safety net)
+        inputElement.addEventListener('blur', function() {
+          if (this.value.length > 8) {
+            this.value = this.value.slice(0, 8);
+          }
+        });
+      }
+
+      // Apply the mental block to all password fields with the class
+      document.querySelectorAll('.password-limit-block').forEach(function(input) {
+        enforceMax8Chars(input);
+      });
+
+      // ==================== PASSWORD STRENGTH ====================
+      const createPassword = document.getElementById('createPassword');
+      const strengthBar = document.getElementById('strengthBar');
+      const strengthText = document.getElementById('strengthText');
+
+      function checkPasswordStrength(password) {
+        let strength = 0;
+        if (password.length >= 8) strength++;
+        if (password.match(/[a-z]/)) strength++;
+        if (password.match(/[A-Z]/)) strength++;
+        if (password.match(/[0-9]/)) strength++;
+        if (password.match(/[^a-zA-Z0-9]/)) strength++;
+        return strength;
+      }
+
+      if (createPassword) {
+        createPassword.addEventListener('input', function() {
+          // The mental block already enforces 8, but we still validate
+          const password = this.value;
+          const strength = checkPasswordStrength(password);
+          
+          let percentage = 0;
+          let label = '';
+          let className = '';
+          
+          if (password.length === 0) {
+            percentage = 0;
+            label = '';
+            className = '';
+          } else if (password.length < 8) {
+            percentage = 20;
+            label = 'Weak (need 8 chars)';
+            className = 'weak';
+          } else if (strength <= 2) {
+            percentage = 40;
+            label = 'Weak';
+            className = 'weak';
+          } else if (strength <= 3) {
+            percentage = 60;
+            label = 'Medium';
+            className = 'medium';
+          } else if (strength <= 4) {
+            percentage = 80;
+            label = 'Strong';
+            className = 'strong';
+          } else {
+            percentage = 100;
+            label = 'Very Strong';
+            className = 'strong';
+          }
+          
+          strengthBar.style.width = percentage + '%';
+          strengthBar.style.background = percentage <= 40 ? '#dc3545' : percentage <= 60 ? '#ffc107' : '#28a745';
+          strengthText.textContent = password.length > 0 ? `Password Strength: ${label}` : '';
+          strengthText.className = 'strength-text ' + (password.length > 0 ? className : '');
+        });
+      }
+
+      // ==================== FORM VALIDATION ====================
+      
+      function trimLeadingSpaces(str) {
+        if (!str) return '';
+        return str.replace(/^\s+/, '');
+      }
+
+      function validateName(value, fieldName) {
+        const trimmed = trimLeadingSpaces(value);
+        if (trimmed === "") return `${fieldName} is required.`;
+        const nameRegex = /^[A-Za-z\s]+$/;
+        if (!nameRegex.test(trimmed)) return `${fieldName} can only contain letters and spaces.`;
+        return "";
+      }
+
+      function validateEmail(value) {
+        const trimmed = trimLeadingSpaces(value);
+        if (trimmed === "") return "Email address is required.";
+        const cleanEmail = trimmed.replace(/\s+/g, '');
+        const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z-]{2,}\.(com|in|org|net)$/i;
+        if (!emailRegex.test(cleanEmail)) {
+          return "Invalid email format. Must follow: username@domain.com / .in / .org / .net";
+        }
+        return "";
+      }
+
+      function validatePhone(value) {
+        const trimmed = trimLeadingSpaces(value);
+        if (trimmed === "") return "Phone number is required.";
+        const digitsOnly = trimmed.replace(/\D/g, '');
+        if (digitsOnly.length !== 10) return "Phone number must be exactly 10 digits.";
+        const firstDigit = digitsOnly.charAt(0);
+        if (firstDigit < '6' || firstDigit > '9') return "Phone number must start with a digit between 6 and 9.";
+        return "";
+      }
+
+      function validatePassword(value) {
+        if (!value || value.length === 0) {
+          return "Password is required.";
+        }
+        if (value.length < 8) {
+          return "Password must be at least 8 characters long.";
+        }
+        if (value.length > 8) {
+          return "Password must be exactly 8 characters long.";
+        }
+        return "";
+      }
+
+      function validateConfirm(password, confirm) {
+        if (password !== confirm) return "Passwords do not match.";
+        return "";
+      }
+
+      function setError(input, errorDiv, message) {
+        input.classList.add('is-invalid');
+        if (errorDiv) {
+          errorDiv.textContent = message;
+          errorDiv.style.display = 'block';
+        }
+      }
+
+      function clearError(input, errorDiv) {
+        input.classList.remove('is-invalid');
+        if (errorDiv) {
+          errorDiv.style.display = 'none';
+          errorDiv.textContent = '';
+        }
+      }
+
+      // ==================== SIGN IN FORM ====================
+      const signinForm = document.getElementById('signinForm');
+      const signinEmail = document.getElementById('signinEmail');
+      const signinPassword = document.getElementById('signinPassword');
+
+      if (signinEmail) {
+        signinEmail.addEventListener('input', function() {
+          let val = this.value;
+          if (val.includes(' ')) val = val.replace(/\s+/g, '');
+          if (val.includes('..')) val = val.replace(/\.\.+/g, '.');
+          this.value = val;
+          const err = validateEmail(this.value);
+          if (!err && this.value) clearError(this, document.getElementById('signinEmailError'));
+        });
+        signinEmail.addEventListener('blur', function() {
+          if (this.value) this.value = trimLeadingSpaces(this.value).replace(/\s+/g, '');
+          const err = validateEmail(this.value);
+          if (err) setError(this, document.getElementById('signinEmailError'), err);
+          else clearError(this, document.getElementById('signinEmailError'));
+        });
+      }
+
+      if (signinPassword) {
+        signinPassword.addEventListener('input', function() {
+          const err = validatePassword(this.value);
+          if (!err) clearError(this, document.getElementById('signinPasswordError'));
+        });
+        signinPassword.addEventListener('blur', function() {
+          const err = validatePassword(this.value);
+          if (err) setError(this, document.getElementById('signinPasswordError'), err);
+          else clearError(this, document.getElementById('signinPasswordError'));
+        });
+      }
+
+      if (signinForm) {
+        signinForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          let isValid = true;
+          
+          const emailErr = validateEmail(signinEmail.value);
+          if (emailErr) {
+            setError(signinEmail, document.getElementById('signinEmailError'), emailErr);
+            isValid = false;
+          } else {
+            clearError(signinEmail, document.getElementById('signinEmailError'));
+          }
+          
+          const passErr = validatePassword(signinPassword.value);
+          if (passErr) {
+            setError(signinPassword, document.getElementById('signinPasswordError'), passErr);
+            isValid = false;
+          } else {
+            clearError(signinPassword, document.getElementById('signinPasswordError'));
+          }
+          
+          if (isValid) {
+            alert('Welcome back! You have been signed in successfully.');
+            signinForm.reset();
+          }
+        });
+      }
+
+      // ==================== CREATE ACCOUNT FORM ====================
+      const createForm = document.getElementById('createForm');
+      const createFirstName = document.getElementById('createFirstName');
+      const createLastName = document.getElementById('createLastName');
+      const createEmail = document.getElementById('createEmail');
+      const createPhone = document.getElementById('createPhone');
+      const createPasswordInput = document.getElementById('createPassword');
+      const createConfirm = document.getElementById('createConfirmPassword');
+      const termsCheck = document.getElementById('termsCheck');
+
+      if (createFirstName) {
+        createFirstName.addEventListener('keypress', function(e) {
+          if (e.key >= '0' && e.key <= '9') e.preventDefault();
+        });
+        createFirstName.addEventListener('input', function() {
+          if (this.value.startsWith(' ')) this.value = this.value.trimStart();
+          const err = validateName(this.value, 'First name');
+          if (!err) clearError(this, document.getElementById('createFirstNameError'));
+        });
+        createFirstName.addEventListener('blur', function() {
+          if (this.value) this.value = trimLeadingSpaces(this.value);
+          const err = validateName(this.value, 'First name');
+          if (err) setError(this, document.getElementById('createFirstNameError'), err);
+          else clearError(this, document.getElementById('createFirstNameError'));
+        });
+      }
+
+      if (createLastName) {
+        createLastName.addEventListener('keypress', function(e) {
+          if (e.key >= '0' && e.key <= '9') e.preventDefault();
+        });
+        createLastName.addEventListener('input', function() {
+          if (this.value.startsWith(' ')) this.value = this.value.trimStart();
+          const err = validateName(this.value, 'Last name');
+          if (!err) clearError(this, document.getElementById('createLastNameError'));
+        });
+        createLastName.addEventListener('blur', function() {
+          if (this.value) this.value = trimLeadingSpaces(this.value);
+          const err = validateName(this.value, 'Last name');
+          if (err) setError(this, document.getElementById('createLastNameError'), err);
+          else clearError(this, document.getElementById('createLastNameError'));
+        });
+      }
+
+      if (createEmail) {
+        createEmail.addEventListener('input', function() {
+          let val = this.value;
+          if (val.includes(' ')) val = val.replace(/\s+/g, '');
+          if (val.includes('..')) val = val.replace(/\.\.+/g, '.');
+          this.value = val;
+          const err = validateEmail(this.value);
+          if (!err && this.value) clearError(this, document.getElementById('createEmailError'));
+        });
+        createEmail.addEventListener('blur', function() {
+          if (this.value) this.value = trimLeadingSpaces(this.value).replace(/\s+/g, '');
+          const err = validateEmail(this.value);
+          if (err) setError(this, document.getElementById('createEmailError'), err);
+          else clearError(this, document.getElementById('createEmailError'));
+        });
+      }
+
+      if (createPhone) {
+        createPhone.addEventListener('input', function() {
+          let value = this.value.replace(/\D/g, '');
+          if (value.length > 10) value = value.substring(0, 10);
+          this.value = value;
+          const err = validatePhone(value);
+          if (!err) clearError(this, document.getElementById('createPhoneError'));
+        });
+        createPhone.addEventListener('blur', function() {
+          const err = validatePhone(this.value);
+          if (err) setError(this, document.getElementById('createPhoneError'), err);
+          else clearError(this, document.getElementById('createPhoneError'));
+        });
+      }
+
+      // Password validation for create form (mental block already enforces 8)
+      if (createPasswordInput) {
+        createPasswordInput.addEventListener('input', function() {
+          const err = validatePassword(this.value);
+          if (err) {
+            setError(this, document.getElementById('createPasswordError'), err);
+          } else if (this.value.length > 0) {
+            clearError(this, document.getElementById('createPasswordError'));
+          }
+        });
+        createPasswordInput.addEventListener('blur', function() {
+          const err = validatePassword(this.value);
+          if (err) {
+            setError(this, document.getElementById('createPasswordError'), err);
+          } else {
+            clearError(this, document.getElementById('createPasswordError'));
+          }
+        });
+      }
+
+      if (createConfirm) {
+        createConfirm.addEventListener('input', function() {
+          const err = validateConfirm(createPasswordInput.value, this.value);
+          if (err && this.value.length > 0) {
+            setError(this, document.getElementById('createConfirmError'), err);
+          } else if (this.value.length > 0) {
+            clearError(this, document.getElementById('createConfirmError'));
+          }
+        });
+        createConfirm.addEventListener('blur', function() {
+          const err = validateConfirm(createPasswordInput.value, this.value);
+          if (err) {
+            setError(this, document.getElementById('createConfirmError'), err);
+          } else {
+            clearError(this, document.getElementById('createConfirmError'));
+          }
+        });
+      }
+
+      if (termsCheck) {
+        termsCheck.addEventListener('change', function() {
+          if (this.checked) {
+            clearError(this, document.getElementById('termsError'));
+          }
+        });
+      }
+
+      if (createForm) {
+        createForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          let isValid = true;
+          
+          const firstNameErr = validateName(createFirstName.value, 'First name');
+          if (firstNameErr) {
+            setError(createFirstName, document.getElementById('createFirstNameError'), firstNameErr);
+            isValid = false;
+          } else {
+            clearError(createFirstName, document.getElementById('createFirstNameError'));
+          }
+          
+          const lastNameErr = validateName(createLastName.value, 'Last name');
+          if (lastNameErr) {
+            setError(createLastName, document.getElementById('createLastNameError'), lastNameErr);
+            isValid = false;
+          } else {
+            clearError(createLastName, document.getElementById('createLastNameError'));
+          }
+          
+          const emailErr = validateEmail(createEmail.value);
+          if (emailErr) {
+            setError(createEmail, document.getElementById('createEmailError'), emailErr);
+            isValid = false;
+          } else {
+            clearError(createEmail, document.getElementById('createEmailError'));
+          }
+          
+          const phoneErr = validatePhone(createPhone.value);
+          if (phoneErr) {
+            setError(createPhone, document.getElementById('createPhoneError'), phoneErr);
+            isValid = false;
+          } else {
+            clearError(createPhone, document.getElementById('createPhoneError'));
+          }
+          
+          // Password validation (mental block already enforces 8)
+          const passErr = validatePassword(createPasswordInput.value);
+          if (passErr) {
+            setError(createPasswordInput, document.getElementById('createPasswordError'), passErr);
+            isValid = false;
+          } else {
+            clearError(createPasswordInput, document.getElementById('createPasswordError'));
+          }
+          
+          const confirmErr = validateConfirm(createPasswordInput.value, createConfirm.value);
+          if (confirmErr) {
+            setError(createConfirm, document.getElementById('createConfirmError'), confirmErr);
+            isValid = false;
+          } else {
+            clearError(createConfirm, document.getElementById('createConfirmError'));
+          }
+          
+          if (!termsCheck.checked) {
+            setError(termsCheck, document.getElementById('termsError'), 'You must agree to the terms and conditions');
+            isValid = false;
+          } else {
+            clearError(termsCheck, document.getElementById('termsError'));
+          }
+          
+          if (isValid) {
+            alert('Account created successfully! Welcome to Compass Housing Society.');
+            createForm.reset();
+            strengthBar.style.width = '0%';
+            strengthText.textContent = '';
+            strengthText.className = 'strength-text';
+            switchTab('signin');
+          }
+        });
+      }
+
+      document.querySelectorAll('.social-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+          alert('Social login will be available soon. Please use email/password to sign in or create an account.');
+        });
+      });
+
+      document.querySelector('.forgot-link')?.addEventListener('click', function() {
+        alert('Password reset link will be sent to your registered email address.');
+      });
+
+    })();
+  </script>
+</body>
+</html>

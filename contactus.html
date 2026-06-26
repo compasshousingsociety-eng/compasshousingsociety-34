@@ -1,0 +1,1437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="description" content="Contact Us – Compass Housing Society" />
+  <meta name="keywords" content="contact, real estate, compass housing, support" />
+  <title>Contact Us – Compass Housing Society</title>
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Google Fonts: Gantari + Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Gantari:ital,wght@0,100..900;1,100..900&family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* ============================================================
+       GLOBAL STYLES – same as homepage
+       ============================================================ */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --accent: #1B5E20;
+      --accent-light: #F4A261;
+      --primary-green: #FDFD96;
+      --primary-dark: #E8E85A;
+      --white: #FFFFFF;
+      --black: #000000;
+      --btn-green: #2E7D32;
+      --btn-green-hover: #1B5E20;
+      --footer-bg: #1a1a2e;
+    }
+
+    body {
+      font-family: 'Gantari', sans-serif;
+      color: #1E293B;
+      background-color: #F8FAFC;
+      transition: all 0.3s ease;
+      overflow-x: hidden;
+      font-size: 18px;
+    }
+
+    /* Transparent logo background */
+    main {
+      position: relative;
+      background-color: transparent;
+      min-height: 60vh;
+    }
+    main::before {
+      content: "";
+      position: fixed;
+      top: 80px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: url("Images/transparent-logo.jpeg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 570px auto;
+      opacity: 0.10;
+      pointer-events: none;
+      z-index: 0;
+    }
+    main > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    h1 { font-size: 3.2rem !important; font-weight: 800 !important; letter-spacing: -0.02em !important; }
+    h2 { font-size: 2.4rem !important; font-weight: 700 !important; }
+    h3 { font-size: 1.8rem !important; font-weight: 700 !important; }
+    h4 { font-size: 1.5rem !important; font-weight: 600 !important; }
+    h5 { font-size: 1.3rem !important; font-weight: 600 !important; }
+    h6 { font-size: 1.1rem !important; font-weight: 600 !important; }
+
+    p, li, span, a, .text-muted, .lead { font-size: 1.05rem !important; line-height: 1.5 !important; }
+    .lead { font-size: 1.2rem !important; }
+
+    .nav-menu, .nav-menu ul, .dropdown-menu-custom, .dropdown-menu-custom li, .nav-menu li,
+    header ul, header li, .navbar-custom ul, .navbar-custom li {
+      list-style: none !important;
+      list-style-type: none !important;
+      padding-left: 0 !important;
+      margin: 0 !important;
+    }
+
+    a, a:hover, a:focus, a:active, button, button:hover, button:focus {
+      text-decoration: none !important;
+      outline: none !important;
+      color: inherit !important;
+    }
+
+    /* HEADER */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: var(--primary-green) !important;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      transition: background-color 0.3s ease;
+    }
+
+    .navbar-custom { 
+      display: flex; 
+      align-items: center; 
+      justify-content: space-between; 
+      gap: 20px; 
+      position: relative;
+      padding: 12px 24px;
+      min-height: 80px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+    .brand span {
+      color: #1E293B !important;
+      font-weight: 700;
+      font-size: 1.1rem !important;
+      line-height: 1.2;
+    }
+    .brand img { 
+      width: 55px; 
+      height: 55px; 
+      object-fit: cover; 
+      border-radius: 10px !important;
+      border: 2px solid var(--accent); 
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      background: var(--white);
+    }
+
+    .desktop-nav-menu { 
+      display: flex; 
+      align-items: center; 
+      gap: 32px; 
+      flex: 1; 
+      justify-content: center; 
+    }
+    .desktop-nav-menu .nav-item { position: relative; }
+    .nav-link-custom {
+      color: #1E293B !important;
+      padding: 8px 0;
+      font-weight: 600;
+      font-size: 1.05rem !important;
+      cursor: pointer;
+      display: inline-block;
+      transition: color 0.2s;
+    }
+    .nav-link-custom:hover { color: var(--accent) !important; }
+    .dropdown-toggle-custom::after { content: " ▾"; margin-left: 6px; font-size: 0.9rem; }
+
+    .dropdown-menu-custom {
+      position: absolute;
+      left: 0;
+      top: calc(100% + 8px);
+      background-color: #E8E85A !important;
+      border-radius: 12px;
+      min-width: 220px;
+      display: none;
+      padding: 10px 0 !important;
+      box-shadow: 0 12px 20px rgba(0, 0, 0, 0.4);
+      z-index: 1001;
+    }
+    .dropdown-menu-custom li a {
+      display: block;
+      padding: 10px 22px;
+      color: #1E293B !important;
+      font-size: 1rem !important;
+      cursor: pointer;
+    }
+    .dropdown-menu-custom li a:hover { background-color: rgba(0, 0, 0, 0.08); color: var(--accent) !important; }
+    .nav-item.dropdown.open > .dropdown-menu-custom { display: block; }
+
+    /* Buttons – consistent with homepage */
+    .btn-signin, .btn-accent, .btn-primary-custom, 
+    .realty-card .btn-primary-custom, .contact-card .btn-primary-custom,
+    .hero-section .btn-primary-custom, .btn-learn-more {
+      transition: all 0.2s ease;
+      text-decoration: none !important;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      cursor: pointer;
+      color: var(--white) !important;
+      background: var(--btn-green) !important;
+      border: none;
+      padding: 10px 28px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 1rem !important;
+    }
+    .btn-signin:hover, .btn-primary-custom:hover, .btn-accent:hover, .btn-learn-more:hover {
+      background: var(--btn-green-hover) !important;
+      transform: scale(1.02);
+      color: var(--white) !important;
+    }
+    .btn-outline-accent {
+      background: transparent !important;
+      border: 2px solid var(--btn-green);
+      color: var(--btn-green) !important;
+      padding: 8px 26px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 1rem !important;
+      transition: all 0.2s ease;
+    }
+    .btn-outline-accent:hover {
+      background: var(--btn-green) !important;
+      color: var(--white) !important;
+      transform: scale(1.02);
+    }
+    .btn-outline-accent:hover a { color: var(--white) !important; }
+
+    .mode-toggle {
+      border: 1px solid #1E293B;
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: 18px;
+      cursor: pointer;
+      background: rgba(0,0,0,0.08);
+      width: 42px;
+      height: 42px;
+      color: #1E293B;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+    .mode-toggle:hover { background: rgba(0,0,0,0.15); transform: scale(1.05); }
+
+    .right-actions {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      flex-shrink: 0;
+    }
+    .menu-toggle {
+      display: none;
+      border: 1px solid var(--light);
+      background: transparent;
+      font-size: 28px;
+      line-height: 1;
+      cursor: pointer;
+      color: #1E293B;
+      padding: 6px 12px;
+      border-radius: 10px;
+      background: rgba(0,0,0,0.08);
+      border: 1px solid #1E293B;
+      transition: all 0.3s ease;
+    }
+    .menu-toggle:hover { background: rgba(0,0,0,0.15); }
+
+    .scroll-widget { position: fixed; right: 20px; bottom: 30px; z-index: 1000; }
+    .scroll-up-btn {
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      background: var(--btn-green) !important;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-size: 24px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+    .scroll-up-btn:hover { transform: scale(1.08); background: var(--btn-green-hover) !important; }
+
+    /* ============================================ */
+    /* MOBILE MENU */
+    /* ============================================ */
+    @media (max-width: 1030px) {
+      body { font-size: 16px; }
+      h1 { font-size: 2.2rem !important; }
+      h2 { font-size: 1.8rem !important; }
+      h3 { font-size: 1.5rem !important; }
+      h4 { font-size: 1.3rem !important; }
+      h5 { font-size: 1.2rem !important; }
+      p, li, span, .text-muted { font-size: 0.95rem !important; }
+      .navbar-custom { padding: 10px 16px; gap: 12px; justify-content: space-between; min-height: 68px; }
+      .brand { order: 1; flex: 1; }
+      .brand span { font-size: 1.2rem !important; font-weight: 700; }
+      .brand img { width: 45px; height: 45px; }
+      .desktop-nav-menu { display: none !important; }
+      .right-actions.desktop-actions { display: none; }
+      .menu-toggle { display: inline-flex; order: 2; align-items: center; justify-content: center; font-size: 26px; padding: 5px 12px; }
+      .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 300px;
+        height: 70vh;
+        top: 0;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        background: var(--primary-green) !important;
+        padding: 80px 20px 30px;
+        box-shadow: -8px 0 30px rgba(0, 0, 0, 0.5);
+        z-index: 1050;
+        gap: 4px;
+        transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        overflow-y: auto;
+        padding-top: 85px;
+        border-bottom-left-radius: 30px;
+        display: flex !important;
+      }
+      .nav-item { width: 100%; text-align: center; border-bottom: 1px solid rgba(0,0,0,0.08); padding: 2px 0; }
+      .nav-link-custom { width: 100%; padding: 14px 0; font-size: 1.1rem !important; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 6px; color: #1E293B !important; }
+      .dropdown-toggle-custom::after { margin-left: 6px; }
+      .dropdown-menu-custom { position: static; margin-top: 4px; background: rgba(0, 0, 0, 0.06); border-radius: 10px; border: none; box-shadow: none; padding: 0 0 6px 0 !important; display: none; width: 100%; text-align: center; }
+      .dropdown-menu-custom li a { padding: 10px 0; font-size: 0.95rem !important; opacity: 0.9; text-align: center; justify-content: center; }
+      .nav-item.dropdown.open > .dropdown-menu-custom { display: block; }
+      .mobile-menu-actions { margin-top: auto; padding-top: 20px; border-top: 2px solid rgba(0,0,0,0.12); width: 100%; display: flex; flex-direction: column; align-items: center; gap: 15px; padding-bottom: 20px; }
+      .mobile-menu-actions .mode-toggle-wrapper { display: flex; align-items: center; justify-content: center; gap: 15px; width: 100%; padding: 8px 0; color: #1E293B; font-weight: 600; font-size: 1rem !important; }
+      .mobile-menu-actions .mode-toggle-wrapper .mode-toggle { width: 44px; height: 44px; font-size: 18px; background: rgba(0,0,0,0.08); border-color: rgba(0,0,0,0.3); color: #1E293B; }
+      .mobile-menu-actions .btn-signin { width: 100%; justify-content: center; padding: 14px; font-size: 1rem !important; max-width: 200px; }
+      .nav-menu.nav-open { right: 0; }
+      main::before { top: 60px; background-size: 300px auto; }
+    }
+
+    @media (min-width: 1031px) {
+      .right-actions.desktop-actions { display: flex; }
+      .mobile-actions { display: none !important; }
+      .nav-menu { display: none !important; }
+    }
+
+    @media (max-width: 576px) {
+      h1 { font-size: 1.8rem !important; }
+      h2 { font-size: 1.5rem !important; }
+      h3 { font-size: 1.3rem !important; }
+      .navbar-custom { padding: 8px 12px; min-height: 60px; }
+      .brand span { font-size: 1.0rem !important; }
+      .brand img { width: 38px; height: 38px; }
+      .nav-menu { width: 280px; right: -280px; padding: 75px 16px 20px; height: 70vh; }
+      .menu-toggle { font-size: 22px; padding: 4px 10px; }
+      .btn-signin { padding: 5px 14px; font-size: 0.75rem !important; }
+      .mode-toggle { width: 34px; height: 34px; font-size: 14px; }
+      main::before { background-size: 250px auto; }
+    }
+
+    /* ============================================ */
+    /* CONTACT PAGE SPECIFIC STYLES                 */
+    /* ============================================ */
+    .contact-hero {
+      background: linear-gradient(135deg, #FDFD96 0%, #E8E85A 100%);
+      padding: 100px 20px 50px;
+      text-align: center;
+      margin-top: 80px;
+      color: #1E293B;
+      position: relative;
+    }
+    .contact-hero .breadcrumb-custom {
+      font-size: 0.95rem !important;
+      color: rgba(30, 41, 59, 0.7);
+      margin-bottom: 20px;
+    }
+    .contact-hero .breadcrumb-custom a {
+      color: var(--accent);
+      font-weight: 600;
+    }
+    .contact-hero h1 {
+      font-size: 2.8rem !important;
+      font-weight: 800;
+      max-width: 800px;
+      margin: 0 auto 15px;
+    }
+    .contact-hero p {
+      max-width: 600px;
+      margin: 0 auto;
+      color: rgba(30, 41, 59, 0.8);
+    }
+
+    .contact-info-card {
+      background: white;
+      border-radius: 20px;
+      padding: 30px;
+      text-align: center;
+      height: 100%;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+      transition: all 0.3s ease;
+      border: 1px solid #e9ecef;
+    }
+    .contact-info-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+    }
+    .contact-info-card .icon-circle {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      background: var(--primary-green);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      color: var(--accent);
+      margin-bottom: 15px;
+    }
+    .contact-info-card h5 {
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .contact-info-card p {
+      color: #6c757d;
+      margin-bottom: 5px;
+      font-size: 0.95rem !important;
+    }
+
+    .contact-form-wrap {
+      background: white;
+      border-radius: 28px;
+      padding: 45px 50px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+    }
+    .contact-form-wrap .form-control {
+      border: 2px solid #e9ecef;
+      border-radius: 12px;
+      padding: 12px 16px;
+      font-size: 1rem;
+      transition: border-color 0.2s;
+      background: white;
+    }
+    .contact-form-wrap .form-control:focus {
+      border-color: var(--btn-green);
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.1);
+    }
+    .contact-form-wrap textarea {
+      resize: vertical;
+      min-height: 140px;
+    }
+    .contact-form-wrap label {
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #1E293B;
+    }
+
+    /* Validation error styles */
+    .form-control.is-invalid {
+      border-color: #dc3545 !important;
+      border-width: 2px !important;
+    }
+    .invalid-feedback-custom {
+      display: none;
+      width: 100%;
+      margin-top: 0.25rem;
+      font-size: 0.875rem;
+      color: #dc3545;
+      text-align: left;
+    }
+
+    .map-container {
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+      border: 1px solid #e9ecef;
+    }
+    .map-container iframe {
+      width: 100%;
+      height: 400px;
+      border: 0;
+      display: block;
+    }
+
+    /* Custom Toast Popup Styles */
+    .toast-popup {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+      z-index: 10000;
+      text-align: center;
+      min-width: 320px;
+      max-width: 400px;
+      animation: slideIn 0.3s ease;
+      border: none;
+      overflow: hidden;
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.9);
+      }
+      to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+      }
+    }
+
+    .toast-popup .toast-header {
+      background: linear-gradient(135deg, #1B8C4E, #146B3A);
+      color: white;
+      padding: 20px;
+      border-bottom: none;
+    }
+
+    .toast-popup .toast-body {
+      padding: 30px 25px;
+    }
+
+    .toast-popup .check-icon {
+      width: 70px;
+      height: 70px;
+      background: var(--btn-green);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+    }
+
+    .toast-popup .check-icon i {
+      font-size: 35px;
+      color: white;
+    }
+
+    .toast-popup h4 {
+      color: #1E293B;
+      margin-bottom: 10px;
+    }
+
+    .toast-popup p {
+      color: #6c757d;
+      margin-bottom: 20px;
+    }
+
+    .toast-popup .btn-close-custom {
+      background: var(--btn-green);
+      color: white;
+      border: none;
+      padding: 10px 30px;
+      border-radius: 999px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .toast-popup .btn-close-custom:hover {
+      background: var(--btn-green-hover);
+      transform: scale(1.02);
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 9999;
+      animation: fadeIn 0.2s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* FOOTER */
+    .site-footer {
+      background: var(--primary-green) !important;
+      color: #1E293B !important;
+      padding: 45px 0 25px;
+      margin-top: 0;
+      transition: background 0.3s ease;
+      position: relative;
+      z-index: 10;
+    }
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      text-align: center;
+    }
+    .footer-brand h2 {
+      font-size: 1.8rem !important;
+      font-weight: 700;
+      color: #1E293B !important;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+    }
+    .footer-brand h2 span { color: var(--btn-green) !important; }
+    .footer-tagline {
+      font-size: 0.95rem !important;
+      color: rgba(30, 41, 59, 0.8) !important;
+      max-width: 650px;
+      margin: 0 auto 25px;
+      line-height: 1.7;
+    }
+    .footer-social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      margin-bottom: 25px;
+    }
+    .footer-social-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(30, 41, 59, 0.08);
+      color: #1E293B !important;
+      transition: all 0.3s ease;
+      font-size: 18px;
+      border: 1px solid rgba(30, 41, 59, 0.1);
+    }
+    .footer-social-icon:hover {
+      background: var(--btn-green);
+      color: #FFFFFF !important;
+      transform: translateY(-2px);
+      border-color: var(--btn-green);
+    }
+    .footer-divider {
+      border: none;
+      border-top: 1px solid rgba(30, 41, 59, 0.15);
+      margin: 20px auto 22px;
+      max-width: 900px;
+    }
+    .footer-bottom-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .footer-copyright {
+      font-size: 0.85rem !important;
+      color: rgba(30, 41, 59, 0.6) !important;
+      margin: 0;
+    }
+    .footer-links {
+      display: flex;
+      gap: 22px;
+      flex-wrap: wrap;
+      margin: 0;
+      padding: 0;
+      list-style: none !important;
+    }
+    .footer-links li { display: inline-block; margin: 0; padding: 0; }
+    .footer-links li a {
+      font-size: 0.85rem !important;
+      color: rgba(30, 41, 59, 0.6) !important;
+      transition: color 0.3s ease;
+    }
+    .footer-links li a:hover { color: var(--btn-green) !important; }
+
+    /* ================================================================
+       DARK MODE – ENTIRE SCREEN BLACK, ALL TEXT WHITE
+       ================================================================ */
+    body.dark-mode {
+      background-color: #000000 !important;
+      color: #FFFFFF !important;
+    }
+
+    body.dark-mode header { background: #1a1a00 !important; }
+    body.dark-mode .dropdown-menu-custom { background-color: #2a2a00 !important; }
+    body.dark-mode .site-footer { background: #1a1a00 !important; }
+    body.dark-mode .footer-social-icon { background: rgba(255, 255, 255, 0.1); }
+    body.dark-mode .mode-toggle { background: rgba(255,255,255,0.1); border-color: #666; }
+    body.dark-mode .menu-toggle { background: rgba(255,255,255,0.1); border-color: #666; }
+    body.dark-mode .desktop-nav-menu { background: transparent !important; }
+    body.dark-mode .nav-menu { background: #1a1a00 !important; }
+    
+    /* Contact Page dark mode */
+    body.dark-mode .contact-hero {
+      background: linear-gradient(135deg, #2a2a00 0%, #1a1a00 100%);
+    }
+    body.dark-mode .contact-hero * {
+      color: #FFFFFF !important;
+    }
+    body.dark-mode .contact-hero .breadcrumb-custom {
+      color: #cccccc !important;
+    }
+    body.dark-mode .contact-hero p {
+      color: #cccccc !important;
+    }
+    
+    body.dark-mode .contact-info-card {
+      background: #111111 !important;
+      border-color: #2a2a2a;
+    }
+    body.dark-mode .contact-info-card * {
+      color: #FFFFFF !important;
+    }
+    body.dark-mode .contact-info-card p {
+      color: #cccccc !important;
+    }
+    body.dark-mode .contact-info-card .icon-circle {
+      background: #2a2a00;
+      color: #4CAF50 !important;
+    }
+    
+    body.dark-mode .contact-form-wrap {
+      background: #111111 !important;
+      border-color: #2a2a2a;
+    }
+    body.dark-mode .contact-form-wrap * {
+      color: #FFFFFF !important;
+    }
+    body.dark-mode .contact-form-wrap .form-control {
+      background: #1a1a1a !important;
+      border-color: #333 !important;
+      color: #FFFFFF !important;
+    }
+    body.dark-mode .contact-form-wrap .form-control::placeholder {
+      color: #888 !important;
+    }
+    body.dark-mode .contact-form-wrap .form-control:focus {
+      border-color: #4CAF50 !important;
+      box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.15) !important;
+    }
+    body.dark-mode .contact-form-wrap label {
+      color: #FFFFFF !important;
+    }
+    
+    body.dark-mode .map-container {
+      border-color: #2a2a2a;
+    }
+
+    body.dark-mode .toast-popup {
+      background: #1a1a1a;
+    }
+    body.dark-mode .toast-popup h4 {
+      color: white;
+    }
+    body.dark-mode .toast-popup p {
+      color: #aaaaaa;
+    }
+    
+    /* Footer dark */
+    body.dark-mode .footer-brand h2 { color: #FFFFFF !important; }
+    body.dark-mode .footer-tagline { color: rgba(255,255,255,0.7) !important; }
+    body.dark-mode .footer-social-icon { color: rgba(255,255,255,0.7) !important; border-color: rgba(255,255,255,0.1); }
+    body.dark-mode .footer-social-icon:hover { background: #4CAF50; color: #FFFFFF !important; }
+    body.dark-mode .footer-copyright { color: rgba(255,255,255,0.45) !important; }
+    body.dark-mode .footer-links li a { color: rgba(255,255,255,0.45) !important; }
+    body.dark-mode .footer-links li a:hover { color: #4CAF50 !important; }
+    body.dark-mode .footer-divider { border-top-color: rgba(255,255,255,0.08); }
+
+    /* Nav & header dark */
+    body.dark-mode .brand span { color: #FFFFFF !important; }
+    body.dark-mode .nav-link-custom { color: #FFFFFF !important; }
+    body.dark-mode .mode-toggle { color: #FFFFFF !important; border-color: #FFFFFF; }
+    body.dark-mode .menu-toggle { color: #FFFFFF !important; border-color: #FFFFFF; }
+    body.dark-mode .dropdown-menu-custom li a { color: #FFFFFF !important; }
+    body.dark-mode .dropdown-menu-custom li a:hover { background: rgba(255,255,255,0.15) !important; color: #FFFFFF !important; }
+
+    /* Buttons in dark mode */
+    body.dark-mode .btn-primary-custom {
+      background: var(--btn-green) !important;
+      color: var(--white) !important;
+    }
+    body.dark-mode .btn-primary-custom:hover {
+      background: var(--btn-green-hover) !important;
+      color: var(--white) !important;
+    }
+
+    /* Ensure main background is black in dark mode */
+    body.dark-mode main {
+      background-color: #000000 !important;
+    }
+
+    @media (max-width: 768px) {
+      .footer-bottom-row { flex-direction: column; text-align: center; gap: 12px; }
+      .footer-links { justify-content: center; gap: 16px; }
+      .footer-brand h2 { font-size: 1.4rem !important; }
+      .footer-tagline { font-size: 0.85rem !important; padding: 0 10px; }
+      .contact-hero { padding: 80px 20px 40px; margin-top: 68px; }
+      .contact-hero h1 { font-size: 2rem !important; }
+      .contact-form-wrap { padding: 25px 20px; }
+      .map-container iframe { height: 280px; }
+      .contact-info-card { padding: 20px; }
+      .toast-popup { min-width: 280px; max-width: 350px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- ========== HEADER ========== -->
+  <header>
+    <nav class="navbar-custom">
+      <div class="brand">
+        <img src="Images/logo.jpeg" alt="Logo" onerror="this.src='https://via.placeholder.com/55?text=CH'">
+        <span>Compass Housing<br> Society</span>
+      </div>
+
+      <ul class="desktop-nav-menu">
+        <li class="nav-item dropdown">
+          <span class="nav-link-custom dropdown-toggle-custom">Home</span>
+          <ul class="dropdown-menu-custom">
+            <li><a href="index.html">Home 1</a></li>
+            <li><a href="home2.html">Home 2</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <span class="nav-link-custom dropdown-toggle-custom">About Us</span>
+          <ul class="dropdown-menu-custom">
+            <li><a href="aboutus.html">About Us</a></li>
+            <li><a href="404.html">404</a></li>
+            <li><a href="commingsoon.html">Comming Soon</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a href="service.html" class="nav-link-custom">Service</a></li>
+        <li class="nav-item"><a href="servicedetails.html" class="nav-link-custom">Service Details</a></li>
+        <li class="nav-item dropdown">
+          <span class="nav-link-custom dropdown-toggle-custom">Blog</span>
+          <ul class="dropdown-menu-custom">
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="blogdetails.html">Blog Details</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a href="contactus.html" class="nav-link-custom">Contact Us</a></li>
+      </ul>
+
+      <div class="right-actions desktop-actions">
+        <button class="mode-toggle" type="button" aria-label="Toggle dark mode">
+          <span class="mode-icon">🌙</span>
+        </button>
+        <a href="register.html"><button class="btn-signin">Register</button></a>
+      </div>
+
+      <button class="menu-toggle" type="button" aria-label="Toggle menu">☰</button>
+    </nav>
+  </header>
+
+  <!-- Mobile Menu -->
+  <ul class="nav-menu" id="mobileNavMenu">
+    <li class="nav-item dropdown">
+      <span class="nav-link-custom dropdown-toggle-custom">Home</span>
+      <ul class="dropdown-menu-custom">
+        <li><a href="index.html">Home 1</a></li>
+        <li><a href="home2.html">Home 2</a></li>
+      </ul>
+    </li>
+    <li class="nav-item dropdown">
+      <span class="nav-link-custom dropdown-toggle-custom">About Us</span>
+      <ul class="dropdown-menu-custom">
+        <li><a href="aboutus.html">About Us</a></li>
+        <li><a href="404.html">404</a></li>
+        <li><a href="commingsoon.html">Comming Soon</a></li>
+      </ul>
+    </li>
+    <li class="nav-item"><a href="service.html" class="nav-link-custom">Service</a></li>
+    <li class="nav-item"><a href="servicedetails.html" class="nav-link-custom">Service Details</a></li>
+    <li class="nav-item dropdown">
+      <span class="nav-link-custom dropdown-toggle-custom">Blog</span>
+      <ul class="dropdown-menu-custom">
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="blogdetails.html">Blog Details</a></li>
+      </ul>
+    </li>
+    <li class="nav-item"><a href="contactus.html" class="nav-link-custom">Contact Us</a></li>
+    <li class="mobile-menu-actions">
+      <div class="mode-toggle-wrapper">
+        <button class="mode-toggle" type="button" aria-label="Toggle dark mode">
+          <span class="mode-icon">🌙</span>
+        </button>
+      </div>
+      <a href="register.html"><button class="btn-signin">Register</button></a>
+    </li>
+  </ul>
+
+  <!-- ========== MAIN: CONTACT PAGE ========== -->
+  <main>
+    <!-- HERO SECTION -->
+    <div class="contact-hero">
+      <div class="container">
+        <div class="breadcrumb-custom">
+          <a href="index.html">Home</a> <i class="fas fa-chevron-right" style="font-size: 0.7rem;"></i> 
+          <span>Contact Us</span>
+        </div>
+        <h1>Get in Touch With Us</h1>
+        <p class="lead">Have questions about buying, selling, or investing? Our team of real estate experts is here to help you every step of the way.</p>
+      </div>
+    </div>
+
+    <!-- CONTACT INFO CARDS -->
+    <div class="container my-5">
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="contact-info-card">
+            <div class="icon-circle">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <h5>Our Location</h5>
+            <p>123, BKC Road, Bandra East</p>
+            <p>Mumbai, Maharashtra 400051</p>
+            <p>India</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="contact-info-card">
+            <div class="icon-circle">
+              <i class="fas fa-phone-alt"></i>
+            </div>
+            <h5>Phone Numbers</h5>
+            <p><strong>Sales:</strong> +91 98765 43210</p>
+            <p><strong>Support:</strong> +91 98765 43211</p>
+            <p><strong>Office:</strong> 022-1234 5678</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="contact-info-card">
+            <div class="icon-circle">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <h5>Email Addresses</h5>
+            <p><strong>General:</strong> info@compasshousing.com</p>
+            <p><strong>Sales:</strong> sales@compasshousing.com</p>
+            <p><strong>Support:</strong> support@compasshousing.com</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONTACT FORM + MAP -->
+    <div class="container my-5">
+      <div class="row g-4">
+        <!-- Contact Form -->
+        <div class="col-lg-6">
+          <div class="contact-form-wrap">
+            <h3 class="fw-bold mb-4"><i class="fas fa-paper-plane" style="color: var(--accent);"></i> Send Us a Message</h3>
+            <p class="text-muted mb-4">We'd love to hear from you. Please fill out the form below and we'll get back to you within 24 hours.</p>
+            
+            <form id="contactForm" novalidate>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label for="contactName" class="form-label">Full Name <span class="text-danger">*</span></label>
+                  <input type="text" class="form-control" id="contactName" placeholder="Enter your full name">
+                  <div class="invalid-feedback-custom" id="nameError">Please enter a valid name (letters and spaces only)</div>
+                </div>
+                <div class="col-md-6">
+                  <label for="contactEmail" class="form-label">Email Address <span class="text-danger">*</span></label>
+                  <input type="email" class="form-control" id="contactEmail" placeholder="Enter your email">
+                  <div class="invalid-feedback-custom" id="emailError"></div>
+                </div>
+                <div class="col-md-12">
+                  <label for="contactPhone" class="form-label">Phone Number <span class="text-danger">*</span></label>
+                  <input type="tel" class="form-control" id="contactPhone" maxlength="10" placeholder="Enter 10-digit phone number">
+                  <div class="invalid-feedback-custom" id="phoneError">Please enter a valid 10-digit phone number starting with 6-9</div>
+                </div>
+                <div class="col-md-12">
+                  <label for="contactSubject" class="form-label">Subject <span class="text-danger">*</span></label>
+                  <input type="text" class="form-control" id="contactSubject" placeholder="What is this regarding?">
+                  <div class="invalid-feedback-custom" id="subjectError">Subject is required</div>
+                </div>
+                <div class="col-12">
+                  <label for="contactMessage" class="form-label">Message <span class="text-danger">*</span></label>
+                  <textarea class="form-control" id="contactMessage" rows="5" placeholder="Tell us how we can help you..."></textarea>
+                  <div class="invalid-feedback-custom" id="messageError">Please enter a message</div>
+                </div>
+                <div class="col-12">
+                  <button type="submit" class="btn-primary-custom btn-lg w-100"><i class="fas fa-paper-plane me-2"></i> Send Message</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- Map -->
+        <div class="col-lg-6">
+          <div class="map-container">
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3770.649268444031!2d72.87088881421763!3d19.082070057052873!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c7f9b3f5c9e1%3A0x3b7b9b9b9b9b9b9b!2sBandra%20Kurla%20Complex%2C%20Bandra%20East%2C%20Mumbai%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1718888888888" 
+              allowfullscreen 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Compass Housing Society Location Map">
+            </iframe>
+            
+            <div class="p-4 bg-light border-top" style="border-radius: 0 0 28px 28px;">
+              <div class="d-flex flex-wrap justify-content-between align-items-center">
+                <div>
+                  <h6 class="fw-bold mb-1"><i class="fas fa-map-pin" style="color: var(--accent);"></i> Visit Our Office</h6>
+                  <p class="text-muted mb-0" style="font-size: 0.9rem !important;">123, BKC Road, Bandra East, Mumbai, Maharashtra 400051</p>
+                </div>
+                <a href="https://www.google.com/maps/dir//Bandra+Kurla+Complex,+Bandra+East,+Mumbai,+Maharashtra" target="_blank" class="btn-outline-accent mt-2 mt-md-0" style="font-size: 0.85rem !important; padding: 6px 18px;">
+                  <i class="fas fa-directions"></i> Get Directions
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WORKING HOURS & SOCIAL -->
+    <div class="container my-5">
+      <div class="row g-4">
+        <div class="col-md-6">
+          <div class="contact-info-card">
+            <div class="icon-circle">
+              <i class="fas fa-clock"></i>
+            </div>
+            <h5>Working Hours</h5>
+            <p><strong>Monday - Friday:</strong> 9:00 AM - 8:00 PM</p>
+            <p><strong>Saturday:</strong> 10:00 AM - 6:00 PM</p>
+            <p><strong>Sunday:</strong> Closed</p>
+            <p class="text-muted mt-2" style="font-size: 0.85rem !important;"><i class="fas fa-info-circle"></i> We respond to all inquiries within 24 hours</p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="contact-info-card">
+            <div class="icon-circle">
+              <i class="fas fa-share-alt"></i>
+            </div>
+            <h5>Connect With Us</h5>
+            <p>Follow us on social media for the latest updates, property listings, and real estate tips.</p>
+            <div style="display: flex; gap: 15px; justify-content: center; margin-top: 15px;">
+              <a href="#" style="width: 50px; height: 50px; border-radius: 50%; background: #1877F2; color: white; display: inline-flex; align-items: center; justify-content: center; font-size: 22px; transition: all 0.3s ease;">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="#" style="width: 50px; height: 50px; border-radius: 50%; background: #1DA1F2; color: white; display: inline-flex; align-items: center; justify-content: center; font-size: 22px; transition: all 0.3s ease;">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="#" style="width: 50px; height: 50px; border-radius: 50%; background: #E4405F; color: white; display: inline-flex; align-items: center; justify-content: center; font-size: 22px; transition: all 0.3s ease;">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a href="#" style="width: 50px; height: 50px; border-radius: 50%; background: #0077B5; color: white; display: inline-flex; align-items: center; justify-content: center; font-size: 22px; transition: all 0.3s ease;">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+              <a href="#" style="width: 50px; height: 50px; border-radius: 50%; background: #FF0000; color: white; display: inline-flex; align-items: center; justify-content: center; font-size: 22px; transition: all 0.3s ease;">
+                <i class="fab fa-youtube"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQ CTA -->
+    <div class="container my-5">
+      <div class="contact-card p-4 p-md-5">
+        <div class="row align-items-center text-center text-md-start">
+          <div class="col-md-8 mb-4 mb-md-0">
+            <h2 class="fw-bold"><i class="fas fa-question-circle" style="color: var(--accent);"></i> Frequently Asked Questions</h2>
+            <p class="lead mb-0">Have questions before reaching out? Check out our FAQ page for quick answers to common queries.</p>
+          </div>
+          <div class="col-md-4 text-center">
+            <button class="btn-primary-custom btn-lg me-2 mb-2"><i class="fas fa-book"></i> <a href="faq.html">View FAQs</a></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <h2>COMPASS HOUSING SOCIETY</h2>
+      </div>
+      <p class="footer-tagline">
+        India's most trusted real estate platform since 2008. We help you find the perfect home with transparency, expertise, and care.
+      </p>
+      <div class="footer-social-icons">
+        <a href="http://www.facebook.com" class="footer-social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="http://www.twitter.com" class="footer-social-icon" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="http://www.instagram.com" class="footer-social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="http://www.linkedIn.com" class="footer-social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+      <hr class="footer-divider">
+      <div class="footer-bottom-row">
+        <p class="footer-copyright">© 2026 Compass Housing Society. All rights reserved.</p>
+        <ul class="footer-links">
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Sitemap</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll to top -->
+  <div class="scroll-widget"><button class="scroll-up-btn" id="scrollUpBtn"><i class="fas fa-arrow-up"></i></button></div>
+
+  <!-- ========== SCRIPT ========== -->
+  <script>
+    (function() {
+      // Dark mode toggle
+      const body = document.body;
+      const modeToggles = document.querySelectorAll(".mode-toggle");
+      const modeIcons = document.querySelectorAll(".mode-icon");
+      const stored = localStorage.getItem("compass-theme");
+      if (stored === "dark") { body.classList.add("dark-mode"); modeIcons.forEach(icon => icon.textContent = "☀️"); } 
+      else { modeIcons.forEach(icon => icon.textContent = "🌙"); }
+      modeToggles.forEach(t => t.addEventListener("click", () => { 
+        const isDark = body.classList.toggle("dark-mode"); 
+        modeIcons.forEach(icon => icon.textContent = isDark ? "☀️" : "🌙"); 
+        localStorage.setItem("compass-theme", isDark ? "dark" : "light"); 
+      }));
+
+      // Mobile menu
+      const menuToggle = document.querySelector(".menu-toggle");
+      const navMenu = document.querySelector(".nav-menu");
+
+      function closeMenu() {
+        if (navMenu) navMenu.classList.remove("nav-open");
+        if (menuToggle) menuToggle.innerHTML = "☰";
+      }
+
+      if (menuToggle && navMenu) {
+        menuToggle.addEventListener("click", function (e) {
+          e.stopPropagation();
+          navMenu.classList.toggle("nav-open");
+          this.innerHTML = navMenu.classList.contains("nav-open") ? "✕" : "☰";
+        });
+
+        document.addEventListener('click', function(event) {
+          const isClickInsideMenu = navMenu.contains(event.target);
+          const isClickOnToggle = menuToggle.contains(event.target);
+          if (window.innerWidth <= 1030 && !isClickInsideMenu && !isClickOnToggle && navMenu.classList.contains('nav-open')) {
+            closeMenu();
+          }
+        });
+
+        document.addEventListener('keydown', function(event) {
+          if (event.key === 'Escape' && window.innerWidth <= 1030 && navMenu.classList.contains('nav-open')) {
+            closeMenu();
+          }
+        });
+
+        const menuLinks = navMenu.querySelectorAll('.nav-item:not(.dropdown) .nav-link-custom, .nav-item:not(.dropdown) a');
+        menuLinks.forEach(link => {
+          link.addEventListener('click', function() {
+            if (window.innerWidth <= 1030) closeMenu();
+          });
+        });
+      }
+
+      // Dropdowns
+      const dropdownItems = document.querySelectorAll(".nav-item.dropdown > .nav-link-custom");
+      dropdownItems.forEach(link => {
+        link.addEventListener("click", function (e) {
+          e.preventDefault();
+          const parent = this.parentElement;
+          document.querySelectorAll(".nav-item.dropdown.open").forEach(item => {
+            if (item !== parent) item.classList.remove("open");
+          });
+          parent.classList.toggle("open");
+        });
+      });
+
+      window.addEventListener("resize", () => {
+        if (window.innerWidth > 1030) closeMenu();
+      });
+
+      document.getElementById("scrollUpBtn")?.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+
+      // ==================== FORM VALIDATION ====================
+      
+      // Helper functions
+      function trimLeadingSpaces(str) {
+        if (!str) return '';
+        return str.replace(/^\s+/, '');
+      }
+
+      // Name validation: letters and spaces only
+      function validateName(value, fieldName) {
+        const trimmed = trimLeadingSpaces(value);
+        if (trimmed === "") return `${fieldName} is required.`;
+        const nameRegex = /^[A-Za-z\s]+$/;
+        if (!nameRegex.test(trimmed)) return `${fieldName} can only contain letters and spaces.`;
+        return "";
+      }
+
+      // Email validation with exact regex: /^[a-zA-Z0-9._%+-]+@[a-zA-Z-]{2,}\.(com|in|org|net)$/i
+      function validateEmail(value) {
+        const trimmed = trimLeadingSpaces(value);
+        if (trimmed === "") return "Email address is required.";
+        const cleanEmail = trimmed.replace(/\s+/g, '');
+        const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z-]{2,}\.(com|in|org|net)$/i;
+        if (!emailRegex.test(cleanEmail)) {
+          return "Invalid email format. Must follow: username@domain.com / .in / .org / .net";
+        }
+        return "";
+      }
+
+      // Phone validation: REQUIRED, must be 10 digits starting with 6-9
+      function validatePhone(value) {
+        const trimmed = trimLeadingSpaces(value);
+        if (trimmed === "") return "Phone number is required.";
+        const digitsOnly = trimmed.replace(/\D/g, '');
+        if (digitsOnly.length !== 10) return "Phone number must be exactly 10 digits.";
+        const firstDigit = digitsOnly.charAt(0);
+        if (firstDigit < '6' || firstDigit > '9') return "Phone number must start with a digit between 6 and 9.";
+        return "";
+      }
+
+      // Subject validation
+      function validateSubject(value) {
+        const trimmed = trimLeadingSpaces(value);
+        if (trimmed === "") return "Subject is required.";
+        return "";
+      }
+
+      // Message validation
+      function validateMessage(value) {
+        const trimmed = trimLeadingSpaces(value);
+        if (trimmed === "") return "Message cannot be empty.";
+        return "";
+      }
+
+      // Error display helpers
+      function setError(input, errorDiv, message) {
+        input.classList.add('is-invalid');
+        if (errorDiv) {
+          errorDiv.textContent = message;
+          errorDiv.style.display = 'block';
+        }
+      }
+
+      function clearError(input, errorDiv) {
+        input.classList.remove('is-invalid');
+        if (errorDiv) {
+          errorDiv.style.display = 'none';
+          errorDiv.textContent = '';
+        }
+      }
+
+      // Get form elements
+      const nameInput = document.getElementById('contactName');
+      const emailInput = document.getElementById('contactEmail');
+      const phoneInput = document.getElementById('contactPhone');
+      const subjectInput = document.getElementById('contactSubject');
+      const messageInput = document.getElementById('contactMessage');
+      const contactForm = document.getElementById('contactForm');
+
+      // Real-time input sanitization and validation
+      if (nameInput) {
+        nameInput.addEventListener('keypress', function(e) {
+          if (e.key >= '0' && e.key <= '9') e.preventDefault();
+        });
+        nameInput.addEventListener('input', function() {
+          if (this.value.startsWith(' ')) this.value = this.value.trimStart();
+          const err = validateName(this.value, 'Full name');
+          if (!err) clearError(this, document.getElementById('nameError'));
+        });
+        nameInput.addEventListener('blur', function() {
+          if (this.value) this.value = trimLeadingSpaces(this.value);
+          const err = validateName(this.value, 'Full name');
+          if (err) setError(this, document.getElementById('nameError'), err);
+          else clearError(this, document.getElementById('nameError'));
+        });
+      }
+
+      if (emailInput) {
+        emailInput.addEventListener('input', function() {
+          let val = this.value;
+          if (val.includes(' ')) val = val.replace(/\s+/g, '');
+          if (val.includes('..')) val = val.replace(/\.\.+/g, '.');
+          this.value = val;
+          const err = validateEmail(this.value);
+          if (!err && this.value) clearError(this, document.getElementById('emailError'));
+        });
+        emailInput.addEventListener('blur', function() {
+          if (this.value) this.value = trimLeadingSpaces(this.value).replace(/\s+/g, '');
+          const err = validateEmail(this.value);
+          if (err) setError(this, document.getElementById('emailError'), err);
+          else clearError(this, document.getElementById('emailError'));
+        });
+      }
+
+      if (phoneInput) {
+        phoneInput.addEventListener('input', function() {
+          let value = this.value.replace(/\D/g, '');
+          if (value.length > 10) value = value.substring(0, 10);
+          this.value = value;
+          const err = validatePhone(value);
+          if (!err) clearError(this, document.getElementById('phoneError'));
+        });
+        phoneInput.addEventListener('blur', function() {
+          const err = validatePhone(this.value);
+          if (err) setError(this, document.getElementById('phoneError'), err);
+          else clearError(this, document.getElementById('phoneError'));
+        });
+      }
+
+      if (subjectInput) {
+        subjectInput.addEventListener('input', function() {
+          if (this.value.startsWith(' ')) this.value = this.value.trimStart();
+          const err = validateSubject(this.value);
+          if (!err) clearError(this, document.getElementById('subjectError'));
+        });
+        subjectInput.addEventListener('blur', function() {
+          if (this.value) this.value = trimLeadingSpaces(this.value);
+          const err = validateSubject(this.value);
+          if (err) setError(this, document.getElementById('subjectError'), err);
+          else clearError(this, document.getElementById('subjectError'));
+        });
+      }
+
+      if (messageInput) {
+        messageInput.addEventListener('input', function() {
+          if (this.value.startsWith(' ')) this.value = this.value.trimStart();
+          const err = validateMessage(this.value);
+          if (!err) clearError(this, document.getElementById('messageError'));
+        });
+        messageInput.addEventListener('blur', function() {
+          if (this.value) this.value = trimLeadingSpaces(this.value);
+          const err = validateMessage(this.value);
+          if (err) setError(this, document.getElementById('messageError'), err);
+          else clearError(this, document.getElementById('messageError'));
+        });
+      }
+
+      // Function to show success popup
+      function showSuccessPopup(name, email) {
+        const overlay = document.createElement('div');
+        overlay.className = 'overlay';
+        
+        const popup = document.createElement('div');
+        popup.className = 'toast-popup';
+        popup.innerHTML = `
+          <div class="toast-header">
+            <div class="check-icon">
+              <i class="fas fa-check"></i>
+            </div>
+          </div>
+          <div class="toast-body">
+            <h4>Thank You, ${name}!</h4>
+            <p>Your message has been received. We'll respond to you at ${email} within 24 hours.</p>
+            <button class="btn-close-custom">OK, Got it</button>
+          </div>
+        `;
+        
+        overlay.appendChild(popup);
+        document.body.appendChild(overlay);
+        
+        const closeBtn = popup.querySelector('.btn-close-custom');
+        closeBtn.addEventListener('click', () => overlay.remove());
+        
+        overlay.addEventListener('click', function(e) {
+          if (e.target === overlay) overlay.remove();
+        });
+        
+        setTimeout(() => {
+          if (overlay.parentNode) overlay.remove();
+        }, 5000);
+      }
+
+      // Form submit validation
+      function validateForm() {
+        let isValid = true;
+        let name = '';
+        let email = '';
+        
+        const nameVal = nameInput?.value || '';
+        const nameErr = validateName(nameVal, 'Full name');
+        if (nameErr) {
+          setError(nameInput, document.getElementById('nameError'), nameErr);
+          isValid = false;
+        } else {
+          clearError(nameInput, document.getElementById('nameError'));
+          name = trimLeadingSpaces(nameVal);
+        }
+        
+        const emailVal = emailInput?.value || '';
+        const emailErr = validateEmail(emailVal);
+        if (emailErr) {
+          setError(emailInput, document.getElementById('emailError'), emailErr);
+          isValid = false;
+        } else {
+          clearError(emailInput, document.getElementById('emailError'));
+          email = trimLeadingSpaces(emailVal).replace(/\s+/g, '');
+        }
+        
+        const phoneVal = phoneInput?.value || '';
+        const phoneErr = validatePhone(phoneVal);
+        if (phoneErr) {
+          setError(phoneInput, document.getElementById('phoneError'), phoneErr);
+          isValid = false;
+        } else {
+          clearError(phoneInput, document.getElementById('phoneError'));
+        }
+        
+        const subjectVal = subjectInput?.value || '';
+        const subjectErr = validateSubject(subjectVal);
+        if (subjectErr) {
+          setError(subjectInput, document.getElementById('subjectError'), subjectErr);
+          isValid = false;
+        } else {
+          clearError(subjectInput, document.getElementById('subjectError'));
+        }
+        
+        const messageVal = messageInput?.value || '';
+        const messageErr = validateMessage(messageVal);
+        if (messageErr) {
+          setError(messageInput, document.getElementById('messageError'), messageErr);
+          isValid = false;
+        } else {
+          clearError(messageInput, document.getElementById('messageError'));
+        }
+        
+        return { isValid, name, email };
+      }
+
+      if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          const { isValid, name, email } = validateForm();
+          
+          if (isValid) {
+            showSuccessPopup(name, email);
+            contactForm.reset();
+            
+            // Clear all error styles after reset
+            [nameInput, emailInput, phoneInput, subjectInput, messageInput].forEach(inp => {
+              if (inp) inp.classList.remove('is-invalid');
+            });
+            document.querySelectorAll('.invalid-feedback-custom').forEach(el => {
+              el.style.display = 'none';
+              el.textContent = '';
+            });
+          }
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
